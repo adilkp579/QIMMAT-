@@ -17,55 +17,15 @@
     .gold-text { background: linear-gradient(135deg, #d4af37 0%, #f5e7b3 40%, #c49b2a 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .gold-border { border: 1px solid rgba(212,175,55,0.45); }
     
-    /* ============ TOP HEADER - FLOATING GLASS PILL NAVBAR ============ */
-    .main-glass-navbar {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      width: 92%; max-width: 1200px; z-index: 40; transition: all 0.5s;
-    }
-    .main-glass-navbar .nav-glass-inner {
-      background: rgba(18, 18, 18, 0.55);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: 60px;
-      padding: 10px 16px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 80px rgba(212,175,55,0.08), inset 0 1px 0 rgba(255,255,255,0.04);
-      transition: all 0.5s;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px;
-    }
-    .main-glass-navbar.scrolled .nav-glass-inner {
-      background: rgba(10,10,10,0.95); border-radius: 40px;
-    }
-    
-    /* Active indicator for main nav */
-    .main-nav-active-indicator {
-      position: absolute; top: 8px; height: calc(100% - 16px);
-      background: #d4af37; border-radius: 50px;
-      transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 0;
-      box-shadow: 0 8px 25px rgba(212,175,55,0.4), 0 0 40px rgba(212,175,55,0.2);
-      display: none;
-    }
-    
-    .nav-glow-line {
-      position: absolute; top: -2px; left: 50%; transform: translateX(-50%);
-      width: 60%; height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
-      border-radius: 50%; filter: blur(2px);
-    }
-    
+    /* Main Navbar */
+    .main-glass-navbar { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1200px; z-index: 40; transition: all 0.5s; }
+    .main-glass-navbar .nav-glass-inner { background: rgba(18,18,18,0.55); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(212,175,55,0.2); border-radius: 60px; padding: 10px 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 80px rgba(212,175,55,0.08), inset 0 1px 0 rgba(255,255,255,0.04); transition: all 0.5s; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .main-glass-navbar.scrolled .nav-glass-inner { background: rgba(10,10,10,0.95); border-radius: 40px; }
+    .nav-glow-line { position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent); border-radius: 50%; filter: blur(2px); }
     .main-nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
-    
-    .main-nav-link {
-      padding: 10px 18px; border-radius: 50px; font-size: 0.78rem; font-weight: 500;
-      letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer;
-      transition: all 0.3s ease; position: relative; z-index: 1;
-      background: transparent; border: none; color: rgba(255,255,255,0.75);
-      white-space: nowrap; flex-shrink: 0; text-decoration: none; font-family: 'Inter', sans-serif;
-    }
+    .main-nav-link { padding: 10px 18px; border-radius: 50px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; position: relative; z-index: 1; background: transparent; border: none; color: rgba(255,255,255,0.75); white-space: nowrap; flex-shrink: 0; text-decoration: none; font-family: 'Inter', sans-serif; }
     .main-nav-link:hover { color: #ffffff; }
     .main-nav-link.active { color: #0a0a0a; font-weight: 600; background: #d4af37; }
-    
     .nav-right-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
     #langToggle { white-space: nowrap; min-width: 75px; text-align: center; padding: 8px 14px; border-radius: 50px; font-size: 0.75rem; cursor: pointer; transition: all 0.3s; background: transparent; border: 1px solid rgba(212,175,55,0.3); color: #d4af37; font-weight: 500; }
     #langToggle:hover { background: #d4af37; color: #0a0a0a; }
@@ -74,33 +34,34 @@
 
     /* Custom Cursor */
     .cursor-dot { width: 8px; height: 8px; background: #d4af37; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s ease; }
-    .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(212, 175, 55, 0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.15s ease; }
-    .cursor-outline.hover { width: 70px; height: 70px; border-color: #d4af37; background: rgba(212, 175, 55, 0.1); backdrop-filter: blur(2px); }
+    .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(212,175,55,0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.15s ease; }
+    .cursor-outline.hover { width: 70px; height: 70px; border-color: #d4af37; background: rgba(212,175,55,0.1); backdrop-filter: blur(2px); }
     .cursor-dot.hover { transform: translate(-50%, -50%) scale(1.5); background: #fff; }
 
-    /* Services Navbar - NO SCROLLBAR */
-    .services-glass-nav {
-      display: flex; flex-wrap: nowrap; justify-content: center; align-items: center;
-      gap: 4px; padding: 6px 8px;
-      background: rgba(18, 18, 18, 0.45); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 60px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 60px rgba(212,175,55,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
-      margin: 0 auto 60px; max-width: 95%; width: fit-content; position: relative; z-index: 10;
-      overflow: visible;
+    /* ============ HERO VIDEO BACKGROUND ============ */
+    .hero-video-container {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden;
+    }
+    .hero-video-container video {
+      position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
+      width: auto; height: auto; transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+    /* Desktop video */
+    .hero-video-desktop { display: block; }
+    .hero-video-mobile { display: none; }
+    
+    /* Video overlay */
+    .hero-video-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.9) 100%);
+      z-index: 1;
     }
 
-    .active-pill-indicator {
-      position: absolute; top: 6px; height: calc(100% - 12px); background: #d4af37;
-      border-radius: 50px; transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 0;
-      box-shadow: 0 8px 25px rgba(212,175,55,0.4), 0 0 40px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
-    }
-
-    .service-pill-btn {
-      padding: 12px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;
-      position: relative; z-index: 1; background: transparent; border: none;
-      color: rgba(255,255,255,0.7); white-space: nowrap; flex-shrink: 0; font-family: 'Inter', sans-serif;
-    }
+    /* Services Navbar */
+    .services-glass-nav { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 4px; padding: 6px 8px; background: rgba(18,18,18,0.45); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(212,175,55,0.2); border-radius: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 60px rgba(212,175,55,0.06), inset 0 1px 0 rgba(255,255,255,0.04); margin: 0 auto 60px; max-width: 95%; width: fit-content; position: relative; z-index: 10; overflow: visible; }
+    .active-pill-indicator { position: absolute; top: 6px; height: calc(100% - 12px); background: #d4af37; border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0; box-shadow: 0 8px 25px rgba(212,175,55,0.4), 0 0 40px rgba(212,175,55,0.2), inset 0 1px 0 rgba(255,255,255,0.3); }
+    .service-pill-btn { padding: 12px 22px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; position: relative; z-index: 1; background: transparent; border: none; color: rgba(255,255,255,0.7); white-space: nowrap; flex-shrink: 0; font-family: 'Inter', sans-serif; }
     .service-pill-btn:hover { color: #ffffff; }
     .service-pill-btn.active { color: #0a0a0a; font-weight: 600; }
 
@@ -146,12 +107,14 @@
     .menu-overlay.active { opacity: 1; pointer-events: all; }
 
     @media (max-width: 768px) {
+      .hero-video-desktop { display: none !important; }
+      .hero-video-mobile { display: block !important; }
       .main-glass-navbar { width: 95%; top: 10px; }
       .main-glass-navbar .nav-glass-inner { border-radius: 40px; padding: 8px 12px; }
       .main-nav-link { padding: 8px 12px; font-size: 0.7rem; }
       #langToggle { min-width: 55px; font-size: 0.65rem; padding: 6px 10px; }
       .services-glass-nav { gap: 2px; padding: 5px 6px; border-radius: 40px; max-width: 98%; overflow: visible; }
-      .service-pill-btn { padding: 9px 13px; font-size: 0.7rem; letter-spacing: 0.02em; }
+      .service-pill-btn { padding: 9px 13px; font-size: 0.7rem; }
       .active-pill-indicator { top: 5px; height: calc(100% - 10px); }
       .svc-img-box { height: 220px; border-radius: 1.5rem; }
       .feat-list li { font-size: 0.85rem; }
@@ -179,14 +142,11 @@
     </div>
   </div>
 
-  <!-- ============ TOP HEADER - FLOATING GLASS PILL NAVBAR ============ -->
+  <!-- Main Navbar -->
   <nav class="main-glass-navbar" id="mainNav">
     <div class="nav-glow-line"></div>
     <div class="nav-glass-inner">
-      <!-- Logo -->
-      <a href="#home" class="text-lg md:text-2xl font-luxury font-bold tracking-wider gold-text flex-shrink-0 magnetic-element" data-translate="company-name" style="padding: 4px 8px;">قمّة التميّز</a>
-      
-      <!-- Nav Links - Pill Style -->
+      <a href="#home" class="text-lg md:text-2xl font-luxury font-bold tracking-wider gold-text flex-shrink-0 magnetic-element" data-translate="company-name" style="padding:4px 8px;">قمّة التميّز</a>
       <div class="main-nav-links">
         <a href="#home" class="main-nav-link active magnetic-element" data-translate="nav-home">Home</a>
         <a href="#services" class="main-nav-link magnetic-element" data-translate="nav-services">Services</a>
@@ -194,8 +154,6 @@
         <a href="#projects" class="main-nav-link magnetic-element" data-translate="nav-projects">Projects</a>
         <a href="#contact" class="main-nav-link magnetic-element" data-translate="nav-contact">Contact</a>
       </div>
-      
-      <!-- Right Group -->
       <div class="nav-right-group">
         <button id="langToggle"><span id="langText">English</span></button>
         <button class="menu-toggle-btn magnetic-element lg:hidden" id="menuToggle"><i class="fas fa-bars"></i></button>
@@ -203,30 +161,52 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ============ HERO SECTION WITH VIDEO BACKGROUND ============ -->
   <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    
+    <!-- DESKTOP VIDEO -->
+    <div class="hero-video-container hero-video-desktop">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="laptopvideo.mp4" type="video/mp4">
+      </video>
+    </div>
+    
+    <!-- MOBILE VIDEO -->
+    <div class="hero-video-container hero-video-mobile">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="mobilevideo.mp4" type="video/mp4">
+      </video>
+    </div>
+    
+    <!-- Dark overlay -->
+    <div class="hero-video-overlay"></div>
+
+    <!-- Hero Content -->
     <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-20">
       <h1 class="text-4xl sm:text-5xl md:text-8xl font-luxury font-bold leading-none mb-6 hero-title">
         <span class="gold-text" data-translate="hero-title-1">Engineering Excellence.</span><br>
         <span class="text-white/90" data-translate="hero-title-2">Building Premium Spaces.</span>
       </h1>
-      <p class="text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-10 px-2" data-translate="hero-subtitle">Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.</p>
+      <p class="text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-10 px-2" data-translate="hero-subtitle">
+        Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.
+      </p>
       <div class="flex flex-wrap gap-4 md:gap-5 justify-center">
         <a href="#services" class="btn-premium magnetic-element"><span data-translate="our-services">Our Services</span></a>
         <a href="#contact" class="btn-premium magnetic-element" style="background:transparent; border-color:rgba(255,255,255,0.3); color:#fff;"><span data-translate="request-quote">Request Quote</span></a>
       </div>
     </div>
-    <div class="hero-curve-bottom"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg></div>
+    
+    <div class="hero-curve-bottom">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg>
+    </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="py-20 md:py-28 px-4 md:px-6 relative rounded-section" style="background:#0d0d0d;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C480,0 960,80 1440,30 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
-    
     <div class="max-w-7xl mx-auto relative z-10">
       <h2 class="text-3xl md:text-5xl font-luxury gold-text text-center mb-10 md:mb-14" data-translate="services-title">Our Services</h2>
       
-      <!-- Services Navbar - NO SCROLLBAR -->
       <div class="services-glass-nav" id="servicesGlassNav">
         <div class="active-pill-indicator" id="activePill"></div>
         <button class="service-pill-btn active magnetic-element" data-svc="caravans"><span data-translate="tab-caravans">🚐 Caravans</span></button>
@@ -234,57 +214,54 @@
         <button class="service-pill-btn magnetic-element" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
       </div>
 
-      <!-- CARAVANS -->
       <div class="service-detail active" id="detail-caravans">
         <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/1a1a1a/d4af37?text=Luxury+Caravans" alt="Caravans"></div>
           <div>
             <h3 class="text-2xl md:text-4xl font-luxury gold-text mb-4 md:mb-5" data-translate="caravans-title">Luxury Caravans</h3>
-            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors. Bespoke caravans tailored to your exact specifications.</p>
+            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors.</p>
             <ul class="feat-list space-y-1.5 md:space-y-2">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design & space planning</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials & luxury finishes</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical, plumbing & HVAC systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home integration & entertainment</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year structural warranty</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials & finishes</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical & plumbing</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home integration</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year warranty</span></li>
             </ul>
             <button class="btn-premium mt-6 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
 
-      <!-- FURNITURE -->
       <div class="service-detail" id="detail-furniture">
         <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/262626/d4af37?text=Custom+Furniture" alt="Furniture"></div>
           <div>
             <h3 class="text-2xl md:text-4xl font-luxury gold-text mb-4 md:mb-5" data-translate="furniture-title">Custom Furniture</h3>
-            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture crafted with precision engineering.</p>
+            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture.</p>
             <ul class="feat-list space-y-1.5 md:space-y-2">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal fabrication</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel & restaurant furniture collections</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Ergonomic office workstation systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa & residential luxury pieces</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">Custom CNC & laser cutting</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel & restaurant collections</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Office workstation systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa luxury pieces</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC & laser cutting</span></li>
             </ul>
             <button class="btn-premium mt-6 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
 
-      <!-- STANDS -->
       <div class="service-detail" id="detail-stands">
         <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/1e1e1e/d4af37?text=Exhibition+Stands" alt="Stands"></div>
           <div>
             <h3 class="text-2xl md:text-4xl font-luxury gold-text mb-4 md:mb-5" data-translate="stands-title">Exhibition Stands</h3>
-            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="stands-desc">World-class event structures & fit-outs. Turnkey exhibition solutions.</p>
+            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="stands-desc">World-class event structures & fit-outs.</p>
             <ul class="feat-list space-y-1.5 md:space-y-2">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design & construction</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular & portable display systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">Professional lighting & AV integration</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Complete installation & dismantling</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">International shipping & logistics</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular display systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">Lighting & AV integration</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation & dismantling</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">International logistics</span></li>
             </ul>
             <button class="btn-premium mt-6 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
           </div>
@@ -399,61 +376,43 @@
     document.getElementById('langToggle').addEventListener('click', () => translatePage(currentLang === 'en' ? 'ar' : 'en'));
     if (localStorage.getItem('preferredLanguage') === 'ar') translatePage('ar');
 
-    // ============ CUSTOM CURSOR ============
-    const cursorDot = document.getElementById('cursorDot');
-    const cursorOutline = document.getElementById('cursorOutline');
+    // Cursor
+    const cd = document.getElementById('cursorDot'), co = document.getElementById('cursorOutline');
     document.addEventListener('mousemove', (e) => {
-      cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
-      setTimeout(() => { cursorOutline.style.left = e.clientX + 'px'; cursorOutline.style.top = e.clientY + 'px'; }, 50);
+      cd.style.left = e.clientX + 'px'; cd.style.top = e.clientY + 'px';
+      setTimeout(() => { co.style.left = e.clientX + 'px'; co.style.top = e.clientY + 'px'; }, 50);
     });
     document.querySelectorAll('.magnetic-element, a, button, .main-nav-link, .service-pill-btn, .btn-premium').forEach(el => {
-      el.addEventListener('mouseenter', () => { cursorOutline.classList.add('hover'); cursorDot.classList.add('hover'); });
-      el.addEventListener('mouseleave', () => { cursorOutline.classList.remove('hover'); cursorDot.classList.remove('hover'); });
+      el.addEventListener('mouseenter', () => { co.classList.add('hover'); cd.classList.add('hover'); });
+      el.addEventListener('mouseleave', () => { co.classList.remove('hover'); cd.classList.remove('hover'); });
     });
-    document.addEventListener('mouseleave', () => { cursorDot.style.opacity = '0'; cursorOutline.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { cursorDot.style.opacity = '1'; cursorOutline.style.opacity = '1'; });
+    document.addEventListener('mouseleave', () => { cd.style.opacity = '0'; co.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { cd.style.opacity = '1'; co.style.opacity = '1'; });
 
-    // ============ MAIN NAV ACTIVE STATE ============
-    const mainNavLinks = document.querySelectorAll('.main-nav-link');
-    mainNavLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mainNavLinks.forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
+    // Main nav
+    document.querySelectorAll('.main-nav-link').forEach(l => l.addEventListener('click', function() {
+      document.querySelectorAll('.main-nav-link').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+    }));
 
-    // ============ SERVICES PILL NAVBAR ============
-    const servicesNav = document.getElementById('servicesGlassNav');
-    const activePill = document.getElementById('activePill');
-    const pillBtns = document.querySelectorAll('.service-pill-btn');
-    const detailSections = document.querySelectorAll('.service-detail');
-
+    // Services pill
+    const sn = document.getElementById('servicesGlassNav'), ap = document.getElementById('activePill');
+    const pbs = document.querySelectorAll('.service-pill-btn'), dss = document.querySelectorAll('.service-detail');
     function updateServicePill() {
-      const activeBtn = document.querySelector('.service-pill-btn.active');
-      if (activeBtn && servicesNav) {
-        const btnRect = activeBtn.getBoundingClientRect();
-        const navRect = servicesNav.getBoundingClientRect();
-        activePill.style.left = (btnRect.left - navRect.left) + 'px';
-        activePill.style.width = btnRect.width + 'px';
-      }
+      const ab = document.querySelector('.service-pill-btn.active');
+      if (ab && sn) { const br = ab.getBoundingClientRect(), nr = sn.getBoundingClientRect(); ap.style.left = (br.left-nr.left)+'px'; ap.style.width = br.width+'px'; }
     }
-
-    pillBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        pillBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        detailSections.forEach(d => d.classList.remove('active'));
-        const svc = this.getAttribute('data-svc');
-        const target = document.getElementById('detail-' + svc);
-        if (target) target.classList.add('active');
-        updateServicePill();
-      });
-    });
-
+    pbs.forEach(b => b.addEventListener('click', function() {
+      pbs.forEach(x => x.classList.remove('active')); this.classList.add('active');
+      dss.forEach(d => d.classList.remove('active'));
+      const t = document.getElementById('detail-'+this.getAttribute('data-svc'));
+      if(t) t.classList.add('active');
+      updateServicePill();
+    }));
     updateServicePill();
     window.addEventListener('resize', updateServicePill);
 
-    // ============ SCROLL ============
+    // Scroll
     window.addEventListener('scroll', () => {
       const st = window.scrollY, dh = document.body.scrollHeight - innerHeight;
       document.getElementById('progressBar').style.width = (st/dh)*100 + '%';
@@ -462,9 +421,8 @@
     });
     document.getElementById('backToTop').addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
-      e.preventDefault();
-      const t = document.querySelector(this.getAttribute('href'));
-      if(t) scrollTo({top: t.offsetTop - 100, behavior:'smooth'});
+      e.preventDefault(); const t = document.querySelector(this.getAttribute('href'));
+      if(t) scrollTo({top: t.offsetTop-100, behavior:'smooth'});
     }));
 
     // Mobile menu
@@ -486,19 +444,15 @@
       new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const target = +c.getAttribute('data-target');
-            let count = 0;
-            const update = () => {
-              if (count < target) { count += target/80; c.innerText = Math.ceil(count); requestAnimationFrame(update); }
-              else c.innerText = target;
-            };
+            const target = +c.getAttribute('data-target'); let count = 0;
+            const update = () => { if(count<target){ count+=target/80; c.innerText=Math.ceil(count); requestAnimationFrame(update); } else c.innerText=target; };
             update();
           }
         });
-      }, { threshold: 0.5 }).observe(c);
+      }, {threshold:0.5}).observe(c);
     });
 
-    console.log('✅ Glass Pill Navbar active | No scrollbar on services');
+    console.log('✅ Video background: laptopvideo.mp4 (desktop) | mobilevideo.mp4 (mobile)');
   </script>
 </body>
 </html>
