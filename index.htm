@@ -57,30 +57,131 @@
     .feat-list li { display: flex; align-items: center; gap: 10px; padding: 6px 0; color: rgba(255,255,255,0.7); }
     .feat-list li i { color: #d4af37; }
 
-    .quality-image-box { border-radius: 2rem; overflow: hidden; border: 2px solid rgba(212,175,55,0.25); box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 60px rgba(212,175,55,0.08); position: relative; height: 100%; min-height: 400px; }
+    /* ============ PRODUCT CARDS - NO SCROLLBAR ============ */
+    .products-scroll-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding: 20px 5px;
+      margin-top: 30px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox - Hide scrollbar */
+      -ms-overflow-style: none; /* IE/Edge - Hide scrollbar */
+    }
+    .products-scroll-container::-webkit-scrollbar { 
+      display: none; /* Chrome/Safari - Hide scrollbar */
+      width: 0;
+      height: 0;
+    }
+    
+    .product-card {
+      display: inline-block;
+      width: 280px;
+      margin-right: 20px;
+      background: rgba(20,20,20,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+      vertical-align: top;
+      white-space: normal;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(212,175,55,0.5);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(212,175,55,0.15);
+    }
+    .product-card-image {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .product-card:hover .product-card-image img { transform: scale(1.1); }
+    .product-card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #d4af37;
+      color: #0a0a0a;
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-card-content { padding: 18px; }
+    .product-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+    .product-card-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .product-card-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .product-card-price span { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 400; }
+    .product-card-btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 50px;
+      background: rgba(212,175,55,0.1);
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .product-card-btn:hover {
+      background: #d4af37;
+      color: #0a0a0a;
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+
+    .quality-image-box { border-radius: 2rem; overflow: hidden; border: 2px solid rgba(212,175,55,0.25); box-shadow: 0 25px 50px rgba(0,0,0,0.5); position: relative; min-height: 400px; }
     .quality-image-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
     .quality-image-box:hover img { transform: scale(1.05); }
     .quality-image-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); }
-    .quality-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; margin-top: 10px; }
+    .quality-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; font-size: 0.75rem; font-weight: 500; margin-top: 10px; }
 
-    .projects-carousel-container { position: relative; width: 100%; max-width: 100%; overflow: hidden; border-radius: 2rem; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 80px rgba(212,175,55,0.06); }
-    .projects-track { display: flex; transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); will-change: transform; }
+    .projects-carousel-container { position: relative; width: 100%; overflow: hidden; border-radius: 2rem; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+    .projects-track { display: flex; transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
     .project-slide { min-width: 100%; position: relative; height: 500px; overflow: hidden; }
-    .project-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 8s ease; }
-    .project-slide.active img { animation: projectKenBurns 8s ease-in-out infinite alternate; }
-    @keyframes projectKenBurns { 0% { transform: scale(1) translate(0, 0); } 50% { transform: scale(1.1) translate(1%, -1%); } 100% { transform: scale(1.15) translate(-1%, 1%); } }
-    .project-slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); }
-    .project-slide-title { font-size: 1.5rem; font-weight: 600; color: #d4af37; font-family: 'Cormorant Garamond', serif; margin-bottom: 5px; letter-spacing: 0.03em; }
+    .project-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .project-slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
+    .project-slide-title { font-size: 1.5rem; font-weight: 600; color: #d4af37; font-family: 'Cormorant Garamond', serif; }
     .project-slide-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
-    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: rgba(18,18,18,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2); z-index: 10; font-size: 1.2rem; }
-    .carousel-arrow:hover { background: #d4af37; color: #0a0a0a; border-color: #d4af37; transform: translateY(-50%) scale(1.1); box-shadow: 0 15px 30px rgba(212,175,55,0.3); }
+    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: rgba(18,18,18,0.7); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 10; }
+    .carousel-arrow:hover { background: #d4af37; color: #0a0a0a; }
     .carousel-arrow.prev { left: 20px; }
     .carousel-arrow.next { right: 20px; }
     .carousel-dots { position: absolute; bottom: 20px; right: 30px; display: flex; gap: 8px; z-index: 10; }
-    .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: all 0.4s ease; padding: 0; }
-    .carousel-dot.active { background: #d4af37; width: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(212,175,55,0.5); }
-    .carousel-dot:hover { background: rgba(212,175,55,0.7); }
-    .carousel-progress-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: linear-gradient(90deg, #d4af37, #f5e7b3); z-index: 10; transition: width 0.1s linear; border-radius: 0 3px 3px 0; }
+    .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: all 0.4s; }
+    .carousel-dot.active { background: #d4af37; width: 30px; border-radius: 10px; }
+    .carousel-progress-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: linear-gradient(90deg, #d4af37, #f5e7b3); z-index: 10; }
 
     .hero-curve-bottom { position: absolute; bottom: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 5; }
     .hero-curve-bottom svg { width: 100%; height: 100px; }
@@ -92,9 +193,7 @@
     .curve-fill-dark { fill: #0a0a0a; }
     .rounded-section { border-radius: 50px 50px 0 0; position: relative; z-index: 3; margin-top: -30px; padding-top: 60px; }
 
-    .btn-premium { background: rgba(212,175,55,0.08); backdrop-filter: blur(12px); border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem 2rem; font-weight: 500; letter-spacing: 0.05em; border-radius: 3rem; display: inline-block; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; position: relative; overflow: hidden; transition: 0.4s; }
-    .btn-premium::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: #d4af37; transform: translate(-50%,-50%); transition: 0.6s; }
-    .btn-premium:hover::before { width: 300px; height: 300px; }
+    .btn-premium { background: rgba(212,175,55,0.08); backdrop-filter: blur(12px); border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem 2rem; font-weight: 500; border-radius: 3rem; display: inline-block; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; transition: 0.4s; }
     .btn-premium:hover { background: #d4af37; color: #0a0a0a; transform: translateY(-3px); }
 
     #loading-screen { position: fixed; inset: 0; background: #0a0a0a; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s; }
@@ -114,23 +213,8 @@
       .main-glass-navbar .nav-glass-inner { border-radius: 50px; padding: 8px 14px; }
       .nav-logo { font-size: 1.1rem; }
       .main-nav-links { display: none; }
-      #langToggle { min-width: 50px; font-size: 0.65rem; padding: 7px 10px; }
-      .menu-toggle-btn { width: 34px; height: 34px; }
-      .hero-curve-bottom svg { height: 60px; }
-      .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%); }
-      .rounded-section { border-radius: 35px 35px 0 0; margin-top: -25px; padding-top: 50px; }
-      .services-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; }
-      .service-pill-btn { padding: 10px 16px; font-size: 0.75rem; }
-      .active-pill-indicator { top: 5px; height: calc(100% - 10px); }
-      .svc-img-box { height: 220px; border-radius: 1.5rem; }
-      .quality-image-box { min-height: 280px; border-radius: 1.5rem; }
-      .cursor-dot, .cursor-outline { display: none; }
-      h1 { font-size: 2.2rem !important; }
+      .product-card { width: 240px; }
       .project-slide { height: 300px; }
-      .carousel-arrow { width: 35px; height: 35px; font-size: 0.9rem; }
-      .carousel-arrow.prev { left: 10px; }
-      .carousel-arrow.next { right: 10px; }
-      .project-slide-title { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -185,15 +269,13 @@
           <span class="text-white/90" data-translate="hero-title-2">Building Premium Spaces.</span>
         </h1>
         <p class="text-sm md:text-lg text-white/70 max-w-lg mb-8 md:mb-10" data-translate="hero-subtitle">Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.</p>
-        <div class="flex flex-wrap gap-3 md:gap-4">
+        <div class="flex gap-3 md:gap-4">
           <a href="#services" class="btn-premium"><span data-translate="our-services">Our Services</span></a>
           <a href="#contact" class="btn-premium" style="background:transparent; border-color:rgba(255,255,255,0.3); color:#fff;"><span data-translate="request-quote">Request Quote</span></a>
         </div>
       </div>
     </div>
-    <div class="hero-curve-bottom">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg>
-    </div>
+    <div class="hero-curve-bottom"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg></div>
   </section>
 
   <!-- SERVICES -->
@@ -208,8 +290,9 @@
         <button class="service-pill-btn" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
       </div>
 
+      <!-- CARAVANS -->
       <div class="service-detail active" id="detail-caravans">
-        <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+        <div class="grid md:grid-cols-2 gap-6 items-center">
           <div class="svc-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/029/633/495/small_2x/family-vacation-travel-rv-holiday-trip-in-motorhome-caravan-car-vacation-beautiful-nature-norway-natural-landscape-free-photo.jpeg" alt="Luxury Caravan"></div>
           <div>
             <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="caravans-title">Luxury Caravans</h3>
@@ -221,13 +304,26 @@
               <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year warranty</span></li>
             </ul>
-            <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
+        </div>
+        <!-- 10 Caravan Products - No Scrollbar -->
+        <div class="products-scroll-container">
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Royal Suite Caravan</p><p class="product-card-desc">Luxury mobile unit</p><p class="product-card-price">SAR 185,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Family Cruiser</p><p class="product-card-desc">Spacious family caravan</p><p class="product-card-price">SAR 145,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">Desert Explorer</p><p class="product-card-desc">Off-road caravan</p><p class="product-card-price">SAR 165,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Executive Mobile Office</p><p class="product-card-desc">Business caravan</p><p class="product-card-price">SAR 210,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1533050487297-09b450131914?w=400&q=80" alt="Product"><span class="product-card-badge">Luxury</span></div><div class="product-card-content"><p class="product-card-title">Presidential Suite</p><p class="product-card-desc">Top-tier luxury</p><p class="product-card-price">SAR 250,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Sport Adventure</p><p class="product-card-desc">Compact sports</p><p class="product-card-price">SAR 125,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Hotel on Wheels</p><p class="product-card-desc">Full amenities</p><p class="product-card-price">SAR 220,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80" alt="Product"><span class="product-card-badge">Compact</span></div><div class="product-card-content"><p class="product-card-title">Mini Traveler</p><p class="product-card-desc">Compact travel</p><p class="product-card-price">SAR 95,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1533050487297-09b450131914?w=400&q=80" alt="Product"><span class="product-card-badge">VIP</span></div><div class="product-card-content"><p class="product-card-title">VIP Lounge Caravan</p><p class="product-card-desc">Entertainment unit</p><p class="product-card-price">SAR 280,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=400&q=80" alt="Product"><span class="product-card-badge">Family</span></div><div class="product-card-content"><p class="product-card-title">Family Vacation Home</p><p class="product-card-desc">Large family</p><p class="product-card-price">SAR 175,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
         </div>
       </div>
 
+      <!-- FURNITURE -->
       <div class="service-detail" id="detail-furniture">
-        <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+        <div class="grid md:grid-cols-2 gap-6 items-center">
           <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Custom Furniture"></div>
           <div>
             <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="furniture-title">Custom Furniture</h3>
@@ -239,13 +335,26 @@
               <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa pieces</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC cutting</span></li>
             </ul>
-            <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
+        </div>
+        <!-- 10 Furniture Products -->
+        <div class="products-scroll-container">
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Royal Sofa Set</p><p class="product-card-desc">Luxury sofa</p><p class="product-card-price">SAR 15,000 <span>/set</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Executive Desk</p><p class="product-card-desc">Premium office desk</p><p class="product-card-price">SAR 8,500 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">Dining Table Set</p><p class="product-card-desc">6-seater dining</p><p class="product-card-price">SAR 12,500 <span>/set</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Lounge Chair</p><p class="product-card-desc">Ergonomic lounge</p><p class="product-card-price">SAR 3,500 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&q=80" alt="Product"><span class="product-card-badge">Luxury</span></div><div class="product-card-content"><p class="product-card-title">Villa Bedroom Set</p><p class="product-card-desc">Complete bedroom</p><p class="product-card-price">SAR 25,000 <span>/set</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">King Bed Frame</p><p class="product-card-desc">Premium king bed</p><p class="product-card-price">SAR 7,500 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=400&q=80" alt="Product"><span class="product-card-badge">Office</span></div><div class="product-card-content"><p class="product-card-title">Workstation System</p><p class="product-card-desc">Modular workstation</p><p class="product-card-price">SAR 4,500 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=80" alt="Product"><span class="product-card-badge">Restaurant</span></div><div class="product-card-content"><p class="product-card-title">Restaurant Chair Set</p><p class="product-card-desc">Premium seating</p><p class="product-card-price">SAR 6,000 <span>/4 chairs</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=400&q=80" alt="Product"><span class="product-card-badge">Hotel</span></div><div class="product-card-content"><p class="product-card-title">Hotel Lobby Set</p><p class="product-card-desc">Lobby furniture</p><p class="product-card-price">SAR 35,000 <span>/set</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=400&q=80" alt="Product"><span class="product-card-badge">VIP</span></div><div class="product-card-content"><p class="product-card-title">VIP Lounge Set</p><p class="product-card-desc">Exclusive lounge</p><p class="product-card-price">SAR 45,000 <span>/set</span></p><button class="product-card-btn">Add to Cart</button></div></div>
         </div>
       </div>
 
+      <!-- STANDS -->
       <div class="service-detail" id="detail-stands">
-        <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+        <div class="grid md:grid-cols-2 gap-6 items-center">
           <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80" alt="Exhibition Stand"></div>
           <div>
             <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="stands-title">Exhibition Stands</h3>
@@ -257,15 +366,27 @@
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">Logistics</span></li>
             </ul>
-            <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
+        </div>
+        <!-- 10 Stands Products -->
+        <div class="products-scroll-container">
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Expo Grand Stand</p><p class="product-card-desc">Large booth</p><p class="product-card-price">SAR 55,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Modular Display</p><p class="product-card-desc">Portable system</p><p class="product-card-price">SAR 25,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">VIP Booth Package</p><p class="product-card-desc">Premium VIP booth</p><p class="product-card-price">SAR 75,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Outdoor Event Tent</p><p class="product-card-desc">Large structure</p><p class="product-card-price">SAR 85,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&q=80" alt="Product"><span class="product-card-badge">Event</span></div><div class="product-card-content"><p class="product-card-title">Stage Platform</p><p class="product-card-desc">Modular stage</p><p class="product-card-price">SAR 30,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&q=80" alt="Product"><span class="product-card-badge">Lighting</span></div><div class="product-card-content"><p class="product-card-title">AV Equipment</p><p class="product-card-desc">Audio-visual setup</p><p class="product-card-price">SAR 20,000 <span>/set</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1561489396-888724a15448?w=400&q=80" alt="Product"><span class="product-card-badge">Booth</span></div><div class="product-card-content"><p class="product-card-title">Portable Booth</p><p class="product-card-desc">Compact booth</p><p class="product-card-price">SAR 15,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&q=80" alt="Product"><span class="product-card-badge">Flagship</span></div><div class="product-card-content"><p class="product-card-title">Flagship Display</p><p class="product-card-desc">Retail system</p><p class="product-card-price">SAR 40,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?w=400&q=80" alt="Product"><span class="product-card-badge">Custom</span></div><div class="product-card-content"><p class="product-card-title">Custom Branding Stand</p><p class="product-card-desc">Fully customized</p><p class="product-card-price">SAR 50,000 <span>/unit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
+          <div class="product-card"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">International Expo Kit</p><p class="product-card-desc">Complete package</p><p class="product-card-price">SAR 95,000 <span>/kit</span></p><button class="product-card-btn">Add to Cart</button></div></div>
         </div>
       </div>
     </div>
     <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
   </section>
 
-  <!-- ABOUT WITH QUALITY IMAGE -->
+  <!-- ABOUT -->
   <section id="about" class="py-16 md:py-28 px-3 md:px-6" style="background:#0a0a0a;">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -290,7 +411,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS CAROUSEL -->
+  <!-- PROJECTS -->
   <section id="projects" class="py-16 md:py-28 px-3 md:px-6 rounded-section" style="background:#0d0d0d;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C360,0 720,80 1080,20 L1440,60 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     <div class="max-w-6xl mx-auto relative z-10">
@@ -300,13 +421,6 @@
           <div class="project-slide active"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&q=80" alt="Royal Caravan"><div class="project-slide-overlay"><p class="project-slide-title">Royal Caravan Suite</p><p class="project-slide-desc">Luxury mobile unit</p></div></div>
           <div class="project-slide"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" alt="Furniture"><div class="project-slide-overlay"><p class="project-slide-title">Bespoke Furniture</p><p class="project-slide-desc">Custom collection</p></div></div>
           <div class="project-slide"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=1200&q=80" alt="Exhibition"><div class="project-slide-overlay"><p class="project-slide-title">International Expo</p><p class="project-slide-desc">Exhibition booth</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Building"><div class="project-slide-overlay"><p class="project-slide-title">Modular Office</p><p class="project-slide-desc">Workspace solution</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80" alt="Interior"><div class="project-slide-overlay"><p class="project-slide-title">Luxury Interior</p><p class="project-slide-desc">Hotel design</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80" alt="Villa"><div class="project-slide-overlay"><p class="project-slide-title">Royal Villa</p><p class="project-slide-desc">Complete fit-out</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80" alt="Restaurant"><div class="project-slide-overlay"><p class="project-slide-title">Restaurant Fit-Out</p><p class="project-slide-desc">Premium package</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80" alt="Office"><div class="project-slide-overlay"><p class="project-slide-title">Corporate Office</p><p class="project-slide-desc">Modern workspace</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80" alt="Bedroom"><div class="project-slide-overlay"><p class="project-slide-title">Master Bedroom</p><p class="project-slide-desc">Custom collection</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&q=80" alt="Living Room"><div class="project-slide-overlay"><p class="project-slide-title">Living Room</p><p class="project-slide-desc">Luxury furniture</p></div></div>
         </div>
         <button class="carousel-arrow prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
         <button class="carousel-arrow next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
@@ -330,7 +444,6 @@
     <p data-translate="copyright">© 2025 Qimmat Al-Tamayoz Development Co.</p>
   </footer>
 
-  <!-- WhatsApp Float Only - No Back to Top -->
   <a href="https://wa.me/966500000000" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
   <script>
@@ -392,7 +505,7 @@
       cd.style.left = e.clientX + 'px'; cd.style.top = e.clientY + 'px';
       setTimeout(() => { co.style.left = e.clientX + 'px'; co.style.top = e.clientY + 'px'; }, 50);
     });
-    document.querySelectorAll('a, button, .btn-premium, .service-pill-btn, .carousel-arrow, .carousel-dot').forEach(el => {
+    document.querySelectorAll('a, button, .btn-premium, .service-pill-btn, .product-card-btn').forEach(el => {
       el.addEventListener('mouseenter', () => { co.classList.add('hover'); cd.classList.add('hover'); });
       el.addEventListener('mouseleave', () => { co.classList.remove('hover'); cd.classList.remove('hover'); });
     });
@@ -427,7 +540,6 @@
     const progressBar = document.getElementById('carouselProgress');
     let currentSlide = 0;
     const totalSlides = slides.length;
-    const autoRotateInterval = 5000;
     let autoRotateTimer, progressInterval, progressWidth = 0;
 
     slides.forEach((_, index) => {
@@ -452,20 +564,12 @@
     function resetAutoRotate() {
       clearInterval(autoRotateTimer); clearInterval(progressInterval);
       progressWidth = 0; progressBar.style.width = '0%';
-      autoRotateTimer = setInterval(() => goToSlide(currentSlide + 1), autoRotateInterval);
-      progressInterval = setInterval(() => { progressWidth += 1; progressBar.style.width = progressWidth + '%'; if (progressWidth >= 100) progressWidth = 0; }, autoRotateInterval / 100);
+      autoRotateTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
+      progressInterval = setInterval(() => { progressWidth += 1; progressBar.style.width = progressWidth + '%'; if (progressWidth >= 100) progressWidth = 0; }, 50);
     }
 
     prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
     nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-
-    let touchStartX = 0;
-    const carouselContainer = document.getElementById('projectsCarousel');
-    carouselContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; clearInterval(autoRotateTimer); clearInterval(progressInterval); });
-    carouselContainer.addEventListener('touchend', (e) => {
-      const diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 50) { if (diff > 0) goToSlide(currentSlide + 1); else goToSlide(currentSlide - 1); } else resetAutoRotate();
-    });
     resetAutoRotate();
 
     window.addEventListener('scroll', () => {
