@@ -17,115 +17,46 @@
     .gold-text { background: linear-gradient(135deg, #d4af37 0%, #f5e7b3 40%, #c49b2a 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .gold-border { border: 1px solid rgba(212,175,55,0.45); }
     
-    /* ============ MAIN NAVBAR - FIXED FOR MOBILE ============ */
-    .main-glass-navbar {
-      position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
-      width: 94%; max-width: 1200px; z-index: 40; transition: all 0.5s;
-    }
-    .main-glass-navbar .nav-glass-inner {
-      background: rgba(18, 18, 18, 0.65);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: 60px;
-      padding: 10px 20px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 80px rgba(212,175,55,0.08), inset 0 1px 0 rgba(255,255,255,0.04);
-      transition: all 0.5s;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 8px;
-    }
-    .main-glass-navbar.scrolled .nav-glass-inner {
-      background: rgba(10,10,10,0.95); border-radius: 40px; padding: 8px 16px;
-    }
-    .nav-glow-line {
-      position: absolute; top: -2px; left: 50%; transform: translateX(-50%);
-      width: 60%; height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
-      border-radius: 50%; filter: blur(2px);
-    }
-    
-    /* Logo */
-    .nav-logo {
-      font-size: 1.3rem; font-weight: 700; letter-spacing: 0.05em;
-      flex-shrink: 0; text-decoration: none; padding: 4px 8px;
-    }
-    
-    /* Desktop Nav Links */
-    .main-nav-links {
-      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap;
-    }
-    .main-nav-link {
-      padding: 10px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer;
-      transition: all 0.3s ease; position: relative; z-index: 1;
-      background: transparent; border: none; color: rgba(255,255,255,0.75);
-      white-space: nowrap; flex-shrink: 0; text-decoration: none; font-family: 'Inter', sans-serif;
-    }
-    .main-nav-link:hover { color: #ffffff; }
+    .main-glass-navbar { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 1200px; z-index: 40; transition: all 0.5s; }
+    .main-glass-navbar .nav-glass-inner { background: rgba(18,18,18,0.65); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(212,175,55,0.2); border-radius: 60px; padding: 10px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 80px rgba(212,175,55,0.08); transition: all 0.5s; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .main-glass-navbar.scrolled .nav-glass-inner { background: rgba(10,10,10,0.95); border-radius: 40px; padding: 8px 16px; }
+    .nav-glow-line { position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent); border-radius: 50%; filter: blur(2px); }
+    .nav-logo { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.05em; flex-shrink: 0; text-decoration: none; padding: 4px 8px; }
+    .main-nav-links { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
+    .main-nav-link { padding: 10px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; background: transparent; border: none; color: rgba(255,255,255,0.75); white-space: nowrap; text-decoration: none; }
+    .main-nav-link:hover { color: #fff; }
     .main-nav-link.active { color: #0a0a0a; font-weight: 600; background: #d4af37; }
-    
-    /* Right Group */
     .nav-right-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    #langToggle {
-      white-space: nowrap; min-width: 60px; text-align: center;
-      padding: 8px 14px; border-radius: 50px; font-size: 0.7rem; cursor: pointer;
-      transition: all 0.3s; background: transparent;
-      border: 1px solid rgba(212,175,55,0.3); color: #d4af37; font-weight: 500;
-    }
+    #langToggle { white-space: nowrap; min-width: 60px; text-align: center; padding: 8px 14px; border-radius: 50px; font-size: 0.7rem; cursor: pointer; transition: all 0.3s; background: transparent; border: 1px solid rgba(212,175,55,0.3); color: #d4af37; font-weight: 500; }
     #langToggle:hover { background: #d4af37; color: #0a0a0a; }
-    
-    .menu-toggle-btn {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3);
-      color: #fff; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.3s; font-size: 1rem;
-    }
+    .menu-toggle-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
     .menu-toggle-btn:hover { background: #d4af37; color: #0a0a0a; }
 
-    /* ============ HERO VIDEO ============ */
-    .hero-video-container {
+    /* ============ VIDEO BACKGROUND ============ */
+    .hero-video-wrapper {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden;
     }
-    .hero-video-container video {
+    .hero-video-wrapper video {
       position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
       width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover;
     }
-    .hero-video-desktop { display: block; }
-    .hero-video-mobile { display: none; }
-    .hero-video-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.9) 100%);
-      z-index: 1;
+    .video-desktop { display: block; }
+    .video-mobile { display: none; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.9) 100%);
     }
 
     /* Custom Cursor */
-    .cursor-dot { width: 8px; height: 8px; background: #d4af37; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s ease; }
-    .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(212, 175, 55, 0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.15s ease; }
-    .cursor-outline.hover { width: 70px; height: 70px; border-color: #d4af37; background: rgba(212, 175, 55, 0.1); backdrop-filter: blur(2px); }
-    .cursor-dot.hover { transform: translate(-50%, -50%) scale(1.5); background: #fff; }
+    .cursor-dot { width: 8px; height: 8px; background: #d4af37; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+    .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(212,175,55,0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.15s; }
+    .cursor-outline.hover { width: 70px; height: 70px; border-color: #d4af37; background: rgba(212,175,55,0.1); }
+    .cursor-dot.hover { transform: translate(-50%,-50%) scale(1.5); background: #fff; }
 
-    /* Services Navbar */
-    .services-glass-nav {
-      display: flex; flex-wrap: nowrap; justify-content: center; align-items: center;
-      gap: 6px; padding: 6px 10px;
-      background: rgba(18,18,18,0.45); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(212,175,55,0.2); border-radius: 60px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 60px rgba(212,175,55,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
-      margin: 0 auto 50px; max-width: 95%; width: fit-content; position: relative; z-index: 10;
-    }
-    .active-pill-indicator {
-      position: absolute; top: 6px; height: calc(100% - 12px); background: #d4af37;
-      border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0;
-      box-shadow: 0 8px 25px rgba(212,175,55,0.4), 0 0 40px rgba(212,175,55,0.2);
-    }
-    .service-pill-btn {
-      padding: 13px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 500;
-      letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
-      transition: all 0.3s ease; position: relative; z-index: 1;
-      background: transparent; border: none; color: rgba(255,255,255,0.7);
-      white-space: nowrap; flex-shrink: 0; font-family: 'Inter', sans-serif;
-    }
-    .service-pill-btn:hover { color: #ffffff; }
+    .services-glass-nav { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(18,18,18,0.45); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(212,175,55,0.2); border-radius: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); margin: 0 auto 50px; width: fit-content; position: relative; z-index: 10; }
+    .active-pill-indicator { position: absolute; top: 6px; height: calc(100% - 12px); background: #d4af37; border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0; box-shadow: 0 8px 25px rgba(212,175,55,0.4); }
+    .service-pill-btn { padding: 13px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; position: relative; z-index: 1; background: transparent; border: none; color: rgba(255,255,255,0.7); white-space: nowrap; }
+    .service-pill-btn:hover { color: #fff; }
     .service-pill-btn.active { color: #0a0a0a; font-weight: 600; }
 
     .service-detail { display: none; }
@@ -134,25 +65,23 @@
     
     .svc-img-box { border-radius: 2rem; overflow: hidden; height: 400px; border: 1px solid rgba(212,175,55,0.15); }
     .svc-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
-    .svc-img-box:hover img { transform: scale(1.05); }
     .feat-list li { display: flex; align-items: center; gap: 10px; padding: 6px 0; color: rgba(255,255,255,0.7); }
-    .feat-list li i { color: #d4af37; font-size: 1rem; }
+    .feat-list li i { color: #d4af37; }
 
     .hero-curve-bottom { position: absolute; bottom: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 5; }
-    .hero-curve-bottom svg { width: calc(100%+1.3px); height: 100px; }
+    .hero-curve-bottom svg { width: 100%; height: 100px; }
     .curve-fill { fill: #0a0a0a; }
     .curve-divider-top { position: absolute; top: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 2; }
-    .curve-divider-top svg { width: calc(100%+1.3px); height: 60px; transform: rotate(180deg); }
+    .curve-divider-top svg { width: 100%; height: 60px; transform: rotate(180deg); }
     .curve-divider-bottom { position: absolute; bottom: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 2; }
-    .curve-divider-bottom svg { width: calc(100%+1.3px); height: 60px; }
+    .curve-divider-bottom svg { width: 100%; height: 60px; }
     .curve-fill-dark { fill: #0a0a0a; }
     .rounded-section { border-radius: 50px 50px 0 0; position: relative; z-index: 3; margin-top: -30px; padding-top: 60px; }
 
     .btn-premium { background: rgba(212,175,55,0.08); backdrop-filter: blur(12px); border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem 2rem; font-weight: 500; letter-spacing: 0.05em; border-radius: 3rem; display: inline-block; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; position: relative; overflow: hidden; transition: 0.4s; }
     .btn-premium::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: #d4af37; transform: translate(-50%,-50%); transition: 0.6s; }
     .btn-premium:hover::before { width: 300px; height: 300px; }
-    .btn-premium:hover { background: #d4af37; color: #0a0a0a; transform: translateY(-3px); box-shadow: 0 20px 35px -10px rgba(212,175,55,0.45); }
-    .btn-premium span { position: relative; z-index: 1; }
+    .btn-premium:hover { background: #d4af37; color: #0a0a0a; transform: translateY(-3px); }
 
     #loading-screen { position: fixed; inset: 0; background: #0a0a0a; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s; }
     .loader-gold { width: 60px; height: 60px; border: 3px solid rgba(212,175,55,0.2); border-top-color: #d4af37; border-radius: 50%; animation: spin 1s linear infinite; }
@@ -164,82 +93,57 @@
     .back-to-top { position: fixed; bottom: 90px; right: 25px; width: 45px; height: 45px; background: rgba(212,175,55,0.2); backdrop-filter: blur(10px); border: 1px solid #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #d4af37; font-size: 18px; z-index: 998; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; }
     .back-to-top.visible { opacity: 1; pointer-events: all; }
 
-    .mobile-menu { position: fixed; top: 0; right: -100%; width: 85%; max-width: 380px; height: 100vh; height: 100dvh; background: rgba(10,10,10,0.98); backdrop-filter: blur(20px); z-index: 50; transition: right 0.4s cubic-bezier(0.77,0,0.175,1); padding: 1.5rem; border-left: 1px solid rgba(212,175,55,0.15); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 85%; max-width: 380px; height: 100dvh; background: rgba(10,10,10,0.98); backdrop-filter: blur(20px); z-index: 50; transition: right 0.4s; padding: 1.5rem; }
     .mobile-menu.active { right: 0; }
     .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 49; opacity: 0; pointer-events: none; transition: 0.3s; }
     .menu-overlay.active { opacity: 1; pointer-events: all; }
 
-    /* ============ MOBILE STYLES ============ */
     @media (max-width: 768px) {
+      .video-desktop { display: none !important; }
+      .video-mobile { display: block !important; }
       .main-glass-navbar { width: 96%; top: 8px; }
       .main-glass-navbar .nav-glass-inner { border-radius: 50px; padding: 8px 14px; }
       .nav-logo { font-size: 1.1rem; }
       .main-nav-links { display: none; }
       #langToggle { min-width: 50px; font-size: 0.65rem; padding: 7px 10px; }
-      .menu-toggle-btn { width: 34px; height: 34px; font-size: 0.9rem; }
-      
-      .hero-video-desktop { display: none !important; }
-      .hero-video-mobile { display: block !important; }
-      
+      .menu-toggle-btn { width: 34px; height: 34px; }
       .hero-curve-bottom svg { height: 60px; }
       .rounded-section { border-radius: 35px 35px 0 0; margin-top: -25px; padding-top: 50px; }
-      
-      .services-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; max-width: 98%; }
+      .services-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; }
       .service-pill-btn { padding: 10px 16px; font-size: 0.75rem; }
       .active-pill-indicator { top: 5px; height: calc(100% - 10px); }
       .svc-img-box { height: 220px; border-radius: 1.5rem; }
-      .feat-list li { font-size: 0.8rem; }
-      
       .cursor-dot, .cursor-outline { display: none; }
-      
-      section { padding-left: 12px; padding-right: 12px; }
-      h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
-      h2 { font-size: 2rem !important; }
-      .btn-premium { padding: 0.7rem 1.5rem; font-size: 0.75rem; }
-    }
-
-    @media (max-width: 380px) {
-      .main-glass-navbar .nav-glass-inner { padding: 6px 10px; border-radius: 40px; }
-      .nav-logo { font-size: 0.95rem; }
-      #langToggle { min-width: 44px; font-size: 0.6rem; padding: 6px 8px; }
-      .service-pill-btn { padding: 8px 12px; font-size: 0.7rem; }
-      .services-glass-nav { gap: 2px; padding: 4px 5px; }
+      h1 { font-size: 2.5rem !important; }
     }
   </style>
 </head>
 <body>
-  <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-outline" id="cursorOutline"></div>
-
   <div id="loading-screen"><div class="loader-gold"></div></div>
   <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-yellow-600 to-yellow-400 z-50" id="progressBar" style="width:0%"></div>
   
   <div class="menu-overlay" id="menuOverlay"></div>
-  
-  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="flex justify-between items-center mb-8">
       <span class="text-xl font-luxury gold-text" data-translate="company-name">قمّة التميّز</span>
       <i class="fas fa-times text-2xl text-white cursor-pointer p-2" id="closeMenu"></i>
     </div>
-    <div class="space-y-3 text-lg font-luxury">
-      <a href="#home" class="block gold-text py-3 px-4 rounded-2xl hover:bg-white/5 mobile-nav-link" data-translate="nav-home">Home</a>
-      <a href="#services" class="block text-white/80 py-3 px-4 rounded-2xl hover:bg-white/5 mobile-nav-link" data-translate="nav-services">Services</a>
-      <a href="#about" class="block text-white/80 py-3 px-4 rounded-2xl hover:bg-white/5 mobile-nav-link" data-translate="nav-about">About</a>
-      <a href="#projects" class="block text-white/80 py-3 px-4 rounded-2xl hover:bg-white/5 mobile-nav-link" data-translate="nav-projects">Projects</a>
-      <a href="#contact" class="block text-white/80 py-3 px-4 rounded-2xl hover:bg-white/5 mobile-nav-link" data-translate="nav-contact">Contact</a>
+    <div class="space-y-3 text-lg">
+      <a href="#home" class="block gold-text py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-home">Home</a>
+      <a href="#services" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-services">Services</a>
+      <a href="#about" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-about">About</a>
+      <a href="#projects" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-projects">Projects</a>
+      <a href="#contact" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-contact">Contact</a>
     </div>
   </div>
 
-  <!-- ============ MAIN NAVBAR ============ -->
+  <!-- NAVBAR -->
   <nav class="main-glass-navbar" id="mainNav">
     <div class="nav-glow-line"></div>
     <div class="nav-glass-inner">
-      <!-- Logo -->
       <a href="#home" class="nav-logo gold-text font-luxury magnetic-element" data-translate="company-name">قمّة التميّز</a>
-      
-      <!-- Desktop Links -->
       <div class="main-nav-links">
         <a href="#home" class="main-nav-link active magnetic-element" data-translate="nav-home">Home</a>
         <a href="#services" class="main-nav-link magnetic-element" data-translate="nav-services">Services</a>
@@ -247,32 +151,28 @@
         <a href="#projects" class="main-nav-link magnetic-element" data-translate="nav-projects">Projects</a>
         <a href="#contact" class="main-nav-link magnetic-element" data-translate="nav-contact">Contact</a>
       </div>
-      
-      <!-- Right Side -->
       <div class="nav-right-group">
         <button id="langToggle"><span id="langText">English</span></button>
-        <button class="menu-toggle-btn magnetic-element" id="menuToggle" aria-label="Menu">
-          <i class="fas fa-bars"></i>
-        </button>
+        <button class="menu-toggle-btn magnetic-element" id="menuToggle"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HERO ============ -->
+  <!-- HERO WITH VIDEO -->
   <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Desktop Video -->
-    <div class="hero-video-container hero-video-desktop">
-      <video autoplay muted loop playsinline preload="auto">
+    <!-- DESKTOP VIDEO -->
+    <div class="hero-video-wrapper video-desktop">
+      <video autoplay muted loop playsinline id="desktopVideo">
         <source src="laptopvideo.mp4" type="video/mp4">
       </video>
     </div>
-    <!-- Mobile Video -->
-    <div class="hero-video-container hero-video-mobile">
-      <video autoplay muted loop playsinline preload="auto">
+    <!-- MOBILE VIDEO -->
+    <div class="hero-video-wrapper video-mobile">
+      <video autoplay muted loop playsinline id="mobileVideo">
         <source src="mobilevideo.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="hero-video-overlay"></div>
+    <div class="hero-overlay"></div>
 
     <div class="relative z-10 text-center px-4 md:px-6 max-w-5xl mx-auto mt-16 md:mt-20">
       <h1 class="text-4xl sm:text-5xl md:text-8xl font-luxury font-bold leading-none mb-4 md:mb-6">
@@ -297,87 +197,85 @@
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C480,0 960,80 1440,30 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     <div class="max-w-7xl mx-auto relative z-10">
       <h2 class="text-2xl md:text-5xl font-luxury gold-text text-center mb-8 md:mb-14" data-translate="services-title">Our Services</h2>
-      
       <div class="services-glass-nav" id="servicesGlassNav">
         <div class="active-pill-indicator" id="activePill"></div>
-        <button class="service-pill-btn active magnetic-element" data-svc="caravans"><span data-translate="tab-caravans">🚐 Caravans</span></button>
-        <button class="service-pill-btn magnetic-element" data-svc="furniture"><span data-translate="tab-furniture">🪑 Furniture</span></button>
-        <button class="service-pill-btn magnetic-element" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
+        <button class="service-pill-btn active" data-svc="caravans"><span data-translate="tab-caravans">🚐 Caravans</span></button>
+        <button class="service-pill-btn" data-svc="furniture"><span data-translate="tab-furniture">🪑 Furniture</span></button>
+        <button class="service-pill-btn" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
       </div>
 
       <div class="service-detail active" id="detail-caravans">
         <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-          <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/1a1a1a/d4af37?text=Luxury+Caravans" alt="Caravans"></div>
+          <div class="svc-img-box"><img src="https://placehold.co/800x600/1a1a1a/d4af37?text=Luxury+Caravans" alt="Caravans"></div>
           <div>
-            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3 md:mb-5" data-translate="caravans-title">Luxury Caravans</h3>
-            <p class="text-white/70 leading-relaxed mb-3 md:mb-5 text-sm md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors.</p>
-            <ul class="feat-list space-y-1 md:space-y-2">
+            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="caravans-title">Luxury Caravans</h3>
+            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors.</p>
+            <ul class="feat-list space-y-1">
               <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials & finishes</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical & plumbing</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home integration</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year warranty</span></li>
             </ul>
-            <button class="btn-premium mt-4 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
+            <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
 
       <div class="service-detail" id="detail-furniture">
         <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-          <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/262626/d4af37?text=Custom+Furniture" alt="Furniture"></div>
+          <div class="svc-img-box"><img src="https://placehold.co/800x600/262626/d4af37?text=Custom+Furniture" alt="Furniture"></div>
           <div>
-            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3 md:mb-5" data-translate="furniture-title">Custom Furniture</h3>
-            <p class="text-white/70 leading-relaxed mb-3 md:mb-5 text-sm md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture.</p>
-            <ul class="feat-list space-y-1 md:space-y-2">
+            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="furniture-title">Custom Furniture</h3>
+            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture.</p>
+            <ul class="feat-list space-y-1">
               <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel & restaurant collections</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Office workstation systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa luxury pieces</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC & laser cutting</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel collections</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Office systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa pieces</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC cutting</span></li>
             </ul>
-            <button class="btn-premium mt-4 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
+            <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
 
       <div class="service-detail" id="detail-stands">
         <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-          <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/1e1e1e/d4af37?text=Exhibition+Stands" alt="Stands"></div>
+          <div class="svc-img-box"><img src="https://placehold.co/800x600/1e1e1e/d4af37?text=Exhibition+Stands" alt="Stands"></div>
           <div>
-            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3 md:mb-5" data-translate="stands-title">Exhibition Stands</h3>
-            <p class="text-white/70 leading-relaxed mb-3 md:mb-5 text-sm md:text-lg" data-translate="stands-desc">World-class event structures & fit-outs.</p>
-            <ul class="feat-list space-y-1 md:space-y-2">
+            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="stands-title">Exhibition Stands</h3>
+            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="stands-desc">World-class event structures.</p>
+            <ul class="feat-list space-y-1">
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular display systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">Lighting & AV integration</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation & dismantling</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">International logistics</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">AV integration</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">Logistics</span></li>
             </ul>
-            <button class="btn-premium mt-4 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
+            <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
-
     </div>
     <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="py-16 md:py-28 px-3 md:px-6" style="background:#0a0a0a;">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h2 class="text-2xl md:text-5xl font-luxury gold-text mb-4 md:mb-8" data-translate="about-title">Crafting Saudi Vision</h2>
-        <p class="text-white/70 leading-relaxed mb-4 text-sm md:text-base" data-translate="about-desc">Qimmat Al-Tamayoz combines traditional craftsmanship with cutting-edge manufacturing.</p>
-        <div class="grid grid-cols-2 gap-2 md:gap-4 mt-6 md:mt-10">
-          <div class="glass-card p-3 md:p-6 text-center magnetic-element"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="500">0</span>+<p class="text-xs md:text-sm text-white/60 mt-1 md:mt-2" data-translate="completed-projects">Completed Projects</p></div>
-          <div class="glass-card p-3 md:p-6 text-center magnetic-element"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="250">0</span>+<p class="text-xs md:text-sm text-white/60 mt-1 md:mt-2" data-translate="corporate-clients">Corporate Clients</p></div>
-          <div class="glass-card p-3 md:p-6 text-center magnetic-element"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="15">0</span>+<p class="text-xs md:text-sm text-white/60 mt-1 md:mt-2" data-translate="years-experience">Years Experience</p></div>
-          <div class="glass-card p-3 md:p-6 text-center magnetic-element"><span class="text-2xl md:text-4xl font-bold gold-text">100</span>%<p class="text-xs md:text-sm text-white/60 mt-1 md:mt-2" data-translate="quality-commitment">Quality Commitment</p></div>
+        <h2 class="text-2xl md:text-5xl font-luxury gold-text mb-4" data-translate="about-title">Crafting Saudi Vision</h2>
+        <p class="text-white/70 text-sm md:text-base" data-translate="about-desc">Qimmat Al-Tamayoz combines traditional craftsmanship with cutting-edge manufacturing.</p>
+        <div class="grid grid-cols-2 gap-2 md:gap-4 mt-6">
+          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="500">0</span>+<p class="text-xs text-white/60 mt-1" data-translate="completed-projects">Projects</p></div>
+          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="250">0</span>+<p class="text-xs text-white/60 mt-1" data-translate="corporate-clients">Clients</p></div>
+          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="15">0</span>+<p class="text-xs text-white/60 mt-1" data-translate="years-experience">Years</p></div>
+          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text">100</span>%<p class="text-xs text-white/60 mt-1" data-translate="quality-commitment">Quality</p></div>
         </div>
       </div>
-      <div class="glass-card p-6 md:p-8 aspect-square flex items-center justify-center magnetic-element">
-        <div class="text-center"><i class="fas fa-industry text-4xl md:text-6xl gold-text mb-3 md:mb-4"></i><p class="text-lg md:text-2xl font-luxury" data-translate="saudi-standards">Saudi Quality Standards</p></div>
+      <div class="glass-card p-6 md:p-8 aspect-square flex items-center justify-center">
+        <div class="text-center"><i class="fas fa-industry text-4xl md:text-6xl gold-text mb-3"></i><p class="text-lg md:text-2xl font-luxury" data-translate="saudi-standards">Saudi Quality Standards</p></div>
       </div>
     </div>
   </section>
@@ -386,11 +284,11 @@
   <section id="projects" class="py-16 md:py-28 px-3 md:px-6 rounded-section" style="background:#0d0d0d;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C360,0 720,80 1080,20 L1440,60 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     <div class="max-w-7xl mx-auto relative z-10">
-      <h2 class="text-2xl md:text-5xl font-luxury gold-text text-center mb-8 md:mb-16" data-translate="projects-title">Featured Projects</h2>
+      <h2 class="text-2xl md:text-5xl font-luxury gold-text text-center mb-8" data-translate="projects-title">Featured Projects</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
-        <div class="glass-card overflow-hidden h-56 md:h-80 magnetic-element" style="border-radius:1.5rem;"><img src="https://placehold.co/600x800/1a1a1a/d4af37?text=Caravan" class="w-full h-full object-cover"></div>
-        <div class="glass-card overflow-hidden h-56 md:h-80 magnetic-element" style="border-radius:1.5rem;"><img src="https://placehold.co/600x800/262626/d4af37?text=Furniture" class="w-full h-full object-cover"></div>
-        <div class="glass-card overflow-hidden h-56 md:h-80 magnetic-element" style="border-radius:1.5rem;"><img src="https://placehold.co/600x800/1e1e1e/d4af37?text=Stand" class="w-full h-full object-cover"></div>
+        <div class="glass-card overflow-hidden h-56 md:h-80" style="border-radius:1.5rem;"><img src="https://placehold.co/600x800/1a1a1a/d4af37?text=Caravan" class="w-full h-full object-cover"></div>
+        <div class="glass-card overflow-hidden h-56 md:h-80" style="border-radius:1.5rem;"><img src="https://placehold.co/600x800/262626/d4af37?text=Furniture" class="w-full h-full object-cover"></div>
+        <div class="glass-card overflow-hidden h-56 md:h-80" style="border-radius:1.5rem;"><img src="https://placehold.co/600x800/1e1e1e/d4af37?text=Stand" class="w-full h-full object-cover"></div>
       </div>
     </div>
   </section>
@@ -398,26 +296,51 @@
   <!-- CONTACT -->
   <section id="contact" class="py-16 md:py-28 px-3 md:px-6" style="background:#0a0a0a;">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl md:text-5xl font-luxury gold-text mb-4 md:mb-8" data-translate="contact-title">Get In Touch</h2>
-      <p class="text-white/60 mb-3 md:mb-6 text-sm md:text-base"><i class="fas fa-map-marker-alt gold-text mr-2"></i> <span data-translate="contact-address">King Fahd Road, Riyadh, Saudi Arabia</span></p>
-      <p class="text-white/60 mb-4 md:mb-8 text-sm md:text-base"><i class="fas fa-phone gold-text mr-2"></i> +966 50 000 0000</p>
-      <a href="#contact" class="btn-premium magnetic-element"><span data-translate="send-inquiry">Send Inquiry</span></a>
+      <h2 class="text-2xl md:text-5xl font-luxury gold-text mb-4" data-translate="contact-title">Get In Touch</h2>
+      <p class="text-white/60 mb-3 text-sm"><i class="fas fa-map-marker-alt gold-text mr-2"></i> <span data-translate="contact-address">King Fahd Road, Riyadh</span></p>
+      <p class="text-white/60 mb-4 text-sm"><i class="fas fa-phone gold-text mr-2"></i> +966 50 000 0000</p>
+      <a href="#contact" class="btn-premium"><span data-translate="send-inquiry">Send Inquiry</span></a>
     </div>
   </section>
 
-  <footer class="border-t border-white/10 py-6 md:py-10 text-center text-white/40 text-xs md:text-sm" style="background:#0a0a0a;">
-    <p data-translate="copyright">© 2025 Qimmat Al-Tamayoz Development Co. All rights reserved.</p>
+  <footer class="border-t border-white/10 py-6 text-center text-white/40 text-xs" style="background:#0a0a0a;">
+    <p data-translate="copyright">© 2025 Qimmat Al-Tamayoz Development Co.</p>
   </footer>
 
-  <a href="https://wa.me/966500000000" target="_blank" class="whatsapp-float magnetic-element"><i class="fab fa-whatsapp"></i></a>
-  <div class="back-to-top magnetic-element" id="backToTop"><i class="fas fa-arrow-up"></i></div>
+  <a href="https://wa.me/966500000000" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+  <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
 
   <script>
+    // ===== VIDEO FIX =====
+    document.addEventListener('DOMContentLoaded', function() {
+      const desktopVideo = document.getElementById('desktopVideo');
+      const mobileVideo = document.getElementById('mobileVideo');
+      
+      // Force play videos
+      function playVideos() {
+        if (desktopVideo) {
+          desktopVideo.play().catch(e => console.log('Desktop video play prevented:', e));
+        }
+        if (mobileVideo) {
+          mobileVideo.play().catch(e => console.log('Mobile video play prevented:', e));
+        }
+      }
+      
+      // Try to play immediately
+      playVideos();
+      
+      // Also play on first user interaction
+      document.addEventListener('click', playVideos, { once: true });
+      document.addEventListener('touchstart', playVideos, { once: true });
+      document.addEventListener('scroll', playVideos, { once: true });
+    });
+
+    // ===== TRANSLATIONS =====
     const translations = {
       en: {
         'company-name': 'Qimmat Al-Tamayoz', 'nav-home': 'Home', 'nav-about': 'About', 'nav-services': 'Services', 'nav-projects': 'Projects', 'nav-contact': 'Contact',
         'hero-title-1': 'Engineering Excellence.', 'hero-title-2': 'Building Premium Spaces.',
-        'hero-subtitle': "Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.",
+        'hero-subtitle': "Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands.",
         'our-services': 'Our Services', 'request-quote': 'Request Quote', 'services-title': 'Our Services',
         'tab-caravans': '🚐 Caravans', 'tab-furniture': '🪑 Furniture', 'tab-stands': '🎪 Stands',
         'caravans-title': 'Luxury Caravans', 'caravans-desc': 'Custom mobile units with premium interiors.',
@@ -443,7 +366,7 @@
         'furniture-title': 'أثاث مخصص', 'furniture-desc': 'أثاث الفلل والفنادق والمكاتب.',
         'furniture-f1': 'خشب ومعادن', 'furniture-f2': 'مجموعات فنادق', 'furniture-f3': 'أنظمة مكاتب', 'furniture-f4': 'قطع فلل', 'furniture-f5': 'قص ليزر',
         'stands-title': 'منصات المعارض', 'stands-desc': 'هياكل وتجهيزات عالمية.',
-        'stands-f1': 'تصميم أجنحة', 'stands-f2': 'أنظمة عرض', 'stands-f3': 'صوت وإضاءة', 'stands-f4': 'تركيب وتفكيك', 'stands-f5': 'شحن دولي',
+        'stands-f1': 'تصميم أجنحة', 'stands-f2': 'أنظمة عرض', 'stands-f3': 'صوت وإضاءة', 'stands-f4': 'تركيب', 'stands-f5': 'شحن',
         'get-quote': 'احصل على عرض', 'about-title': 'صياغة الرؤية', 'about-desc': 'حرفية تقليدية مع تصنيع متطور.',
         'completed-projects': 'مشاريع', 'corporate-clients': 'عملاء', 'years-experience': 'خبرة', 'quality-commitment': 'جودة',
         'saudi-standards': 'معايير سعودية', 'projects-title': 'مشاريع مميزة',
@@ -461,7 +384,7 @@
       });
       document.getElementById('langText').textContent = lang === 'ar' ? 'English' : 'عربي';
       localStorage.setItem('preferredLanguage', lang);
-      setTimeout(updateServicePill, 100);
+      setTimeout(updatePill, 100);
     }
     document.getElementById('langToggle').addEventListener('click', () => translatePage(currentLang === 'en' ? 'ar' : 'en'));
     if (localStorage.getItem('preferredLanguage') === 'ar') translatePage('ar');
@@ -472,12 +395,12 @@
       cd.style.left = e.clientX + 'px'; cd.style.top = e.clientY + 'px';
       setTimeout(() => { co.style.left = e.clientX + 'px'; co.style.top = e.clientY + 'px'; }, 50);
     });
-    document.querySelectorAll('.magnetic-element, a, button, .main-nav-link, .service-pill-btn, .btn-premium').forEach(el => {
+    document.querySelectorAll('a, button, .btn-premium, .service-pill-btn').forEach(el => {
       el.addEventListener('mouseenter', () => { co.classList.add('hover'); cd.classList.add('hover'); });
       el.addEventListener('mouseleave', () => { co.classList.remove('hover'); cd.classList.remove('hover'); });
     });
 
-    // Main nav active
+    // Nav active
     document.querySelectorAll('.main-nav-link').forEach(l => l.addEventListener('click', function() {
       document.querySelectorAll('.main-nav-link').forEach(x => x.classList.remove('active'));
       this.classList.add('active');
@@ -486,7 +409,7 @@
     // Services pill
     const sn = document.getElementById('servicesGlassNav'), ap = document.getElementById('activePill');
     const pbs = document.querySelectorAll('.service-pill-btn'), dss = document.querySelectorAll('.service-detail');
-    function updateServicePill() {
+    function updatePill() {
       const ab = document.querySelector('.service-pill-btn.active');
       if (ab && sn) { const br = ab.getBoundingClientRect(), nr = sn.getBoundingClientRect(); ap.style.left = (br.left-nr.left)+'px'; ap.style.width = br.width+'px'; }
     }
@@ -495,10 +418,10 @@
       dss.forEach(d => d.classList.remove('active'));
       const t = document.getElementById('detail-'+this.getAttribute('data-svc'));
       if(t) t.classList.add('active');
-      updateServicePill();
+      updatePill();
     }));
-    updateServicePill();
-    window.addEventListener('resize', updateServicePill);
+    updatePill();
+    window.addEventListener('resize', updatePill);
 
     // Scroll
     window.addEventListener('scroll', () => {
@@ -539,8 +462,6 @@
         });
       }, {threshold:0.5}).observe(c);
     });
-
-    console.log('✅ Mobile navbar fixed!');
   </script>
 </body>
 </html>
