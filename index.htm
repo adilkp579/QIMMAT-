@@ -24,26 +24,11 @@
     .nav-right-group { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
     #langToggle { white-space: nowrap; min-width: 85px; text-align: center; }
 
-    /* ============ CUSTOM CURSOR ============ */
-    .cursor-dot {
-      width: 8px; height: 8px; background: #d4af37;
-      border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
-      transform: translate(-50%, -50%); transition: transform 0.1s ease;
-    }
-    .cursor-outline {
-      width: 40px; height: 40px; border: 2px solid rgba(212, 175, 55, 0.6);
-      border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998;
-      transform: translate(-50%, -50%); transition: all 0.15s ease;
-    }
-    .cursor-outline.hover {
-      width: 70px; height: 70px; border-color: #d4af37;
-      background: rgba(212, 175, 55, 0.1); backdrop-filter: blur(2px);
-      mix-blend-mode: normal;
-    }
-    .cursor-dot.hover {
-      transform: translate(-50%, -50%) scale(1.5);
-      background: #fff;
-    }
+    /* Custom Cursor */
+    .cursor-dot { width: 8px; height: 8px; background: #d4af37; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s ease; }
+    .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(212, 175, 55, 0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.15s ease; }
+    .cursor-outline.hover { width: 70px; height: 70px; border-color: #d4af37; background: rgba(212, 175, 55, 0.1); backdrop-filter: blur(2px); }
+    .cursor-dot.hover { transform: translate(-50%, -50%) scale(1.5); background: #fff; }
 
     .services-glass-nav {
       display: flex; flex-wrap: nowrap; justify-content: center; align-items: center;
@@ -127,7 +112,7 @@
   </style>
 </head>
 <body>
-  <!-- ============ CUSTOM CURSOR ============ -->
+  <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-outline" id="cursorOutline"></div>
 
@@ -183,28 +168,28 @@
     <div class="hero-curve-bottom"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg></div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES SECTION - 3 TABS ONLY -->
   <section id="services" class="py-20 md:py-28 px-4 md:px-6 relative rounded-section" style="background:#0d0d0d;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C480,0 960,80 1440,30 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     
     <div class="max-w-7xl mx-auto relative z-10">
       <h2 class="text-3xl md:text-5xl font-luxury gold-text text-center mb-10 md:mb-14" data-translate="services-title">Our Services</h2>
       
+      <!-- 3 BUTTONS ONLY: Caravans, Furniture, Stands -->
       <div class="services-glass-nav" id="servicesGlassNav">
         <div class="active-pill-indicator" id="activePill"></div>
         <button class="service-pill-btn active magnetic-element" data-svc="caravans"><span data-translate="tab-caravans">🚐 Caravans</span></button>
         <button class="service-pill-btn magnetic-element" data-svc="furniture"><span data-translate="tab-furniture">🪑 Furniture</span></button>
         <button class="service-pill-btn magnetic-element" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
-        <button class="service-pill-btn magnetic-element" data-svc="buildings"><span data-translate="tab-buildings">🏗️ Buildings</span></button>
       </div>
 
-      <!-- CARAVANS -->
+      <!-- CARAVANS DETAIL -->
       <div class="service-detail active" id="detail-caravans">
         <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/1a1a1a/d4af37?text=Luxury+Caravans" alt="Caravans"></div>
           <div>
             <h3 class="text-2xl md:text-4xl font-luxury gold-text mb-4 md:mb-5" data-translate="caravans-title">Luxury Caravans</h3>
-            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors. Bespoke caravans tailored to your exact specifications.</p>
+            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors. Bespoke caravans tailored to your exact specifications with world-class craftsmanship.</p>
             <ul class="feat-list space-y-1.5 md:space-y-2">
               <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design & space planning</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials & luxury finishes</span></li>
@@ -217,13 +202,13 @@
         </div>
       </div>
 
-      <!-- FURNITURE -->
+      <!-- FURNITURE DETAIL -->
       <div class="service-detail" id="detail-furniture">
         <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/262626/d4af37?text=Custom+Furniture" alt="Furniture"></div>
           <div>
             <h3 class="text-2xl md:text-4xl font-luxury gold-text mb-4 md:mb-5" data-translate="furniture-title">Custom Furniture</h3>
-            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture crafted with precision engineering.</p>
+            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture crafted with precision engineering and luxurious materials.</p>
             <ul class="feat-list space-y-1.5 md:space-y-2">
               <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal fabrication</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel & restaurant furniture collections</span></li>
@@ -236,38 +221,19 @@
         </div>
       </div>
 
-      <!-- STANDS -->
+      <!-- STANDS DETAIL -->
       <div class="service-detail" id="detail-stands">
         <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/1e1e1e/d4af37?text=Exhibition+Stands" alt="Stands"></div>
           <div>
             <h3 class="text-2xl md:text-4xl font-luxury gold-text mb-4 md:mb-5" data-translate="stands-title">Exhibition Stands</h3>
-            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="stands-desc">World-class event structures & fit-outs. Turnkey exhibition solutions.</p>
+            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="stands-desc">World-class event structures & fit-outs. Turnkey exhibition solutions that captivate audiences.</p>
             <ul class="feat-list space-y-1.5 md:space-y-2">
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design & construction</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular & portable display systems</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">Professional lighting & AV integration</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Complete installation & dismantling</span></li>
               <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">International shipping & logistics</span></li>
-            </ul>
-            <button class="btn-premium mt-6 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
-          </div>
-        </div>
-      </div>
-
-      <!-- BUILDINGS -->
-      <div class="service-detail" id="detail-buildings">
-        <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-center">
-          <div class="svc-img-box magnetic-element"><img src="https://placehold.co/800x600/333333/d4af37?text=Modular+Buildings" alt="Buildings"></div>
-          <div>
-            <h3 class="text-2xl md:text-4xl font-luxury gold-text mb-4 md:mb-5" data-translate="buildings-title">Modular Buildings</h3>
-            <p class="text-white/70 leading-relaxed mb-4 md:mb-5 text-base md:text-lg" data-translate="buildings-desc">Portable & prefabricated structures engineered for rapid deployment.</p>
-            <ul class="feat-list space-y-1.5 md:space-y-2">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="buildings-f1">Office & accommodation units</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="buildings-f2">Site offices & labor camps</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="buildings-f3">Steel structure fabrication</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="buildings-f4">Quick assembly & easy relocation</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="buildings-f5">Compliant with Saudi building codes</span></li>
             </ul>
             <button class="btn-premium mt-6 md:mt-8 magnetic-element"><span data-translate="get-quote">Get Quote</span></button>
           </div>
@@ -304,8 +270,8 @@
       <h2 class="text-3xl md:text-5xl font-luxury gold-text text-center mb-12 md:mb-16" data-translate="projects-title">Featured Projects</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
         <div class="glass-card overflow-hidden h-64 md:h-80 magnetic-element" style="border-radius:2rem;"><img src="https://placehold.co/600x800/1a1a1a/d4af37?text=Caravan" class="w-full h-full object-cover"></div>
-        <div class="glass-card overflow-hidden h-64 md:h-80 magnetic-element" style="border-radius:2rem;"><img src="https://placehold.co/600x800/262626/d4af37?text=Stand" class="w-full h-full object-cover"></div>
-        <div class="glass-card overflow-hidden h-64 md:h-80 magnetic-element" style="border-radius:2rem;"><img src="https://placehold.co/600x800/1e1e1e/d4af37?text=Building" class="w-full h-full object-cover"></div>
+        <div class="glass-card overflow-hidden h-64 md:h-80 magnetic-element" style="border-radius:2rem;"><img src="https://placehold.co/600x800/262626/d4af37?text=Furniture" class="w-full h-full object-cover"></div>
+        <div class="glass-card overflow-hidden h-64 md:h-80 magnetic-element" style="border-radius:2rem;"><img src="https://placehold.co/600x800/1e1e1e/d4af37?text=Stand" class="w-full h-full object-cover"></div>
       </div>
     </div>
   </section>
@@ -328,22 +294,20 @@
   <div class="back-to-top magnetic-element" id="backToTop"><i class="fas fa-arrow-up"></i></div>
 
   <script>
-    // ============ TRANSLATION DATA ============
+    // ============ TRANSLATION DATA (No Buildings) ============
     const translations = {
       en: {
         'company-name': 'Qimmat Al-Tamayoz', 'nav-home': 'Home', 'nav-about': 'About', 'nav-services': 'Services', 'nav-projects': 'Projects', 'nav-contact': 'Contact',
         'hero-title-1': 'Engineering Excellence.', 'hero-title-2': 'Building Premium Spaces.',
         'hero-subtitle': "Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.",
         'our-services': 'Our Services', 'request-quote': 'Request Quote', 'services-title': 'Our Services',
-        'tab-caravans': '🚐 Caravans', 'tab-furniture': '🪑 Furniture', 'tab-stands': '🎪 Stands', 'tab-buildings': '🏗️ Buildings',
+        'tab-caravans': '🚐 Caravans', 'tab-furniture': '🪑 Furniture', 'tab-stands': '🎪 Stands',
         'caravans-title': 'Luxury Caravans', 'caravans-desc': 'Custom mobile units with premium interiors.',
         'caravans-f1': 'Custom interior design', 'caravans-f2': 'Premium materials & finishes', 'caravans-f3': 'Full electrical & plumbing', 'caravans-f4': 'Smart home integration', 'caravans-f5': '5-year warranty',
         'furniture-title': 'Custom Furniture', 'furniture-desc': 'Villa, hotel, office & restaurant furniture.',
         'furniture-f1': 'Bespoke wood & metal', 'furniture-f2': 'Hotel & restaurant collections', 'furniture-f3': 'Office workstation systems', 'furniture-f4': 'Villa luxury pieces', 'furniture-f5': 'CNC & laser cutting',
         'stands-title': 'Exhibition Stands', 'stands-desc': 'World-class event structures & fit-outs.',
         'stands-f1': 'Custom booth design', 'stands-f2': 'Modular display systems', 'stands-f3': 'Lighting & AV integration', 'stands-f4': 'Installation & dismantling', 'stands-f5': 'International logistics',
-        'buildings-title': 'Modular Buildings', 'buildings-desc': 'Portable & prefabricated structures.',
-        'buildings-f1': 'Office & accommodation', 'buildings-f2': 'Site offices & camps', 'buildings-f3': 'Steel fabrication', 'buildings-f4': 'Quick assembly', 'buildings-f5': 'Saudi code compliant',
         'get-quote': 'Get Quote', 'about-title': 'Crafting Saudi Vision', 'about-desc': 'Qimmat Al-Tamayoz combines traditional craftsmanship with cutting-edge manufacturing.',
         'completed-projects': 'Completed Projects', 'corporate-clients': 'Corporate Clients', 'years-experience': 'Years Experience', 'quality-commitment': 'Quality Commitment',
         'saudi-standards': 'Saudi Quality Standards', 'projects-title': 'Featured Projects',
@@ -355,15 +319,13 @@
         'hero-title-1': 'التميز الهندسي.', 'hero-title-2': 'نبني مساحات فاخرة.',
         'hero-subtitle': 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.',
         'our-services': 'خدماتنا', 'request-quote': 'طلب عرض سعر', 'services-title': 'خدماتنا',
-        'tab-caravans': '🚐 قوافل', 'tab-furniture': '🪑 أثاث', 'tab-stands': '🎪 منصات', 'tab-buildings': '🏗️ مباني',
+        'tab-caravans': '🚐 قوافل', 'tab-furniture': '🪑 أثاث', 'tab-stands': '🎪 منصات',
         'caravans-title': 'القوافل الفاخرة', 'caravans-desc': 'وحدات متنقلة مخصصة بتصميمات داخلية فاخرة.',
         'caravans-f1': 'تصميم داخلي مخصص', 'caravans-f2': 'مواد وتشطيبات فاخرة', 'caravans-f3': 'كهرباء وسباكة كاملة', 'caravans-f4': 'منزل ذكي متكامل', 'caravans-f5': 'ضمان 5 سنوات',
         'furniture-title': 'أثاث مخصص', 'furniture-desc': 'أثاث الفلل والفنادق والمكاتب والمطاعم.',
         'furniture-f1': 'خشب ومعادن حسب الطلب', 'furniture-f2': 'مجموعات فنادق ومطاعم', 'furniture-f3': 'أنظمة مكاتب', 'furniture-f4': 'قطع فلل فاخرة', 'furniture-f5': 'CNC وقص ليزر',
         'stands-title': 'منصات المعارض', 'stands-desc': 'هياكل وتجهيزات فعاليات عالمية.',
         'stands-f1': 'تصميم أجنحة مخصصة', 'stands-f2': 'أنظمة عرض معيارية', 'stands-f3': 'إضاءة وصوت احترافي', 'stands-f4': 'تركيب وتفكيك', 'stands-f5': 'شحن دولي',
-        'buildings-title': 'المباني المعيارية', 'buildings-desc': 'هياكل محمولة ومسبقة الصنع.',
-        'buildings-f1': 'وحدات مكتبية وسكنية', 'buildings-f2': 'مكاتب مواقع', 'buildings-f3': 'هياكل فولاذية', 'buildings-f4': 'تجميع سريع', 'buildings-f5': 'مطابق للكود السعودي',
         'get-quote': 'احصل على عرض سعر', 'about-title': 'صياغة الرؤية السعودية', 'about-desc': 'تجمع قمة التميز بين الحرفية التقليدية والتصنيع المتطور.',
         'completed-projects': 'المشاريع المنجزة', 'corporate-clients': 'العملاء', 'years-experience': 'سنوات الخبرة', 'quality-commitment': 'جودة',
         'saudi-standards': 'معايير الجودة السعودية', 'projects-title': 'مشاريع مميزة',
@@ -387,44 +349,21 @@
     document.getElementById('langToggle').addEventListener('click', () => translatePage(currentLang === 'en' ? 'ar' : 'en'));
     if (localStorage.getItem('preferredLanguage') === 'ar') translatePage('ar');
 
-    // ============ CUSTOM CURSOR ============
+    // Custom Cursor
     const cursorDot = document.getElementById('cursorDot');
     const cursorOutline = document.getElementById('cursorOutline');
-
     document.addEventListener('mousemove', (e) => {
-      cursorDot.style.left = e.clientX + 'px';
-      cursorDot.style.top = e.clientY + 'px';
-      
-      // Outline follows with slight delay
-      setTimeout(() => {
-        cursorOutline.style.left = e.clientX + 'px';
-        cursorOutline.style.top = e.clientY + 'px';
-      }, 50);
+      cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
+      setTimeout(() => { cursorOutline.style.left = e.clientX + 'px'; cursorOutline.style.top = e.clientY + 'px'; }, 50);
     });
-
-    // Hover effect on magnetic elements
     document.querySelectorAll('.magnetic-element, a, button, .service-pill-btn, .btn-premium').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursorOutline.classList.add('hover');
-        cursorDot.classList.add('hover');
-      });
-      el.addEventListener('mouseleave', () => {
-        cursorOutline.classList.remove('hover');
-        cursorDot.classList.remove('hover');
-      });
+      el.addEventListener('mouseenter', () => { cursorOutline.classList.add('hover'); cursorDot.classList.add('hover'); });
+      el.addEventListener('mouseleave', () => { cursorOutline.classList.remove('hover'); cursorDot.classList.remove('hover'); });
     });
+    document.addEventListener('mouseleave', () => { cursorDot.style.opacity = '0'; cursorOutline.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { cursorDot.style.opacity = '1'; cursorOutline.style.opacity = '1'; });
 
-    // Hide cursor when leaving window
-    document.addEventListener('mouseleave', () => {
-      cursorDot.style.opacity = '0';
-      cursorOutline.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-      cursorDot.style.opacity = '1';
-      cursorOutline.style.opacity = '1';
-    });
-
-    // ============ PILL NAVBAR ============
+    // Pill Navbar
     const glassNav = document.getElementById('servicesGlassNav');
     const activePill = document.getElementById('activePill');
     const pillBtns = document.querySelectorAll('.service-pill-btn');
@@ -457,16 +396,14 @@
     window.addEventListener('resize', updateActivePill);
     glassNav.addEventListener('scroll', updateActivePill);
 
-    // ============ SCROLL ============
+    // Scroll
     window.addEventListener('scroll', () => {
       const st = window.scrollY, dh = document.body.scrollHeight - innerHeight;
       document.getElementById('progressBar').style.width = (st/dh)*100 + '%';
       document.getElementById('backToTop').classList.toggle('visible', st > 500);
       document.getElementById('navbar').classList.toggle('scrolled', st > 50);
     });
-
     document.getElementById('backToTop').addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
-
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
       e.preventDefault();
       const t = document.querySelector(this.getAttribute('href'));
@@ -488,22 +425,23 @@
     }, 600));
 
     // Counters
-    new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const c = entry.target;
-          const target = +c.getAttribute('data-target');
-          let count = 0;
-          const update = () => {
-            if (count < target) { count += target/80; c.innerText = Math.ceil(count); requestAnimationFrame(update); }
-            else c.innerText = target;
-          };
-          update();
-        }
-      });
-    }, { threshold: 0.5 }).observe(document.querySelectorAll('.counter'));
+    document.querySelectorAll('.counter').forEach(c => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = +c.getAttribute('data-target');
+            let count = 0;
+            const update = () => {
+              if (count < target) { count += target/80; c.innerText = Math.ceil(count); requestAnimationFrame(update); }
+              else c.innerText = target;
+            };
+            update();
+          }
+        });
+      }, { threshold: 0.5 }).observe(c);
+    });
 
-    console.log('✅ Custom cursor active! Hover over buttons to see the effect.');
+    console.log('✅ 3 Services: Caravans | Furniture | Stands');
   </script>
 </body>
 </html>
