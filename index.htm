@@ -32,15 +32,26 @@
     .menu-toggle-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
     .menu-toggle-btn:hover { background: #d4af37; color: #0a0a0a; }
 
+    /* ============ FULL SIZE HERO BACKGROUND ============ */
+    .hero-full-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+      background-image: url('https://www.venture-rv.com/2020-products/sporttrek-touring-edition-travel-trailers/images/2020/photos/STT343VIK/lifestyle/exterior/2020-Venture-RV-SportTrek-Touring-Edition-STT343VIK-Travel-Trailer_exterior_lake_beach_sand_older_couple_bird_watching-large.jpg');
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      animation: slowZoom 25s ease-in-out infinite alternate;
+    }
+    @keyframes slowZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.5) 100%);
+    }
+
     .cursor-dot { width: 8px; height: 8px; background: #d4af37; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
     .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(212,175,55,0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.15s; }
     .cursor-outline.hover { width: 70px; height: 70px; border-color: #d4af37; background: rgba(212,175,55,0.1); }
     .cursor-dot.hover { transform: translate(-50%,-50%) scale(1.5); background: #fff; }
-
-    .hero-right-image { border-radius: 2.5rem; overflow: hidden; border: 2px solid rgba(212,175,55,0.3); box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 80px rgba(212,175,55,0.1); animation: floatUpDown 6s ease-in-out infinite; }
-    .hero-right-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-    .hero-right-image:hover img { transform: scale(1.05); }
-    @keyframes floatUpDown { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
     .services-glass-nav { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(18,18,18,0.45); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(212,175,55,0.2); border-radius: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); margin: 0 auto 50px; width: fit-content; position: relative; z-index: 10; }
     .active-pill-indicator { position: absolute; top: 6px; height: calc(100% - 12px); background: #d4af37; border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0; box-shadow: 0 8px 25px rgba(212,175,55,0.4); }
@@ -95,8 +106,8 @@
       .main-nav-links { display: none; }
       #langToggle { min-width: 50px; font-size: 0.65rem; padding: 7px 10px; }
       .menu-toggle-btn { width: 34px; height: 34px; }
-      .hero-right-image { border-radius: 1.5rem; max-height: 350px; }
       .hero-curve-bottom svg { height: 60px; }
+      .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%); }
       .rounded-section { border-radius: 35px 35px 0 0; margin-top: -25px; padding-top: 50px; }
       .services-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; }
       .service-pill-btn { padding: 10px 16px; font-size: 0.75rem; }
@@ -147,28 +158,31 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ============ HERO - FULL SIZE BACKGROUND + LEFT TEXT ============ -->
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Full Size Background Image -->
+    <div class="hero-full-bg"></div>
+    <!-- Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Text - Left Side -->
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div class="text-left">
-          <h1 class="text-4xl sm:text-5xl md:text-7xl font-luxury font-bold leading-none mb-4 md:mb-6">
-            <span class="gold-text" data-translate="hero-title-1">Engineering Excellence.</span><br>
-            <span class="text-white/90" data-translate="hero-title-2">Building Premium Spaces.</span>
-          </h1>
-          <p class="text-sm md:text-lg text-white/60 max-w-xl mb-8 md:mb-10" data-translate="hero-subtitle">
-            Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.
-          </p>
-          <div class="flex flex-wrap gap-3 md:gap-4">
-            <a href="#services" class="btn-premium"><span data-translate="our-services">Our Services</span></a>
-            <a href="#contact" class="btn-premium" style="background:transparent; border-color:rgba(255,255,255,0.3); color:#fff;"><span data-translate="request-quote">Request Quote</span></a>
-          </div>
-        </div>
-        <div class="hero-right-image h-[350px] md:h-[500px]">
-          <img src="caravan.PNG" alt="Luxury Caravan">
+      <div class="text-left max-w-xl">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-luxury font-bold leading-none mb-4 md:mb-6">
+          <span class="gold-text" data-translate="hero-title-1">Engineering Excellence.</span><br>
+          <span class="text-white/90" data-translate="hero-title-2">Building Premium Spaces.</span>
+        </h1>
+        <p class="text-sm md:text-lg text-white/70 max-w-lg mb-8 md:mb-10" data-translate="hero-subtitle">
+          Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.
+        </p>
+        <div class="flex flex-wrap gap-3 md:gap-4">
+          <a href="#services" class="btn-premium"><span data-translate="our-services">Our Services</span></a>
+          <a href="#contact" class="btn-premium" style="background:transparent; border-color:rgba(255,255,255,0.3); color:#fff;"><span data-translate="request-quote">Request Quote</span></a>
         </div>
       </div>
     </div>
+
+    <!-- Curved Bottom -->
     <div class="hero-curve-bottom">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg>
     </div>
@@ -186,69 +200,59 @@
         <button class="service-pill-btn" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
       </div>
 
-      <!-- ====== CARAVANS - WITH REAL IMAGE ====== -->
       <div class="service-detail active" id="detail-caravans">
         <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-          <div class="svc-img-box">
-            <img src="caravan.PNG" alt="Luxury Caravan Interior">
-          </div>
+          <div class="svc-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/029/633/495/small_2x/family-vacation-travel-rv-holiday-trip-in-motorhome-caravan-car-vacation-beautiful-nature-norway-natural-landscape-free-photo.jpeg" alt="Luxury Caravan"></div>
           <div>
             <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="caravans-title">Luxury Caravans</h3>
-            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors. Bespoke caravans tailored to your exact specifications.</p>
+            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors.</p>
             <ul class="feat-list space-y-1">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design & space planning</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials & luxury finishes</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical, plumbing & HVAC</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home & entertainment systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year structural warranty</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year warranty</span></li>
             </ul>
             <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
 
-      <!-- ====== FURNITURE - WITH REAL IMAGE ====== -->
       <div class="service-detail" id="detail-furniture">
         <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-          <div class="svc-img-box">
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Custom Furniture">
-          </div>
+          <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Custom Furniture"></div>
           <div>
             <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="furniture-title">Custom Furniture</h3>
-            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture crafted with precision engineering.</p>
+            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture.</p>
             <ul class="feat-list space-y-1">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal fabrication</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel & restaurant collections</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Office workstation systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa & residential luxury pieces</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC & laser cutting</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel collections</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Office systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa pieces</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC cutting</span></li>
             </ul>
             <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
 
-      <!-- ====== STANDS - WITH REAL IMAGE ====== -->
       <div class="service-detail" id="detail-stands">
         <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-          <div class="svc-img-box">
-            <img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80" alt="Exhibition Stand">
-          </div>
+          <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80" alt="Exhibition Stand"></div>
           <div>
             <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="stands-title">Exhibition Stands</h3>
-            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="stands-desc">World-class event structures & fit-outs. Turnkey exhibition solutions.</p>
+            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="stands-desc">World-class event structures.</p>
             <ul class="feat-list space-y-1">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design & build</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular & portable systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">Lighting & AV integration</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation & dismantling</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">International logistics</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">AV integration</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">Logistics</span></li>
             </ul>
             <button class="btn-premium mt-4"><span data-translate="get-quote">Get Quote</span></button>
           </div>
         </div>
       </div>
-
     </div>
     <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
   </section>
@@ -311,11 +315,11 @@
         'our-services': 'Our Services', 'request-quote': 'Request Quote', 'services-title': 'Our Services',
         'tab-caravans': '🚐 Caravans', 'tab-furniture': '🪑 Furniture', 'tab-stands': '🎪 Stands',
         'caravans-title': 'Luxury Caravans', 'caravans-desc': 'Custom mobile units with premium interiors.',
-        'caravans-f1': 'Custom interior design & space planning', 'caravans-f2': 'Premium materials & luxury finishes', 'caravans-f3': 'Full electrical, plumbing & HVAC', 'caravans-f4': 'Smart home & entertainment systems', 'caravans-f5': '5-year structural warranty',
+        'caravans-f1': 'Custom interior design', 'caravans-f2': 'Premium materials', 'caravans-f3': 'Full electrical', 'caravans-f4': 'Smart home', 'caravans-f5': '5-year warranty',
         'furniture-title': 'Custom Furniture', 'furniture-desc': 'Villa, hotel, office & restaurant furniture.',
-        'furniture-f1': 'Bespoke wood & metal fabrication', 'furniture-f2': 'Hotel & restaurant collections', 'furniture-f3': 'Office workstation systems', 'furniture-f4': 'Villa & residential luxury pieces', 'furniture-f5': 'CNC & laser cutting',
+        'furniture-f1': 'Bespoke wood & metal', 'furniture-f2': 'Hotel collections', 'furniture-f3': 'Office systems', 'furniture-f4': 'Villa pieces', 'furniture-f5': 'CNC cutting',
         'stands-title': 'Exhibition Stands', 'stands-desc': 'World-class event structures.',
-        'stands-f1': 'Custom booth design & build', 'stands-f2': 'Modular & portable systems', 'stands-f3': 'Lighting & AV integration', 'stands-f4': 'Installation & dismantling', 'stands-f5': 'International logistics',
+        'stands-f1': 'Custom booth design', 'stands-f2': 'Modular systems', 'stands-f3': 'AV integration', 'stands-f4': 'Installation', 'stands-f5': 'Logistics',
         'get-quote': 'Get Quote', 'about-title': 'Crafting Saudi Vision', 'about-desc': 'Traditional craftsmanship with cutting-edge manufacturing.',
         'completed-projects': 'Projects', 'corporate-clients': 'Clients', 'years-experience': 'Years', 'quality-commitment': 'Quality',
         'saudi-standards': 'Saudi Quality Standards', 'projects-title': 'Featured Projects',
@@ -329,15 +333,15 @@
         'our-services': 'خدماتنا', 'request-quote': 'طلب عرض سعر', 'services-title': 'خدماتنا',
         'tab-caravans': '🚐 قوافل', 'tab-furniture': '🪑 أثاث', 'tab-stands': '🎪 منصات',
         'caravans-title': 'القوافل الفاخرة', 'caravans-desc': 'وحدات متنقلة مخصصة بتصميمات داخلية فاخرة.',
-        'caravans-f1': 'تصميم داخلي وتخطيط مخصص', 'caravans-f2': 'مواد فاخرة وتشطيبات راقية', 'caravans-f3': 'كهرباء وسباكة وتكييف كاملة', 'caravans-f4': 'منزل ذكي وأنظمة ترفيه', 'caravans-f5': 'ضمان هيكلي 5 سنوات',
-        'furniture-title': 'أثاث مخصص', 'furniture-desc': 'أثاث الفلل والفنادق والمكاتب والمطاعم.',
-        'furniture-f1': 'تصنيع الخشب والمعادن حسب الطلب', 'furniture-f2': 'مجموعات الفنادق والمطاعم', 'furniture-f3': 'أنظمة محطات العمل', 'furniture-f4': 'قطع فاخرة للفلل والمساكن', 'furniture-f5': 'CNC والقطع بالليزر',
-        'stands-title': 'منصات المعارض', 'stands-desc': 'هياكل وتجهيزات فعاليات عالمية.',
-        'stands-f1': 'تصميم وبناء الأجنحة', 'stands-f2': 'أنظمة معيارية ومحمولة', 'stands-f3': 'إضاءة وصوت متكامل', 'stands-f4': 'تركيب وتفكيك', 'stands-f5': 'شحن ولوجستيات دولية',
-        'get-quote': 'احصل على عرض سعر', 'about-title': 'صياغة الرؤية السعودية', 'about-desc': 'حرفية تقليدية مع تصنيع متطور.',
-        'completed-projects': 'مشاريع', 'corporate-clients': 'عملاء', 'years-experience': 'سنوات', 'quality-commitment': 'جودة',
-        'saudi-standards': 'معايير الجودة السعودية', 'projects-title': 'مشاريع مميزة',
-        'contact-title': 'تواصل معنا', 'contact-address': 'طريق الملك فهد، الرياض', 'send-inquiry': 'إرسال استفسار',
+        'caravans-f1': 'تصميم داخلي', 'caravans-f2': 'مواد فاخرة', 'caravans-f3': 'كهرباء كاملة', 'caravans-f4': 'منزل ذكي', 'caravans-f5': 'ضمان 5 سنوات',
+        'furniture-title': 'أثاث مخصص', 'furniture-desc': 'أثاث الفلل والفنادق والمكاتب.',
+        'furniture-f1': 'خشب ومعادن', 'furniture-f2': 'مجموعات فنادق', 'furniture-f3': 'أنظمة مكاتب', 'furniture-f4': 'قطع فلل', 'furniture-f5': 'قص ليزر',
+        'stands-title': 'منصات المعارض', 'stands-desc': 'هياكل وتجهيزات عالمية.',
+        'stands-f1': 'تصميم أجنحة', 'stands-f2': 'أنظمة عرض', 'stands-f3': 'صوت وإضاءة', 'stands-f4': 'تركيب', 'stands-f5': 'شحن',
+        'get-quote': 'احصل على عرض', 'about-title': 'صياغة الرؤية', 'about-desc': 'حرفية تقليدية مع تصنيع متطور.',
+        'completed-projects': 'مشاريع', 'corporate-clients': 'عملاء', 'years-experience': 'خبرة', 'quality-commitment': 'جودة',
+        'saudi-standards': 'معايير سعودية', 'projects-title': 'مشاريع مميزة',
+        'contact-title': 'تواصل معنا', 'contact-address': 'طريق الملك فهد، الرياض', 'send-inquiry': 'إرسال',
         'copyright': '© 2025 شركة قمة التميز للتطوير.'
       }
     };
