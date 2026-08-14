@@ -194,25 +194,53 @@
       display: block;
     }
 
-    /* rest of styles (navbar, hero, etc.) */
-    .main-glass-navbar { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 1200px; z-index: 40; transition: all 0.5s; }
-    .main-glass-navbar .nav-glass-inner { background: rgba(255,255,255,0.65); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(26,26,26,0.15); border-radius: 60px; padding: 10px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transition: all 0.5s; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .main-glass-navbar.scrolled .nav-glass-inner { background: rgba(209,207,196,0.98); border-radius: 40px; padding: 8px 16px; }
-    .nav-glow-line { position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(184,148,30,0.5), transparent); border-radius: 50%; filter: blur(2px); }
-    .nav-logo { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.05em; flex-shrink: 0; text-decoration: none; padding: 4px 8px; color: #1a1a1a; }
-    .main-nav-links { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
-    .main-nav-link { padding: 10px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; background: transparent; border: none; color: rgba(26,26,26,0.75); white-space: nowrap; text-decoration: none; }
-    .main-nav-link:hover { color: #1a1a1a; }
-    .main-nav-link.active { color: #f5f2ea; font-weight: 700; background: #1a1a1a; }
-    .nav-right-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    #langToggle { white-space: nowrap; min-width: 60px; text-align: center; padding: 8px 14px; border-radius: 50px; font-size: 0.7rem; cursor: pointer; transition: all 0.3s; background: transparent; border: 1px solid rgba(26,26,26,0.3); color: #1a1a1a; font-weight: 600; }
-    #langToggle:hover { background: #1a1a1a; color: #f5f2ea; }
-    .menu-toggle-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(26,26,26,0.05); border: 1px solid rgba(26,26,26,0.2); color: #1a1a1a; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
-    .menu-toggle-btn:hover { background: #1a1a1a; color: #f5f2ea; }
+    /* Hero Images - Desktop and Mobile - NO BLUR */
+    .hero-full-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: slowZoom 25s ease-in-out infinite alternate;
+    }
+    
+    /* Desktop hero image */
+    .hero-desktop {
+      background-image: url('desktopcaravan.png');
+    }
+    
+    /* Mobile hero image */
+    .hero-mobile {
+      background-image: url('mobilecaravan.png');
+      display: none;
+    }
 
-    .hero-full-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('caravan.png'); background-size: cover; background-position: center; background-repeat: no-repeat; animation: slowZoom 25s ease-in-out infinite alternate; }
-    @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
-    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(209,207,196,0.9) 0%, rgba(209,207,196,0.7) 40%, rgba(209,207,196,0.4) 70%, rgba(209,207,196,0.6) 100%); }
+    /* Show desktop by default, mobile on smaller screens */
+    @media (max-width: 768px) {
+      .hero-desktop {
+        display: none;
+      }
+      .hero-mobile {
+        display: block;
+      }
+    }
+
+    @keyframes slowZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+    
+    /* Hero overlay - NO BLUR */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to right, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.6) 40%, rgba(209,207,196,0.3) 70%, rgba(209,207,196,0.5) 100%);
+    }
 
     .services-glass-nav { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(255,255,255,0.5); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(26,26,26,0.15); border-radius: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); margin: 0 auto 50px; width: fit-content; position: relative; z-index: 10; }
     .active-pill-indicator { position: absolute; top: 6px; height: calc(100% - 12px); background: #1a1a1a; border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
@@ -346,6 +374,22 @@
       transform: translateX(0);
     }
 
+    /* rest of styles */
+    .main-glass-navbar { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 1200px; z-index: 40; transition: all 0.5s; }
+    .main-glass-navbar .nav-glass-inner { background: rgba(255,255,255,0.65); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(26,26,26,0.15); border-radius: 60px; padding: 10px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transition: all 0.5s; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .main-glass-navbar.scrolled .nav-glass-inner { background: rgba(209,207,196,0.98); border-radius: 40px; padding: 8px 16px; }
+    .nav-glow-line { position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(184,148,30,0.5), transparent); border-radius: 50%; filter: blur(2px); }
+    .nav-logo { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.05em; flex-shrink: 0; text-decoration: none; padding: 4px 8px; color: #1a1a1a; }
+    .main-nav-links { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
+    .main-nav-link { padding: 10px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; background: transparent; border: none; color: rgba(26,26,26,0.75); white-space: nowrap; text-decoration: none; }
+    .main-nav-link:hover { color: #1a1a1a; }
+    .main-nav-link.active { color: #f5f2ea; font-weight: 700; background: #1a1a1a; }
+    .nav-right-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    #langToggle { white-space: nowrap; min-width: 60px; text-align: center; padding: 8px 14px; border-radius: 50px; font-size: 0.7rem; cursor: pointer; transition: all 0.3s; background: transparent; border: 1px solid rgba(26,26,26,0.3); color: #1a1a1a; font-weight: 600; }
+    #langToggle:hover { background: #1a1a1a; color: #f5f2ea; }
+    .menu-toggle-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(26,26,26,0.05); border: 1px solid rgba(26,26,26,0.2); color: #1a1a1a; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+    .menu-toggle-btn:hover { background: #1a1a1a; color: #f5f2ea; }
+
     @media (max-width: 768px) {
       .main-glass-navbar { width: 96%; top: 8px; }
       .main-glass-navbar .nav-glass-inner { border-radius: 50px; padding: 8px 14px; }
@@ -447,8 +491,12 @@
     </div>
   </nav>
 
+  <!-- HERO SECTION WITH SEPARATE DESKTOP AND MOBILE IMAGES - NO BLUR -->
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
-    <div class="hero-full-bg"></div>
+    <!-- Desktop Background -->
+    <div class="hero-full-bg hero-desktop"></div>
+    <!-- Mobile Background -->
+    <div class="hero-full-bg hero-mobile"></div>
     <div class="hero-overlay"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
       <div class="text-left max-w-xl">
@@ -593,7 +641,7 @@
     </div>
   </section>
 
-  <!-- TEAM SECTION -->
+  <!-- TEAM SECTION - Executive button active by default -->
   <section id="team" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl md:text-5xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="team-title">Meet Our Team</h2>
@@ -616,7 +664,7 @@
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="vision-title">Our Vision, Mission & Values</h2>
       <div class="flex gap-6 justify-center flex-wrap">
-        <div class="premium-card card-typing" data-delay="0" data-title-en="Our Vision" data-title-ar="رؤيتنا" data-desc-en="To be the leading provider of premium engineering, manufacturing, and construction solutions in Saudi Arabia and the Middle East, setting the benchmark for quality, innovation, and customer satisfaction." data-desc-ar="أن نكون المزود الرائد للحلول الهندسية والتصنيعية والإنشائية في المملكة العربية السعودية والشرق الأوسط، واضعين المعيار للجودة والابتكار ورضا العملاء.">
+        <div class="premium-card card-typing" data-title-en="Our Vision" data-title-ar="رؤيتنا" data-desc-en="To be the leading provider of premium engineering, manufacturing, and construction solutions in Saudi Arabia and the Middle East, setting the benchmark for quality, innovation, and customer satisfaction." data-desc-ar="أن نكون المزود الرائد للحلول الهندسية والتصنيعية والإنشائية في المملكة العربية السعودية والشرق الأوسط، واضعين المعيار للجودة والابتكار ورضا العملاء.">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">Leadership</span>
@@ -624,7 +672,7 @@
           <span class="premium-card-tag">Excellence</span>
           <button class="premium-card-btn">Learn More</button>
         </div>
-        <div class="premium-card card-typing" data-delay="100" data-title-en="Our Mission" data-title-ar="مهمتنا" data-desc-en="To deliver exceptional value to our clients through innovative design, precision manufacturing, and reliable installation services, while maintaining the highest standards of safety, sustainability, and professional integrity." data-desc-ar="تقديم قيمة استثنائية لعملائنا من خلال التصميم المبتكر والتصنيع الدقيق وخدمات التركيب الموثوقة، مع الحفاظ على أعلى معايير السلامة والاستدامة والنزاهة المهنية.">
+        <div class="premium-card card-typing" data-title-en="Our Mission" data-title-ar="مهمتنا" data-desc-en="To deliver exceptional value to our clients through innovative design, precision manufacturing, and reliable installation services, while maintaining the highest standards of safety, sustainability, and professional integrity." data-desc-ar="تقديم قيمة استثنائية لعملائنا من خلال التصميم المبتكر والتصنيع الدقيق وخدمات التركيب الموثوقة، مع الحفاظ على أعلى معايير السلامة والاستدامة والنزاهة المهنية.">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">Quality</span>
@@ -632,7 +680,7 @@
           <span class="premium-card-tag">Integrity</span>
           <button class="premium-card-btn">Learn More</button>
         </div>
-        <div class="premium-card card-typing" data-delay="200" data-title-en="Core Values" data-title-ar="قيمنا الأساسية" data-desc-en="We operate with unyielding integrity, embrace innovation, and prioritize our clients' success. Our commitment to excellence drives every project, ensuring sustainable and impactful results." data-desc-ar="نعمل بنزاهة لا تتزعزع، ونتبنى الابتكار، ونعطي الأولوية لنجاح عملائنا. التزامنا بالتميز يقود كل مشروع، مما يضمن نتائج مستدامة ومؤثرة.">
+        <div class="premium-card card-typing" data-title-en="Core Values" data-title-ar="قيمنا الأساسية" data-desc-en="We operate with unyielding integrity, embrace innovation, and prioritize our clients' success. Our commitment to excellence drives every project, ensuring sustainable and impactful results." data-desc-ar="نعمل بنزاهة لا تتزعزع، ونتبنى الابتكار، ونعطي الأولوية لنجاح عملائنا. التزامنا بالتميز يقود كل مشروع، مما يضمن نتائج مستدامة ومؤثرة.">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">Integrity</span>
@@ -649,42 +697,42 @@
     <div class="max-w-7xl mx-auto">
       <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:800;" data-translate="strengths-title">Our Strengths</h2>
       <div class="flex gap-6 justify-center flex-wrap">
-        <div class="premium-card card-typing" data-delay="0" data-title-en="Advanced Manufacturing" data-title-ar="التصنيع المتقدم" data-desc-en="State-of-the-art CNC machinery for precision fabrication" data-desc-ar="آلات CNC متطورة للتصنيع الدقيق">
+        <div class="premium-card card-typing" data-title-en="Advanced Manufacturing" data-title-ar="التصنيع المتقدم" data-desc-en="State-of-the-art CNC machinery for precision fabrication" data-desc-ar="آلات CNC متطورة للتصنيع الدقيق">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">CNC</span>
           <span class="premium-card-tag">Precision</span>
           <button class="premium-card-btn">Learn More</button>
         </div>
-        <div class="premium-card card-typing" data-delay="100" data-title-en="Expert Team" data-title-ar="فريق الخبراء" data-desc-en="Highly skilled engineers and craftsmen" data-desc-ar="مهندسون وحرفيون ذوو مهارات عالية">
+        <div class="premium-card card-typing" data-title-en="Expert Team" data-title-ar="فريق الخبراء" data-desc-en="Highly skilled engineers and craftsmen" data-desc-ar="مهندسون وحرفيون ذوو مهارات عالية">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">Skilled</span>
           <span class="premium-card-tag">Experienced</span>
           <button class="premium-card-btn">Learn More</button>
         </div>
-        <div class="premium-card card-typing" data-delay="200" data-title-en="Quality Assurance" data-title-ar="ضمان الجودة" data-desc-en="ISO certified processes for consistent quality" data-desc-ar="عمليات معتمدة من ISO لضمان الجودة المتسقة">
+        <div class="premium-card card-typing" data-title-en="Quality Assurance" data-title-ar="ضمان الجودة" data-desc-en="ISO certified processes for consistent quality" data-desc-ar="عمليات معتمدة من ISO لضمان الجودة المتسقة">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">ISO</span>
           <span class="premium-card-tag">Certified</span>
           <button class="premium-card-btn">Learn More</button>
         </div>
-        <div class="premium-card card-typing" data-delay="100" data-title-en="On-Time Delivery" data-title-ar="التسليم في الوقت المحدد" data-desc-en="Proven track record of schedule compliance" data-desc-ar="سجل حافل بالالتزام بالجداول الزمنية">
+        <div class="premium-card card-typing" data-title-en="On-Time Delivery" data-title-ar="التسليم في الوقت المحدد" data-desc-en="Proven track record of schedule compliance" data-desc-ar="سجل حافل بالالتزام بالجداول الزمنية">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">Reliable</span>
           <span class="premium-card-tag">Punctual</span>
           <button class="premium-card-btn">Learn More</button>
         </div>
-        <div class="premium-card card-typing" data-delay="150" data-title-en="Innovation" data-title-ar="الابتكار" data-desc-en="Continuous R&D for cutting-edge solutions" data-desc-ar="البحث والتطوير المستمر للحلول المتطورة">
+        <div class="premium-card card-typing" data-title-en="Innovation" data-title-ar="الابتكار" data-desc-en="Continuous R&D for cutting-edge solutions" data-desc-ar="البحث والتطوير المستمر للحلول المتطورة">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">R&D</span>
           <span class="premium-card-tag">Future</span>
           <button class="premium-card-btn">Learn More</button>
         </div>
-        <div class="premium-card card-typing" data-delay="200" data-title-en="Customer Focus" data-title-ar="التركيز على العملاء" data-desc-en="Dedicated support and personalized solutions" data-desc-ar="دعم مخصص وحلول شخصية">
+        <div class="premium-card card-typing" data-title-en="Customer Focus" data-title-ar="التركيز على العملاء" data-desc-en="Dedicated support and personalized solutions" data-desc-ar="دعم مخصص وحلول شخصية">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
           <span class="premium-card-tag">Support</span>
@@ -788,7 +836,6 @@
     };
 
     let currentLang = 'en';
-    let cardTypingStarted = false;
     
     // Card typing function
     function typeCardText(element, text, speed = 30, callback) {
@@ -812,8 +859,16 @@
       typeChar();
     }
 
-    function typeCards(lang, section) {
+    function typeCardsInSection(section, lang) {
+      if (!section) return;
+      // Check if already typed
+      if (section.dataset.typed === 'true') return;
+      
       const cards = section.querySelectorAll('.card-typing');
+      if (cards.length === 0) return;
+      
+      section.dataset.typed = 'true';
+      
       cards.forEach((card, index) => {
         const titleEl = card.querySelector('.premium-card-title');
         const descEl = card.querySelector('.premium-card-desc');
@@ -828,8 +883,8 @@
         const titleText = card.getAttribute(titleKey) || '';
         const descText = card.getAttribute(descKey) || '';
         
-        // Add delay based on card index
-        const delay = index * 300;
+        // Add delay based on card index (300ms between cards)
+        const delay = index * 350;
         
         setTimeout(() => {
           // Type title first, then description
@@ -842,44 +897,33 @@
       });
     }
 
-    // Intersection Observer for card typing
-    function setupCardTypingObserver() {
-      const visionMissionSection = document.getElementById('vision-mission');
-      const strengthsSection = document.getElementById('strengths');
+    // Check if a section is visible on screen (including mobile)
+    function isSectionVisible(section) {
+      if (!section) return false;
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const windowWidth = window.innerWidth || document.documentElement.clientWidth;
       
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const section = entry.target;
-            if (!section.dataset.typed) {
-              typeCards(currentLang, section);
-              section.dataset.typed = 'true';
-            }
-          }
-        });
-      }, { threshold: 0.3 });
+      // Check if any part of the section is visible
+      const visibleTop = Math.max(0, rect.top);
+      const visibleBottom = Math.min(windowHeight, rect.bottom);
+      const visibleHeight = visibleBottom - visibleTop;
       
-      if (visionMissionSection) {
-        observer.observe(visionMissionSection);
-        // Check if already visible
-        const rect = visionMissionSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.7 && !visionMissionSection.dataset.typed) {
-          typeCards(currentLang, visionMissionSection);
-          visionMissionSection.dataset.typed = 'true';
-        }
+      // Section is considered visible if at least 20% of it is in the viewport
+      return visibleHeight > rect.height * 0.2;
+    }
+
+    function checkAndTypeSections() {
+      const visionMission = document.getElementById('vision-mission');
+      const strengths = document.getElementById('strengths');
+      
+      if (visionMission && isSectionVisible(visionMission)) {
+        typeCardsInSection(visionMission, currentLang);
       }
       
-      if (strengthsSection) {
-        observer.observe(strengthsSection);
-        // Check if already visible
-        const rect = strengthsSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.7 && !strengthsSection.dataset.typed) {
-          typeCards(currentLang, strengthsSection);
-          strengthsSection.dataset.typed = 'true';
-        }
+      if (strengths && isSectionVisible(strengths)) {
+        typeCardsInSection(strengths, currentLang);
       }
-      
-      return observer;
     }
 
     function translatePage(lang) {
@@ -947,29 +991,14 @@
         }, 300);
       }
       
-      // Reset card typing if language changes
-      const visionMissionSection = document.getElementById('vision-mission');
-      const strengthsSection = document.getElementById('strengths');
-      if (visionMissionSection) visionMissionSection.dataset.typed = '';
-      if (strengthsSection) strengthsSection.dataset.typed = '';
+      // Reset typed flags
+      const visionMission = document.getElementById('vision-mission');
+      const strengths = document.getElementById('strengths');
+      if (visionMission) visionMission.dataset.typed = '';
+      if (strengths) strengths.dataset.typed = '';
       
-      // Re-check visibility after language change
-      setTimeout(() => {
-        if (visionMissionSection) {
-          const rect = visionMissionSection.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.7 && !visionMissionSection.dataset.typed) {
-            typeCards(lang, visionMissionSection);
-            visionMissionSection.dataset.typed = 'true';
-          }
-        }
-        if (strengthsSection) {
-          const rect = strengthsSection.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.7 && !strengthsSection.dataset.typed) {
-            typeCards(lang, strengthsSection);
-            strengthsSection.dataset.typed = 'true';
-          }
-        }
-      }, 300);
+      // Check sections after language change
+      setTimeout(checkAndTypeSections, 500);
       
       setTimeout(updatePill, 100);
     }
@@ -998,7 +1027,7 @@
 
     document.getElementById('langToggle').addEventListener('click', () => translatePage(currentLang === 'en' ? 'ar' : 'en'));
     
-    // Initial load - English typing
+    // Initial load
     window.addEventListener('load', function() {
       setTimeout(() => {
         const line1 = document.getElementById('typeLine1');
@@ -1018,10 +1047,22 @@
         });
       }, 500);
       
-      // Setup card typing observer
-      setupCardTypingObserver();
+      // Check sections after load
+      setTimeout(checkAndTypeSections, 1000);
       
       if (localStorage.getItem('preferredLanguage') === 'ar') translatePage('ar');
+      
+      // Check on scroll for mobile
+      let scrollTimeout;
+      window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(checkAndTypeSections, 100);
+      });
+      
+      // Check on resize (orientation change on mobile)
+      window.addEventListener('resize', function() {
+        setTimeout(checkAndTypeSections, 300);
+      });
     });
 
     document.querySelectorAll('.main-nav-link').forEach(l => l.addEventListener('click', function() {
@@ -1213,7 +1254,8 @@
       });
     });
 
-    renderTeam('all');
+    // Render Executive team by default (since it's the active button)
+    renderTeam('executive');
   </script>
 </body>
 </html>
