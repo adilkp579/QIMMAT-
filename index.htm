@@ -1,194 +1,350 @@
 <!DOCTYPE html>
 <html lang="en" id="htmlRoot">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Qimmat Al-Tamayoz Development Company">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Qimmat Al-Tamayoz Development Company" />
+  <meta name="theme-color" content="#d1cfc4" />
   <title>Qimmat Al-Tamayoz | Engineering Excellence</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #f0f0f0; scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #d1cfc4; color: #222; scroll-behavior: smooth; overflow-x: hidden; }
     .font-luxury { font-family: 'Cormorant Garamond', serif; }
-    .glass-card { background: rgba(20,20,20,0.55); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(212,175,55,0.18); box-shadow: 0 25px 45px -10px rgba(0,0,0,0.5); border-radius: 2rem; }
-    .gold-text { background: linear-gradient(135deg, #d4af37 0%, #f5e7b3 40%, #c49b2a 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .gold-border { border: 1px solid rgba(212,175,55,0.45); }
+    .font-arabic { font-family: 'Noto Naskh Arabic', serif; }
+    .glass-card { background: rgba(255,255,255,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.12); transition: .35s; }
+    .glass-card:hover { transform: translateY(-10px) scale(1.03); }
+    .gold-text { background: linear-gradient(135deg, #b8941e 0%, #d4af37 40%, #8b6914 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gold-border { border: 1px solid rgba(184,148,30,0.4); }
     
+    /* Premium Card – with typing effect */
+    .premium-card {
+      width: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      padding: 30px 24px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.3);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .premium-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .premium-card:hover { transform: translateY(-10px) scale(1.03); }
+    .premium-card-title { font-size: 22px; font-weight: 800; color: #1a1a1a; margin-bottom: 14px; font-family: 'Cormorant Garamond', serif; letter-spacing: 0.02em; min-height: 40px; }
+    .premium-card-desc { font-size: 15px; font-weight: 500; color: #2d2d2d; line-height: 1.6; margin-bottom: 18px; min-height: 80px; }
+    .premium-card-tag { display: inline-block; background: rgba(0,0,0,0.06); padding: 8px 14px; border-radius: 20px; margin: 5px 5px 0 0; font-size: 13px; font-weight: 600; color: #1a1a1a; }
+    .premium-card-btn { width: 100%; padding: 14px; border: none; border-radius: 14px; background: #1a1a1a; color: #f5f2ea; cursor: pointer; font-size: 15px; font-weight: 700; transition: .3s; margin-top: 18px; letter-spacing: 0.03em; }
+    .premium-card-btn:hover { background: #333; }
+
+    /* Card typing cursor */
+    .card-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: #1a1a1a;
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Full size photo card – image takes full card */
+    .team-grid-card {
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: scale(0.95);
+      position: relative;
+    }
+    .team-grid-card.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .team-grid-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .team-grid-card-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .team-grid-card:hover .team-grid-card-img {
+      transform: scale(1.04);
+    }
+    .team-grid-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 16px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      color: #fff;
+      text-align: center;
+    }
+    .team-grid-card-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+    .team-grid-card-position {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
+    /* Team navbar – horizontal scroll, 5 text buttons (4 positions + All Team) - NO SCROLLBAR */
+    .team-nav-scroll {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px;
+      padding: 8px 4px 12px 4px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      margin-bottom: 10px;
+      justify-content: center;
+    }
+    .team-nav-scroll::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    .team-nav-btn {
+      flex: 0 0 auto;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(26,26,26,0.12);
+      color: rgba(26,26,26,0.7);
+      white-space: nowrap;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .team-nav-btn:hover {
+      background: rgba(255,255,255,0.7);
+      color: #1a1a1a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .team-nav-btn.active {
+      background: #1a1a1a;
+      color: #f5f2ea;
+      border-color: #1a1a1a;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    /* Typing animation */
+    .type-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.1em;
+      background: #1a1a1a;
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink 0.7s step-end infinite;
+    }
+    .type-line {
+      min-height: 1.6em;
+      display: block;
+    }
+
+    /* Arabic typing line - same size as English */
+    .type-line-ar {
+      font-family: 'Noto Naskh Arabic', serif;
+      direction: rtl;
+      text-align: right;
+      font-size: inherit !important;
+      font-weight: 700 !important;
+      line-height: 1.1;
+      min-height: 1.6em;
+      display: block;
+    }
+
+    /* rest of styles (navbar, hero, etc.) */
     .main-glass-navbar { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 1200px; z-index: 40; transition: all 0.5s; }
-    .main-glass-navbar .nav-glass-inner { background: rgba(18,18,18,0.65); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(212,175,55,0.2); border-radius: 60px; padding: 10px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 80px rgba(212,175,55,0.08); transition: all 0.5s; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .main-glass-navbar.scrolled .nav-glass-inner { background: rgba(10,10,10,0.95); border-radius: 40px; padding: 8px 16px; }
-    .nav-glow-line { position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent); border-radius: 50%; filter: blur(2px); }
-    .nav-logo { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.05em; flex-shrink: 0; text-decoration: none; padding: 4px 8px; }
+    .main-glass-navbar .nav-glass-inner { background: rgba(255,255,255,0.65); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(26,26,26,0.15); border-radius: 60px; padding: 10px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transition: all 0.5s; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .main-glass-navbar.scrolled .nav-glass-inner { background: rgba(209,207,196,0.98); border-radius: 40px; padding: 8px 16px; }
+    .nav-glow-line { position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(184,148,30,0.5), transparent); border-radius: 50%; filter: blur(2px); }
+    .nav-logo { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.05em; flex-shrink: 0; text-decoration: none; padding: 4px 8px; color: #1a1a1a; }
     .main-nav-links { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
-    .main-nav-link { padding: 10px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; background: transparent; border: none; color: rgba(255,255,255,0.75); white-space: nowrap; text-decoration: none; }
-    .main-nav-link:hover { color: #fff; }
-    .main-nav-link.active { color: #0a0a0a; font-weight: 600; background: #d4af37; }
+    .main-nav-link { padding: 10px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; background: transparent; border: none; color: rgba(26,26,26,0.75); white-space: nowrap; text-decoration: none; }
+    .main-nav-link:hover { color: #1a1a1a; }
+    .main-nav-link.active { color: #f5f2ea; font-weight: 700; background: #1a1a1a; }
     .nav-right-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    #langToggle { white-space: nowrap; min-width: 60px; text-align: center; padding: 8px 14px; border-radius: 50px; font-size: 0.7rem; cursor: pointer; transition: all 0.3s; background: transparent; border: 1px solid rgba(212,175,55,0.3); color: #d4af37; font-weight: 500; }
-    #langToggle:hover { background: #d4af37; color: #0a0a0a; }
-    .menu-toggle-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
-    .menu-toggle-btn:hover { background: #d4af37; color: #0a0a0a; }
+    #langToggle { white-space: nowrap; min-width: 60px; text-align: center; padding: 8px 14px; border-radius: 50px; font-size: 0.7rem; cursor: pointer; transition: all 0.3s; background: transparent; border: 1px solid rgba(26,26,26,0.3); color: #1a1a1a; font-weight: 600; }
+    #langToggle:hover { background: #1a1a1a; color: #f5f2ea; }
+    .menu-toggle-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(26,26,26,0.05); border: 1px solid rgba(26,26,26,0.2); color: #1a1a1a; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+    .menu-toggle-btn:hover { background: #1a1a1a; color: #f5f2ea; }
 
     .hero-full-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background-image: url('https://www.venture-rv.com/2020-products/sporttrek-touring-edition-travel-trailers/images/2020/photos/STT343VIK/lifestyle/exterior/2020-Venture-RV-SportTrek-Touring-Edition-STT343VIK-Travel-Trailer_exterior_lake_beach_sand_older_couple_bird_watching-large.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; animation: slowZoom 25s ease-in-out infinite alternate; }
     @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
-    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.5) 100%); }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(209,207,196,0.9) 0%, rgba(209,207,196,0.7) 40%, rgba(209,207,196,0.4) 70%, rgba(209,207,196,0.6) 100%); }
 
-    .cursor-dot { width: 8px; height: 8px; background: #d4af37; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
-    .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(212,175,55,0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.15s; }
-    .cursor-outline.hover { width: 70px; height: 70px; border-color: #d4af37; background: rgba(212,175,55,0.1); }
-    .cursor-dot.hover { transform: translate(-50%,-50%) scale(1.5); background: #fff; }
-
-    .services-glass-nav { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(18,18,18,0.45); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(212,175,55,0.2); border-radius: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); margin: 0 auto 50px; width: fit-content; position: relative; z-index: 10; }
-    .active-pill-indicator { position: absolute; top: 6px; height: calc(100% - 12px); background: #d4af37; border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0; box-shadow: 0 8px 25px rgba(212,175,55,0.4); }
-    .service-pill-btn { padding: 13px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; position: relative; z-index: 1; background: transparent; border: none; color: rgba(255,255,255,0.7); white-space: nowrap; }
-    .service-pill-btn:hover { color: #fff; }
-    .service-pill-btn.active { color: #0a0a0a; font-weight: 600; }
+    .services-glass-nav { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(255,255,255,0.5); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(26,26,26,0.15); border-radius: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); margin: 0 auto 50px; width: fit-content; position: relative; z-index: 10; }
+    .active-pill-indicator { position: absolute; top: 6px; height: calc(100% - 12px); background: #1a1a1a; border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+    .service-pill-btn { padding: 13px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; position: relative; z-index: 1; background: transparent; border: none; color: rgba(26,26,26,0.7); white-space: nowrap; }
+    .service-pill-btn:hover { color: #1a1a1a; }
+    .service-pill-btn.active { color: #f5f2ea; font-weight: 700; }
 
     .service-detail { display: none; }
     .service-detail.active { display: block; animation: fadeUp 0.5s ease; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     
-    .svc-img-box { border-radius: 2rem; overflow: hidden; height: 400px; border: 1px solid rgba(212,175,55,0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .svc-img-box { border-radius: 2rem; overflow: hidden; height: 400px; border: 1px solid rgba(26,26,26,0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
     .svc-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
     .svc-img-box:hover img { transform: scale(1.05); }
-    .feat-list li { display: flex; align-items: center; gap: 10px; padding: 6px 0; color: rgba(255,255,255,0.7); }
-    .feat-list li i { color: #d4af37; }
+    .feat-list li { display: flex; align-items: center; gap: 10px; padding: 6px 0; color: rgba(26,26,26,0.7); font-weight: 500; }
+    .feat-list li i { color: #b8941e; }
 
-    .products-scroll-container {
-      overflow-x: auto; overflow-y: hidden; white-space: nowrap;
-      padding: 20px 5px; margin-top: 30px; scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none;
-      display: flex; flex-wrap: nowrap; gap: 20px;
-    }
+    .products-scroll-container { overflow-x: auto; overflow-y: hidden; white-space: nowrap; padding: 20px 5px; margin-top: 30px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; display: flex; flex-wrap: nowrap; gap: 20px; }
     .products-scroll-container::-webkit-scrollbar { display: none; width: 0; height: 0; }
-    
-    .product-card {
-      flex-shrink: 0; width: 280px; background: rgba(20,20,20,0.7);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(212,175,55,0.2); border-radius: 1.5rem;
-      overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2); white-space: normal;
-    }
-    .product-card:hover { transform: translateY(-10px); border-color: rgba(212,175,55,0.5); box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(212,175,55,0.15); }
+    .product-card { flex-shrink: 0; width: 280px; background: rgba(255,255,255,0.5); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(26,26,26,0.12); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.12); transition: all 0.35s; white-space: normal; }
+    .product-card:hover { transform: translateY(-10px) scale(1.03); }
     .product-card-image { height: 180px; overflow: hidden; position: relative; }
     .product-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
     .product-card:hover .product-card-image img { transform: scale(1.1); }
-    .product-card-badge { position: absolute; top: 12px; left: 12px; background: #d4af37; color: #0a0a0a; padding: 5px 12px; border-radius: 50px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-    .product-card-content { padding: 18px; }
-    .product-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: #d4af37; margin-bottom: 6px; }
-    .product-card-desc { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 12px; line-height: 1.4; }
-    .product-card-price { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .product-card-price span { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 400; }
-    .product-card-btn { width: 100%; padding: 10px; border-radius: 50px; background: rgba(212,175,55,0.1); border: 1px solid #d4af37; color: #d4af37; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s; }
-    .product-card-btn:hover { background: #d4af37; color: #0a0a0a; box-shadow: 0 10px 25px rgba(212,175,55,0.3); }
+    .product-card-badge { position: absolute; top: 12px; left: 12px; background: #111; color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .product-card-content { padding: 16px; }
+    .product-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+    .product-card-desc { font-size: 0.8rem; font-weight: 500; color: rgba(26,26,26,0.65); margin-bottom: 10px; line-height: 1.4; }
+    .product-card-price { font-size: 1.15rem; font-weight: 800; color: #1a1a1a; margin-bottom: 10px; }
+    .product-card-price span { font-size: 0.75rem; color: rgba(26,26,26,0.5); font-weight: 500; }
+    .product-card-btn { width: 100%; padding: 10px; border: none; border-radius: 14px; background: #111; color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s; }
+    .product-card-btn:hover { background: #333; }
 
-    /* ============ DETAIL MODAL ============ */
-    .detail-modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      z-index: 999; display: none; align-items: center; justify-content: center;
-      padding: 20px;
-    }
-    .detail-modal-overlay.active { display: flex; }
-    .detail-modal {
-      background: rgba(18,18,18,0.95);
-      border: 1px solid rgba(212,175,55,0.3);
-      border-radius: 1.5rem;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 60px rgba(212,175,55,0.1);
-      max-width: 600px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 25px;
-      animation: modalIn 0.4s ease;
-    }
-    @keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-    .detail-modal::-webkit-scrollbar { width: 4px; }
-    .detail-modal::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
-    
-    .detail-modal-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 20px; padding-bottom: 15px;
-      border-bottom: 1px solid rgba(212,175,55,0.2);
-    }
-    .detail-modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #d4af37; font-weight: 600; }
-    .detail-modal-close { width: 35px; height: 35px; border-radius: 50%; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
-    .detail-modal-close:hover { background: #d4af37; color: #0a0a0a; }
-    
-    .detail-modal-image {
-      width: 100%; height: 220px; border-radius: 1rem;
-      overflow: hidden; margin-bottom: 20px;
-      border: 1px solid rgba(212,175,55,0.2);
-    }
-    .detail-modal-image img { width: 100%; height: 100%; object-fit: cover; }
-    
-    .detail-table {
-      width: 100%; border-collapse: collapse; margin-top: 15px;
-    }
-    .detail-table th, .detail-table td {
-      padding: 12px 15px; text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.85rem;
-    }
-    .detail-table th {
-      color: #d4af37; font-weight: 600;
-      background: rgba(212,175,55,0.05);
-      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
-      width: 40%;
-    }
-    .detail-table td { color: rgba(255,255,255,0.8); }
-    .detail-table tr:last-child th, .detail-table tr:last-child td { border-bottom: none; }
-    .detail-table tr:hover td { background: rgba(212,175,55,0.03); }
-
-    .quality-image-box { border-radius: 2rem; overflow: hidden; border: 2px solid rgba(212,175,55,0.25); box-shadow: 0 25px 50px rgba(0,0,0,0.5); position: relative; min-height: 400px; }
-    .quality-image-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .quality-image-box { border-radius: 20px; overflow: hidden; border: 2px solid rgba(26,26,26,0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.12); position: relative; min-height: 350px; max-height: 400px; max-width: 500px; margin: 0 auto; }
+    .quality-image-box img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.8s ease; }
     .quality-image-box:hover img { transform: scale(1.05); }
-    .quality-image-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); }
-    .quality-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; font-size: 0.75rem; font-weight: 500; margin-top: 10px; }
+    .quality-image-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 25px; background: linear-gradient(to top, rgba(209,207,196,0.95) 0%, rgba(209,207,196,0.7) 50%, transparent 100%); }
+    .quality-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 20px; background: rgba(26,26,26,0.05); border: 1px solid rgba(26,26,26,0.2); color: #1a1a1a; font-size: 0.7rem; font-weight: 600; margin-top: 10px; }
 
-    .projects-carousel-container { position: relative; width: 100%; overflow: hidden; border-radius: 2rem; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+    .projects-carousel-container { position: relative; width: 100%; overflow: hidden; border-radius: 24px; border: 1px solid rgba(26,26,26,0.12); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
     .projects-track { display: flex; transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
     .project-slide { min-width: 100%; position: relative; height: 500px; overflow: hidden; }
     .project-slide img { width: 100%; height: 100%; object-fit: cover; }
-    .project-slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
-    .project-slide-title { font-size: 1.5rem; font-weight: 600; color: #d4af37; font-family: 'Cormorant Garamond', serif; }
-    .project-slide-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
-    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: rgba(18,18,18,0.7); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 10; }
-    .carousel-arrow:hover { background: #d4af37; color: #0a0a0a; }
-    .carousel-arrow.prev { left: 20px; }
-    .carousel-arrow.next { right: 20px; }
+    .project-slide-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(to top, rgba(209,207,196,0.9), transparent); }
+    .project-slide-title { font-size: 1.6rem; font-weight: 700; color: #1a1a1a; font-family: 'Cormorant Garamond', serif; }
+    .project-slide-desc { font-size: 1rem; font-weight: 500; color: rgba(26,26,26,0.75); }
+    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.8); border: 1px solid rgba(26,26,26,0.2); color: #1a1a1a; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 10; font-weight: 700; }
+    .carousel-arrow:hover { background: #1a1a1a; color: #f5f2ea; }
+    .carousel-arrow.prev { left: 20px; } .carousel-arrow.next { right: 20px; }
     .carousel-dots { position: absolute; bottom: 20px; right: 30px; display: flex; gap: 8px; z-index: 10; }
-    .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: all 0.4s; }
-    .carousel-dot.active { background: #d4af37; width: 30px; border-radius: 10px; }
-    .carousel-progress-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: linear-gradient(90deg, #d4af37, #f5e7b3); z-index: 10; }
+    .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(26,26,26,0.3); border: none; cursor: pointer; transition: all 0.4s; }
+    .carousel-dot.active { background: #1a1a1a; width: 30px; border-radius: 10px; }
+    .carousel-progress-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: linear-gradient(90deg, #1a1a1a, #555); z-index: 10; }
 
     .hero-curve-bottom { position: absolute; bottom: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 5; }
     .hero-curve-bottom svg { width: 100%; height: 100px; }
-    .curve-fill { fill: #0a0a0a; }
+    .curve-fill { fill: #d1cfc4; }
     .curve-divider-top { position: absolute; top: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 2; }
     .curve-divider-top svg { width: 100%; height: 60px; transform: rotate(180deg); }
     .curve-divider-bottom { position: absolute; bottom: -2px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 2; }
     .curve-divider-bottom svg { width: 100%; height: 60px; }
-    .curve-fill-dark { fill: #0a0a0a; }
+    .curve-fill-dark { fill: #d1cfc4; }
     .rounded-section { border-radius: 50px 50px 0 0; position: relative; z-index: 3; margin-top: -30px; padding-top: 60px; }
 
-    .btn-premium { background: rgba(212,175,55,0.08); backdrop-filter: blur(12px); border: 1px solid #d4af37; color: #d4af37; padding: 0.8rem 2rem; font-weight: 500; border-radius: 3rem; display: inline-block; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; transition: 0.4s; }
-    .btn-premium:hover { background: #d4af37; color: #0a0a0a; transform: translateY(-3px); }
+    .btn-premium { background: rgba(26,26,26,0.05); backdrop-filter: blur(12px); border: 1px solid #1a1a1a; color: #1a1a1a; padding: 0.8rem 2rem; font-weight: 700; border-radius: 3rem; display: inline-block; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; transition: 0.4s; }
+    .btn-premium:hover { background: #1a1a1a; color: #f5f2ea; transform: translateY(-3px); }
 
-    #loading-screen { position: fixed; inset: 0; background: #0a0a0a; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s; }
-    .loader-gold { width: 60px; height: 60px; border: 3px solid rgba(212,175,55,0.2); border-top-color: #d4af37; border-radius: 50%; animation: spin 1s linear infinite; }
+    .detail-modal-overlay { position: fixed; inset: 0; background: rgba(26,26,26,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .detail-modal-overlay.active { display: flex; }
+    .detail-modal { background: rgba(255,255,255,0.98); border: 1px solid rgba(26,26,26,0.2); border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.25); max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 25px; animation: modalIn 0.4s ease; }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .detail-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(26,26,26,0.15); }
+    .detail-modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #1a1a1a; font-weight: 700; }
+    .detail-modal-close { width: 35px; height: 35px; border-radius: 50%; background: rgba(26,26,26,0.05); border: 1px solid rgba(26,26,26,0.2); color: #1a1a1a; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+    .detail-modal-close:hover { background: #1a1a1a; color: #f5f2ea; }
+    .detail-modal-image { width: 100%; height: 180px; border-radius: 14px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(26,26,26,0.15); }
+    .detail-modal-image img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .detail-table th, .detail-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid rgba(26,26,26,0.1); font-size: 0.85rem; }
+    .detail-table th { color: #1a1a1a; font-weight: 700; background: rgba(26,26,26,0.03); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; width: 40%; }
+    .detail-table td { color: rgba(26,26,26,0.8); font-weight: 500; }
+    .detail-table tr:last-child th, .detail-table tr:last-child td { border-bottom: none; }
+
+    #loading-screen { position: fixed; inset: 0; background: #d1cfc4; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s; }
+    .loader-gold { width: 60px; height: 60px; border: 3px solid rgba(26,26,26,0.15); border-top-color: #1a1a1a; border-radius: 50%; animation: spin 1s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
     
-    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; z-index: 999; cursor: pointer; box-shadow: 0 8px 25px rgba(37,211,102,0.4); animation: pulse 2s infinite; }
+    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; z-index: 999; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.2); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } }
 
-    .mobile-menu { position: fixed; top: 0; right: -100%; width: 85%; max-width: 380px; height: 100dvh; background: rgba(10,10,10,0.98); backdrop-filter: blur(20px); z-index: 50; transition: right 0.4s; padding: 1.5rem; }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 85%; max-width: 380px; height: 100dvh; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 50; transition: right 0.4s; padding: 1.5rem; }
     .mobile-menu.active { right: 0; }
-    .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 49; opacity: 0; pointer-events: none; transition: 0.3s; }
+    .menu-overlay { position: fixed; inset: 0; background: rgba(26,26,26,0.5); z-index: 49; opacity: 0; pointer-events: none; transition: 0.3s; }
     .menu-overlay.active { opacity: 1; pointer-events: all; }
+
+    /* scroll animations */
+    .scroll-fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .scroll-fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scroll-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .scroll-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .scroll-slide-right {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .scroll-slide-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .scroll-slide-left {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .scroll-slide-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
     @media (max-width: 768px) {
       .main-glass-navbar { width: 96%; top: 8px; }
@@ -198,77 +354,368 @@
       #langToggle { min-width: 50px; font-size: 0.65rem; padding: 7px 10px; }
       .menu-toggle-btn { width: 34px; height: 34px; }
       .hero-curve-bottom svg { height: 60px; }
-      .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%); }
+      .hero-overlay { background: linear-gradient(to bottom, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.75) 50%, rgba(209,207,196,0.9) 100%); }
       .rounded-section { border-radius: 35px 35px 0 0; margin-top: -25px; padding-top: 50px; }
       .services-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; max-width: 98%; }
       .service-pill-btn { padding: 10px 16px; font-size: 0.75rem; }
       .active-pill-indicator { top: 5px; height: calc(100% - 10px); }
       .svc-img-box { height: 220px; border-radius: 1.5rem; }
-      .quality-image-box { min-height: 280px; border-radius: 1.5rem; }
-      .cursor-dot, .cursor-outline { display: none; }
+      .quality-image-box { min-height: 280px; max-height: 320px; max-width: 100%; border-radius: 14px; }
+      .quality-image-box img { height: 280px; }
+      .quality-image-overlay { padding: 18px; }
+      .quality-badge { padding: 6px 12px; font-size: 0.65rem; margin-top: 8px; }
       h1 { font-size: 2.2rem !important; }
       .project-slide { height: 300px; }
       .carousel-arrow { width: 35px; height: 35px; font-size: 0.9rem; }
-      .carousel-arrow.prev { left: 10px; }
-      .carousel-arrow.next { right: 10px; }
-      .project-slide-title { font-size: 1.2rem; }
+      .carousel-arrow.prev { left: 10px; } .carousel-arrow.next { right: 10px; }
+      .project-slide-title { font-size: 1.3rem; }
       .products-scroll-container { gap: 14px; padding: 15px 5px; margin-top: 20px; }
-      .product-card { width: 250px; border-radius: 1.2rem; }
+      .product-card { width: 250px; border-radius: 16px; }
       .product-card-image { height: 160px; }
       .product-card-content { padding: 14px; }
-      .product-card-title { font-size: 1.1rem; }
+      .product-card-title { font-size: 1.05rem; }
       .product-card-desc { font-size: 0.75rem; margin-bottom: 8px; }
-      .product-card-price { font-size: 1.1rem; margin-bottom: 10px; }
-      .product-card-btn { padding: 8px; font-size: 0.7rem; }
+      .product-card-price { font-size: 1.05rem; margin-bottom: 8px; }
+      .product-card-btn { padding: 8px; font-size: 0.75rem; }
       .product-card-badge { top: 8px; left: 8px; padding: 4px 10px; font-size: 0.6rem; }
-      .detail-modal { padding: 15px; border-radius: 1rem; }
-      .detail-modal-image { height: 150px; }
+      .detail-modal { padding: 15px; border-radius: 14px; }
+      .detail-modal-image { height: 140px; }
       .detail-table th, .detail-table td { padding: 8px 10px; font-size: 0.75rem; }
+      .premium-card { width: 280px; padding: 24px 18px; }
+      .premium-card-title { font-size: 19px; }
+      .premium-card-desc { font-size: 14px; }
+      .team-grid-card-img { height: 240px; }
+      .team-grid-card-overlay { padding: 14px 12px; }
+      .team-grid-card-name { font-size: 1rem; }
+      .team-grid-card-position { font-size: 0.7rem; }
+      .team-nav-btn { font-size: 0.75rem; padding: 10px 16px; }
+      .team-nav-scroll { justify-content: flex-start; padding: 8px 4px 12px 4px; }
+      .type-cursor { height: 0.9em; }
+      .type-line { min-height: 1.4em; }
     }
-
     @media (max-width: 380px) {
       .product-card { width: 220px; }
       .product-card-image { height: 140px; }
       .products-scroll-container { gap: 10px; padding: 12px 4px; }
       .product-card-content { padding: 12px; }
-      .product-card-title { font-size: 1rem; }
-      .product-card-price { font-size: 1rem; }
-      .product-card-btn { font-size: 0.65rem; padding: 7px; }
+      .quality-image-box { min-height: 220px; max-height: 250px; }
+      .quality-image-box img { height: 220px; }
+      .premium-card { width: 250px; padding: 20px 14px; }
+      .premium-card-title { font-size: 17px; }
+      .premium-card-desc { font-size: 13px; }
+      .team-grid-card-img { height: 180px; }
+      .team-nav-btn { font-size: 0.7rem; padding: 8px 12px; }
+      .type-cursor { height: 0.8em; }
     }
   </style>
 </head>
 <body>
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-outline" id="cursorOutline"></div>
   <div id="loading-screen"><div class="loader-gold"></div></div>
-  <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-yellow-600 to-yellow-400 z-50" id="progressBar" style="width:0%"></div>
-  
+  <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-gray-600 to-gray-800 z-50" id="progressBar" style="width:0%"></div>
   <div class="menu-overlay" id="menuOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="flex justify-between items-center mb-8">
-      <span class="text-xl font-luxury gold-text" data-translate="company-name">Qimmat Al-Tamayoz</span>
-      <i class="fas fa-times text-2xl text-white cursor-pointer p-2" id="closeMenu"></i>
+      <span class="text-xl font-luxury" style="color:#1a1a1a;font-weight:700;" data-translate="company-name">Qimmat Al-Tamayoz</span>
+      <i class="fas fa-times text-2xl cursor-pointer p-2" style="color:#1a1a1a;" id="closeMenu"></i>
     </div>
     <div class="space-y-3 text-lg">
-      <a href="#home" class="block gold-text py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-home">Home</a>
-      <a href="#services" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-services">Services</a>
-      <a href="#about" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-about">About</a>
-      <a href="#projects" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-projects">Projects</a>
-      <a href="#contact" class="block text-white/80 py-3 px-4 rounded-2xl mobile-nav-link" data-translate="nav-contact">Contact</a>
+      <a href="#home" class="block py-3 px-4 rounded-2xl mobile-nav-link" style="color:#1a1a1a;font-weight:600;" data-translate="nav-home">Home</a>
+      <a href="#services" class="block py-3 px-4 rounded-2xl mobile-nav-link" style="color:#1a1a1a;font-weight:600;" data-translate="nav-services">Services</a>
+      <a href="#about" class="block py-3 px-4 rounded-2xl mobile-nav-link" style="color:#1a1a1a;font-weight:600;" data-translate="nav-about">About</a>
+      <a href="#projects" class="block py-3 px-4 rounded-2xl mobile-nav-link" style="color:#1a1a1a;font-weight:600;" data-translate="nav-projects">Projects</a>
+      <a href="#team" class="block py-3 px-4 rounded-2xl mobile-nav-link" style="color:#1a1a1a;font-weight:600;" data-translate="nav-team">Team</a>
+      <a href="#contact" class="block py-3 px-4 rounded-2xl mobile-nav-link" style="color:#1a1a1a;font-weight:600;" data-translate="nav-contact">Contact</a>
     </div>
   </div>
 
-  <!-- DETAIL MODAL -->
+  <nav class="main-glass-navbar" id="mainNav">
+    <div class="nav-glow-line"></div>
+    <div class="nav-glass-inner">
+      <a href="#home" class="nav-logo font-luxury" data-translate="company-name">Qimmat Al-Tamayoz</a>
+      <div class="main-nav-links">
+        <a href="#home" class="main-nav-link active" data-translate="nav-home">Home</a>
+        <a href="#services" class="main-nav-link" data-translate="nav-services">Services</a>
+        <a href="#about" class="main-nav-link" data-translate="nav-about">About</a>
+        <a href="#projects" class="main-nav-link" data-translate="nav-projects">Projects</a>
+        <a href="#team" class="main-nav-link" data-translate="nav-team">Team</a>
+        <a href="#contact" class="main-nav-link" data-translate="nav-contact">Contact</a>
+      </div>
+      <div class="nav-right-group">
+        <button id="langToggle"><span id="langText">English</span></button>
+        <button class="menu-toggle-btn" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="hero-full-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
+      <div class="text-left max-w-xl">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-luxury font-bold leading-none mb-4 md:mb-6" style="color:#1a1a1a;">
+          <span id="typeLine1" class="type-line"></span>
+          <span id="typeLine2" class="type-line"></span>
+        </h1>
+        <p id="typeLine3" class="text-sm md:text-lg max-w-lg mb-8 md:mb-10" style="color:#1a1a1a;font-weight:500;min-height:3em;"></p>
+        <p id="typeLineAr" class="max-w-lg mb-8 md:mb-10 font-arabic type-line-ar" style="color:#1a1a1a;font-weight:700;min-height:3em;direction:rtl;text-align:right;display:none;"></p>
+        <div class="flex gap-3 md:gap-4">
+          <a href="#services" class="btn-premium"><span data-translate="our-services">Our Services</span></a>
+          <a href="#contact" class="btn-premium" style="background:transparent; border-color:rgba(26,26,26,0.4); color:#1a1a1a;"><span data-translate="request-quote">Request Quote</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-curve-bottom"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg></div>
+  </section>
+
+  <section id="services" class="py-16 md:py-28 px-3 md:px-6 relative rounded-section" style="background:#d1cfc4;">
+    <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C480,0 960,80 1440,30 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <h2 class="text-2xl md:text-5xl font-luxury text-center mb-8 md:mb-14 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="services-title">Our Services</h2>
+      <div class="services-glass-nav" id="servicesGlassNav">
+        <div class="active-pill-indicator" id="activePill"></div>
+        <button class="service-pill-btn active" data-svc="caravans"><span data-translate="tab-caravans">🚐 Caravans</span></button>
+        <button class="service-pill-btn" data-svc="furniture"><span data-translate="tab-furniture">🪑 Furniture</span></button>
+        <button class="service-pill-btn" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
+      </div>
+
+      <div class="service-detail active" id="detail-caravans">
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <div class="svc-img-box scroll-slide-right"><img src="https://static.vecteezy.com/system/resources/thumbnails/029/633/495/small_2x/family-vacation-travel-rv-holiday-trip-in-motorhome-caravan-car-vacation-beautiful-nature-norway-natural-landscape-free-photo.jpeg" alt="Luxury Caravan"></div>
+          <div class="scroll-slide-left">
+            <h3 class="text-xl md:text-4xl font-luxury mb-3" style="color:#1a1a1a;font-weight:700;" data-translate="caravans-title">Luxury Caravans</h3>
+            <p class="text-sm md:text-lg mb-3" style="color:rgba(26,26,26,0.85);font-weight:500;" data-translate="caravans-desc">Custom mobile units with premium interiors.</p>
+            <ul class="feat-list space-y-1">
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year warranty</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="products-scroll-container">
+          <div class="product-card" data-name="Royal Suite Caravan" data-category="Caravans" data-price="SAR 185,000" data-desc="Luxury mobile unit" data-material="Aluminum, wood, leather" data-dimensions="8.5m x 2.5m x 3m" data-warranty="5 years" data-delivery="60 days" data-availability="In Stock" data-sku="CRV-001" data-image="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Royal Suite Caravan</p><p class="product-card-desc">Luxury mobile unit</p><p class="product-card-price">SAR 185,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Family Cruiser" data-category="Caravans" data-price="SAR 145,000" data-desc="Spacious family caravan" data-material="Fiberglass, wood" data-dimensions="7.5m x 2.3m x 2.8m" data-warranty="3 years" data-delivery="45 days" data-availability="In Stock" data-sku="CRV-002" data-image="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Family Cruiser</p><p class="product-card-desc">Spacious family</p><p class="product-card-price">SAR 145,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Desert Explorer" data-category="Caravans" data-price="SAR 165,000" data-desc="Off-road adventure" data-material="Steel, aluminum" data-dimensions="6.8m x 2.2m x 2.9m" data-warranty="4 years" data-delivery="50 days" data-availability="In Stock" data-sku="CRV-003" data-image="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">Desert Explorer</p><p class="product-card-desc">Off-road caravan</p><p class="product-card-price">SAR 165,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Executive Mobile Office" data-category="Caravans" data-price="SAR 210,000" data-desc="Business caravan" data-material="Aluminum, glass" data-dimensions="9m x 2.6m x 3.1m" data-warranty="5 years" data-delivery="75 days" data-availability="Made to Order" data-sku="CRV-004" data-image="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Executive Mobile Office</p><p class="product-card-desc">Business caravan</p><p class="product-card-price">SAR 210,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Presidential Suite" data-category="Caravans" data-price="SAR 250,000" data-desc="Top-tier luxury" data-material="Premium" data-dimensions="10m x 2.8m x 3.2m" data-warranty="5 years" data-delivery="90 days" data-availability="Made to Order" data-sku="CRV-005" data-image="https://images.unsplash.com/photo-1533050487297-09b450131914?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1533050487297-09b450131914?w=400&q=80" alt="Product"><span class="product-card-badge">Luxury</span></div><div class="product-card-content"><p class="product-card-title">Presidential Suite</p><p class="product-card-desc">Top-tier luxury</p><p class="product-card-price">SAR 250,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+        </div>
+      </div>
+
+      <div class="service-detail" id="detail-furniture">
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <div class="svc-img-box scroll-slide-right"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Custom Furniture"></div>
+          <div class="scroll-slide-left">
+            <h3 class="text-xl md:text-4xl font-luxury mb-3" style="color:#1a1a1a;font-weight:700;" data-translate="furniture-title">Custom Furniture</h3>
+            <p class="text-sm md:text-lg mb-3" style="color:rgba(26,26,26,0.85);font-weight:500;" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture.</p>
+            <ul class="feat-list space-y-1">
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel collections</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Office systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa pieces</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC cutting</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="products-scroll-container">
+          <div class="product-card" data-name="Royal Sofa Set" data-category="Furniture" data-price="SAR 15,000" data-desc="Luxury sofa" data-material="Fabric, wood" data-dimensions="3+2 seater" data-warranty="5 years" data-delivery="15 days" data-availability="In Stock" data-sku="FUR-001" data-image="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Royal Sofa Set</p><p class="product-card-desc">Luxury sofa</p><p class="product-card-price">SAR 15,000 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Executive Desk" data-category="Furniture" data-price="SAR 8,500" data-desc="Premium desk" data-material="Walnut, brass" data-dimensions="180x80x75cm" data-warranty="3 years" data-delivery="10 days" data-availability="In Stock" data-sku="FUR-002" data-image="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Executive Desk</p><p class="product-card-desc">Premium desk</p><p class="product-card-price">SAR 8,500 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Dining Table Set" data-category="Furniture" data-price="SAR 12,500" data-desc="6-seater dining" data-material="Marble, oak" data-dimensions="200x100x76cm" data-warranty="3 years" data-delivery="12 days" data-availability="In Stock" data-sku="FUR-003" data-image="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">Dining Table Set</p><p class="product-card-desc">6-seater dining</p><p class="product-card-price">SAR 12,500 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Lounge Chair" data-category="Furniture" data-price="SAR 3,500" data-desc="Ergonomic lounge" data-material="Leather, chrome" data-dimensions="70x75x90cm" data-warranty="2 years" data-delivery="7 days" data-availability="In Stock" data-sku="FUR-004" data-image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Lounge Chair</p><p class="product-card-desc">Ergonomic lounge</p><p class="product-card-price">SAR 3,500 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+        </div>
+      </div>
+
+      <div class="service-detail" id="detail-stands">
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <div class="svc-img-box scroll-slide-right"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80" alt="Exhibition Stand"></div>
+          <div class="scroll-slide-left">
+            <h3 class="text-xl md:text-4xl font-luxury mb-3" style="color:#1a1a1a;font-weight:700;" data-translate="stands-title">Exhibition Stands</h3>
+            <p class="text-sm md:text-lg mb-3" style="color:rgba(26,26,26,0.85);font-weight:500;" data-translate="stands-desc">World-class event structures.</p>
+            <ul class="feat-list space-y-1">
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular systems</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">AV integration</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation</span></li>
+              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">Logistics</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="products-scroll-container">
+          <div class="product-card" data-name="Expo Grand Stand" data-category="Stands" data-price="SAR 55,000" data-desc="Large booth" data-material="Aluminum, glass" data-dimensions="10x5x4m" data-warranty="1 year" data-delivery="20 days" data-availability="In Stock" data-sku="STD-001" data-image="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Expo Grand Stand</p><p class="product-card-desc">Large booth</p><p class="product-card-price">SAR 55,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Modular Display" data-category="Stands" data-price="SAR 25,000" data-desc="Portable system" data-material="Aluminum frame" data-dimensions="3x3x3m" data-warranty="1 year" data-delivery="10 days" data-availability="In Stock" data-sku="STD-002" data-image="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Modular Display</p><p class="product-card-desc">Portable system</p><p class="product-card-price">SAR 25,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="VIP Booth Package" data-category="Stands" data-price="SAR 75,000" data-desc="Premium VIP booth" data-material="Glass, wood" data-dimensions="12x6x4.5m" data-warranty="1 year" data-delivery="25 days" data-availability="Made to Order" data-sku="STD-003" data-image="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">VIP Booth Package</p><p class="product-card-desc">Premium VIP booth</p><p class="product-card-price">SAR 75,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+          <div class="product-card" data-name="Outdoor Event Tent" data-category="Stands" data-price="SAR 85,000" data-desc="Large structure" data-material="Steel, PVC" data-dimensions="20x10x5m" data-warranty="2 years" data-delivery="15 days" data-availability="In Stock" data-sku="STD-004" data-image="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Outdoor Event Tent</p><p class="product-card-desc">Large structure</p><p class="product-card-price">SAR 85,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
+  </section>
+
+  <section id="about" class="py-16 md:py-28 px-3 md:px-6" style="background:#d1cfc4;">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-2xl md:text-5xl font-luxury mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="about-title">Crafting Saudi Vision</h2>
+        <p class="text-sm md:text-base mb-6 scroll-fade-up" style="color:rgba(26,26,26,0.85);font-weight:500;" data-translate="about-desc">Traditional craftsmanship with cutting-edge manufacturing.</p>
+        <div class="grid grid-cols-2 gap-2 md:gap-4 mt-6">
+          <div class="glass-card p-3 md:p-6 text-center scroll-scale"><span class="text-2xl md:text-4xl font-bold counter" style="color:#1a1a1a;font-weight:800;" data-target="500">0</span>+<p class="text-xs mt-1" style="color:rgba(26,26,26,0.7);font-weight:600;" data-translate="completed-projects">Projects</p></div>
+          <div class="glass-card p-3 md:p-6 text-center scroll-scale"><span class="text-2xl md:text-4xl font-bold counter" style="color:#1a1a1a;font-weight:800;" data-target="250">0</span>+<p class="text-xs mt-1" style="color:rgba(26,26,26,0.7);font-weight:600;" data-translate="corporate-clients">Clients</p></div>
+          <div class="glass-card p-3 md:p-6 text-center scroll-scale"><span class="text-2xl md:text-4xl font-bold counter" style="color:#1a1a1a;font-weight:800;" data-target="15">0</span>+<p class="text-xs mt-1" style="color:rgba(26,26,26,0.7);font-weight:600;" data-translate="years-experience">Years</p></div>
+          <div class="glass-card p-3 md:p-6 text-center scroll-scale"><span class="text-2xl md:text-4xl font-bold" style="color:#1a1a1a;font-weight:800;">100</span>%<p class="text-xs mt-1" style="color:rgba(26,26,26,0.7);font-weight:600;" data-translate="quality-commitment">Quality</p></div>
+        </div>
+      </div>
+      <div class="quality-image-box scroll-slide-right">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80" alt="Saudi Quality Standards">
+        <div class="quality-image-overlay">
+          <p class="text-lg md:text-xl font-luxury" style="color:#1a1a1a;font-weight:700;" data-translate="saudi-standards">Saudi Quality Standards</p>
+          <p class="text-xs mt-1" style="color:rgba(26,26,26,0.75);font-weight:500;" data-translate="iso-certified">ISO Certified • Precision Engineering</p>
+          <div class="quality-badge"><i class="fas fa-certificate"></i><span>ISO 9001:2015</span></div>
+          <div class="quality-badge" style="margin-left:6px;"><i class="fas fa-check-double"></i><span>SASO Certified</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-16 md:py-24 px-3 md:px-6 rounded-section" style="background:#d1cfc4;">
+    <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C360,0 720,80 1080,20 L1440,60 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
+    <div class="max-w-6xl mx-auto relative z-10">
+      <h2 class="text-2xl md:text-5xl font-luxury text-center mb-8 md:mb-12 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="projects-title">Featured Projects</h2>
+      <div class="projects-carousel-container scroll-scale" id="projectsCarousel">
+        <div class="projects-track" id="projectsTrack">
+          <div class="project-slide active"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&q=80" alt="Royal Caravan"><div class="project-slide-overlay"><p class="project-slide-title">Royal Caravan Suite</p><p class="project-slide-desc">Luxury mobile unit</p></div></div>
+          <div class="project-slide"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" alt="Furniture"><div class="project-slide-overlay"><p class="project-slide-title">Bespoke Furniture</p><p class="project-slide-desc">Custom collection</p></div></div>
+          <div class="project-slide"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=1200&q=80" alt="Exhibition"><div class="project-slide-overlay"><p class="project-slide-title">International Expo</p><p class="project-slide-desc">Exhibition booth</p></div></div>
+        </div>
+        <button class="carousel-arrow prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-arrow next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-progress-bar" id="carouselProgress"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section id="team" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-5xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="team-title">Meet Our Team</h2>
+      <p class="text-center text-sm md:text-base mb-6 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;">Click a category to view team members</p>
+      
+      <div class="team-nav-scroll" id="teamNavScroll">
+        <button class="team-nav-btn" data-team="executive">Executive</button>
+        <button class="team-nav-btn" data-team="engineering">Engineering</button>
+        <button class="team-nav-btn" data-team="projects">Projects</button>
+        <button class="team-nav-btn" data-team="design">Design</button>
+        <button class="team-nav-btn active" data-team="all">All Team</button>
+      </div>
+
+      <div id="teamGridContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-4"></div>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION + CORE VALUES with Typing Effect -->
+  <section id="vision-mission" class="py-16 md:py-20 px-3 md:px-6" style="background:#d1cfc4;">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="vision-title">Our Vision, Mission & Values</h2>
+      <div class="flex gap-6 justify-center flex-wrap">
+        <div class="premium-card card-typing" data-delay="0" data-title-en="Our Vision" data-title-ar="رؤيتنا" data-desc-en="To be the leading provider of premium engineering, manufacturing, and construction solutions in Saudi Arabia and the Middle East, setting the benchmark for quality, innovation, and customer satisfaction." data-desc-ar="أن نكون المزود الرائد للحلول الهندسية والتصنيعية والإنشائية في المملكة العربية السعودية والشرق الأوسط، واضعين المعيار للجودة والابتكار ورضا العملاء.">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">Leadership</span>
+          <span class="premium-card-tag">Innovation</span>
+          <span class="premium-card-tag">Excellence</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+        <div class="premium-card card-typing" data-delay="100" data-title-en="Our Mission" data-title-ar="مهمتنا" data-desc-en="To deliver exceptional value to our clients through innovative design, precision manufacturing, and reliable installation services, while maintaining the highest standards of safety, sustainability, and professional integrity." data-desc-ar="تقديم قيمة استثنائية لعملائنا من خلال التصميم المبتكر والتصنيع الدقيق وخدمات التركيب الموثوقة، مع الحفاظ على أعلى معايير السلامة والاستدامة والنزاهة المهنية.">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">Quality</span>
+          <span class="premium-card-tag">Safety</span>
+          <span class="premium-card-tag">Integrity</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+        <div class="premium-card card-typing" data-delay="200" data-title-en="Core Values" data-title-ar="قيمنا الأساسية" data-desc-en="We operate with unyielding integrity, embrace innovation, and prioritize our clients' success. Our commitment to excellence drives every project, ensuring sustainable and impactful results." data-desc-ar="نعمل بنزاهة لا تتزعزع، ونتبنى الابتكار، ونعطي الأولوية لنجاح عملائنا. التزامنا بالتميز يقود كل مشروع، مما يضمن نتائج مستدامة ومؤثرة.">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">Integrity</span>
+          <span class="premium-card-tag">Innovation</span>
+          <span class="premium-card-tag">Sustainability</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRENGTHS with Typing Effect -->
+  <section id="strengths" class="py-16 md:py-20 px-3 md:px-6" style="background:#d1cfc4;">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:800;" data-translate="strengths-title">Our Strengths</h2>
+      <div class="flex gap-6 justify-center flex-wrap">
+        <div class="premium-card card-typing" data-delay="0" data-title-en="Advanced Manufacturing" data-title-ar="التصنيع المتقدم" data-desc-en="State-of-the-art CNC machinery for precision fabrication" data-desc-ar="آلات CNC متطورة للتصنيع الدقيق">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">CNC</span>
+          <span class="premium-card-tag">Precision</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+        <div class="premium-card card-typing" data-delay="100" data-title-en="Expert Team" data-title-ar="فريق الخبراء" data-desc-en="Highly skilled engineers and craftsmen" data-desc-ar="مهندسون وحرفيون ذوو مهارات عالية">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">Skilled</span>
+          <span class="premium-card-tag">Experienced</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+        <div class="premium-card card-typing" data-delay="200" data-title-en="Quality Assurance" data-title-ar="ضمان الجودة" data-desc-en="ISO certified processes for consistent quality" data-desc-ar="عمليات معتمدة من ISO لضمان الجودة المتسقة">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">ISO</span>
+          <span class="premium-card-tag">Certified</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+        <div class="premium-card card-typing" data-delay="100" data-title-en="On-Time Delivery" data-title-ar="التسليم في الوقت المحدد" data-desc-en="Proven track record of schedule compliance" data-desc-ar="سجل حافل بالالتزام بالجداول الزمنية">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">Reliable</span>
+          <span class="premium-card-tag">Punctual</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+        <div class="premium-card card-typing" data-delay="150" data-title-en="Innovation" data-title-ar="الابتكار" data-desc-en="Continuous R&D for cutting-edge solutions" data-desc-ar="البحث والتطوير المستمر للحلول المتطورة">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">R&D</span>
+          <span class="premium-card-tag">Future</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+        <div class="premium-card card-typing" data-delay="200" data-title-en="Customer Focus" data-title-ar="التركيز على العملاء" data-desc-en="Dedicated support and personalized solutions" data-desc-ar="دعم مخصص وحلول شخصية">
+          <p class="premium-card-title"></p>
+          <p class="premium-card-desc"></p>
+          <span class="premium-card-tag">Support</span>
+          <span class="premium-card-tag">Custom</span>
+          <button class="premium-card-btn">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl md:text-5xl font-luxury mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="contact-title">Get In Touch</h2>
+      <p class="text-sm mb-3 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-map-marker-alt mr-2" style="color:#b8941e;"></i> <span data-translate="contact-address">King Fahd Road, Riyadh</span></p>
+      <p class="text-sm mb-4 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-phone mr-2" style="color:#b8941e;"></i> +966 50 000 0000</p>
+      <a href="#contact" class="btn-premium scroll-fade-up"><span data-translate="send-inquiry">Send Inquiry</span></a>
+    </div>
+  </section>
+
+  <footer class="border-t py-6 text-center text-xs" style="background:#d1cfc4; border-color:rgba(26,26,26,0.1); color:rgba(26,26,26,0.65);font-weight:500;">
+    <p data-translate="copyright">© 2025 Qimmat Al-Tamayoz Development Co.</p>
+  </footer>
+
   <div class="detail-modal-overlay" id="detailModal">
     <div class="detail-modal">
       <div class="detail-modal-header">
         <p class="detail-modal-title" id="modalTitle">Product Details</p>
         <button class="detail-modal-close" id="modalClose"><i class="fas fa-times"></i></button>
       </div>
-      <div class="detail-modal-image" id="modalImage">
-        <img src="" alt="Product">
-      </div>
-      <table class="detail-table" id="modalTable">
+      <div class="detail-modal-image"><img src="" alt="Product" id="modalImageImg"></div>
+      <table class="detail-table">
         <tbody>
           <tr><th>Product Name</th><td id="modalProductName">-</td></tr>
           <tr><th>Category</th><td id="modalCategory">-</td></tr>
@@ -285,207 +732,15 @@
     </div>
   </div>
 
-  <nav class="main-glass-navbar" id="mainNav">
-    <div class="nav-glow-line"></div>
-    <div class="nav-glass-inner">
-      <a href="#home" class="nav-logo gold-text font-luxury" data-translate="company-name">Qimmat Al-Tamayoz</a>
-      <div class="main-nav-links">
-        <a href="#home" class="main-nav-link active" data-translate="nav-home">Home</a>
-        <a href="#services" class="main-nav-link" data-translate="nav-services">Services</a>
-        <a href="#about" class="main-nav-link" data-translate="nav-about">About</a>
-        <a href="#projects" class="main-nav-link" data-translate="nav-projects">Projects</a>
-        <a href="#contact" class="main-nav-link" data-translate="nav-contact">Contact</a>
-      </div>
-      <div class="nav-right-group">
-        <button id="langToggle"><span id="langText">English</span></button>
-        <button class="menu-toggle-btn" id="menuToggle"><i class="fas fa-bars"></i></button>
-      </div>
-    </div>
-  </nav>
-
-  <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
-    <div class="hero-full-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
-      <div class="text-left max-w-xl">
-        <h1 class="text-4xl sm:text-5xl md:text-7xl font-luxury font-bold leading-none mb-4 md:mb-6">
-          <span class="gold-text" data-translate="hero-title-1">Engineering Excellence.</span><br>
-          <span class="text-white/90" data-translate="hero-title-2">Building Premium Spaces.</span>
-        </h1>
-        <p class="text-sm md:text-lg text-white/70 max-w-lg mb-8 md:mb-10" data-translate="hero-subtitle">Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands, and construction solutions.</p>
-        <div class="flex gap-3 md:gap-4">
-          <a href="#services" class="btn-premium"><span data-translate="our-services">Our Services</span></a>
-          <a href="#contact" class="btn-premium" style="background:transparent; border-color:rgba(255,255,255,0.3); color:#fff;"><span data-translate="request-quote">Request Quote</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-curve-bottom"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg></div>
-  </section>
-
-  <section id="services" class="py-16 md:py-28 px-3 md:px-6 relative rounded-section" style="background:#0d0d0d;">
-    <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C480,0 960,80 1440,30 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
-    <div class="max-w-7xl mx-auto relative z-10">
-      <h2 class="text-2xl md:text-5xl font-luxury gold-text text-center mb-8 md:mb-14" data-translate="services-title">Our Services</h2>
-      <div class="services-glass-nav" id="servicesGlassNav">
-        <div class="active-pill-indicator" id="activePill"></div>
-        <button class="service-pill-btn active" data-svc="caravans"><span data-translate="tab-caravans">🚐 Caravans</span></button>
-        <button class="service-pill-btn" data-svc="furniture"><span data-translate="tab-furniture">🪑 Furniture</span></button>
-        <button class="service-pill-btn" data-svc="stands"><span data-translate="tab-stands">🎪 Stands</span></button>
-      </div>
-
-      <div class="service-detail active" id="detail-caravans">
-        <div class="grid md:grid-cols-2 gap-6 items-center">
-          <div class="svc-img-box"><img src="https://static.vecteezy.com/system/resources/thumbnails/029/633/495/small_2x/family-vacation-travel-rv-holiday-trip-in-motorhome-caravan-car-vacation-beautiful-nature-norway-natural-landscape-free-photo.jpeg" alt="Luxury Caravan"></div>
-          <div>
-            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="caravans-title">Luxury Caravans</h3>
-            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="caravans-desc">Custom mobile units with premium interiors.</p>
-            <ul class="feat-list space-y-1">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f1">Custom interior design</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f2">Premium materials</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f3">Full electrical</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f4">Smart home</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="caravans-f5">5-year warranty</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="products-scroll-container">
-          <div class="product-card" data-name="Royal Suite Caravan" data-category="Caravans" data-price="SAR 185,000" data-desc="Luxury mobile unit with premium interior and smart home integration" data-material="Aluminum frame, premium wood, leather" data-dimensions="8.5m x 2.5m x 3m" data-warranty="5 years" data-delivery="60 days" data-availability="In Stock" data-sku="CRV-001" data-image="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Royal Suite Caravan</p><p class="product-card-desc">Luxury mobile unit</p><p class="product-card-price">SAR 185,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Family Cruiser" data-category="Caravans" data-price="SAR 145,000" data-desc="Spacious family caravan with 4 berths and full kitchen" data-material="Fiberglass, wood" data-dimensions="7.5m x 2.3m x 2.8m" data-warranty="3 years" data-delivery="45 days" data-availability="In Stock" data-sku="CRV-002" data-image="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Family Cruiser</p><p class="product-card-desc">Spacious family</p><p class="product-card-price">SAR 145,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Desert Explorer" data-category="Caravans" data-price="SAR 165,000" data-desc="Off-road adventure caravan with reinforced chassis" data-material="Steel, aluminum" data-dimensions="6.8m x 2.2m x 2.9m" data-warranty="4 years" data-delivery="50 days" data-availability="In Stock" data-sku="CRV-003" data-image="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">Desert Explorer</p><p class="product-card-desc">Off-road caravan</p><p class="product-card-price">SAR 165,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Executive Mobile Office" data-category="Caravans" data-price="SAR 210,000" data-desc="Business caravan with built-in workspace and conference area" data-material="Aluminum, glass, wood" data-dimensions="9m x 2.6m x 3.1m" data-warranty="5 years" data-delivery="75 days" data-availability="Made to Order" data-sku="CRV-004" data-image="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Executive Mobile Office</p><p class="product-card-desc">Business caravan</p><p class="product-card-price">SAR 210,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Presidential Suite" data-category="Caravans" data-price="SAR 250,000" data-desc="Top-tier luxury caravan with all amenities" data-material="Premium materials throughout" data-dimensions="10m x 2.8m x 3.2m" data-warranty="5 years" data-delivery="90 days" data-availability="Made to Order" data-sku="CRV-005" data-image="https://images.unsplash.com/photo-1533050487297-09b450131914?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1533050487297-09b450131914?w=400&q=80" alt="Product"><span class="product-card-badge">Luxury</span></div><div class="product-card-content"><p class="product-card-title">Presidential Suite</p><p class="product-card-desc">Top-tier luxury</p><p class="product-card-price">SAR 250,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Sport Adventure" data-category="Caravans" data-price="SAR 125,000" data-desc="Compact sports caravan for active lifestyle" data-material="Lightweight composite" data-dimensions="5.5m x 2m x 2.5m" data-warranty="2 years" data-delivery="30 days" data-availability="In Stock" data-sku="CRV-006" data-image="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Sport Adventure</p><p class="product-card-desc">Compact sports</p><p class="product-card-price">SAR 125,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Hotel on Wheels" data-category="Caravans" data-price="SAR 220,000" data-desc="Full amenities luxury unit with hotel-grade features" data-material="Premium aluminum, marble, wood" data-dimensions="9.5m x 2.7m x 3m" data-warranty="5 years" data-delivery="80 days" data-availability="Made to Order" data-sku="CRV-007" data-image="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Hotel on Wheels</p><p class="product-card-desc">Full amenities</p><p class="product-card-price">SAR 220,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Mini Traveler" data-category="Caravans" data-price="SAR 95,000" data-desc="Compact travel caravan for couples" data-material="Fiberglass" data-dimensions="4.5m x 1.8m x 2.2m" data-warranty="2 years" data-delivery="25 days" data-availability="In Stock" data-sku="CRV-008" data-image="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80" alt="Product"><span class="product-card-badge">Compact</span></div><div class="product-card-content"><p class="product-card-title">Mini Traveler</p><p class="product-card-desc">Compact travel</p><p class="product-card-price">SAR 95,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="VIP Lounge Caravan" data-category="Caravans" data-price="SAR 280,000" data-desc="Entertainment luxury unit with lounge area" data-material="Premium all materials" data-dimensions="11m x 3m x 3.3m" data-warranty="5 years" data-delivery="100 days" data-availability="Made to Order" data-sku="CRV-009" data-image="https://images.unsplash.com/photo-1533050487297-09b450131914?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1533050487297-09b450131914?w=400&q=80" alt="Product"><span class="product-card-badge">VIP</span></div><div class="product-card-content"><p class="product-card-title">VIP Lounge Caravan</p><p class="product-card-desc">Entertainment unit</p><p class="product-card-price">SAR 280,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Family Vacation Home" data-category="Caravans" data-price="SAR 175,000" data-desc="Large family caravan with multiple bedrooms" data-material="Aluminum, wood" data-dimensions="8m x 2.4m x 2.9m" data-warranty="3 years" data-delivery="55 days" data-availability="In Stock" data-sku="CRV-010" data-image="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=400&q=80" alt="Product"><span class="product-card-badge">Family</span></div><div class="product-card-content"><p class="product-card-title">Family Vacation Home</p><p class="product-card-desc">Large family</p><p class="product-card-price">SAR 175,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-        </div>
-      </div>
-
-      <div class="service-detail" id="detail-furniture">
-        <div class="grid md:grid-cols-2 gap-6 items-center">
-          <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Custom Furniture"></div>
-          <div>
-            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="furniture-title">Custom Furniture</h3>
-            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="furniture-desc">Villa, hotel, office & restaurant furniture.</p>
-            <ul class="feat-list space-y-1">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f1">Bespoke wood & metal</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f2">Hotel collections</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f3">Office systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f4">Villa pieces</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="furniture-f5">CNC cutting</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="products-scroll-container">
-          <div class="product-card" data-name="Royal Sofa Set" data-category="Furniture" data-price="SAR 15,000" data-desc="Luxury living room sofa set with premium fabric" data-material="Premium fabric, solid wood" data-dimensions="3-seater + 2-seater" data-warranty="5 years" data-delivery="15 days" data-availability="In Stock" data-sku="FUR-001" data-image="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Royal Sofa Set</p><p class="product-card-desc">Luxury sofa</p><p class="product-card-price">SAR 15,000 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Executive Desk" data-category="Furniture" data-price="SAR 8,500" data-desc="Premium office desk with storage" data-material="Walnut wood, brass" data-dimensions="180cm x 80cm x 75cm" data-warranty="3 years" data-delivery="10 days" data-availability="In Stock" data-sku="FUR-002" data-image="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Executive Desk</p><p class="product-card-desc">Premium desk</p><p class="product-card-price">SAR 8,500 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Dining Table Set" data-category="Furniture" data-price="SAR 12,500" data-desc="6-seater luxury dining set" data-material="Marble top, oak wood" data-dimensions="200cm x 100cm x 76cm" data-warranty="3 years" data-delivery="12 days" data-availability="In Stock" data-sku="FUR-003" data-image="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">Dining Table Set</p><p class="product-card-desc">6-seater dining</p><p class="product-card-price">SAR 12,500 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Lounge Chair" data-category="Furniture" data-price="SAR 3,500" data-desc="Ergonomic lounge seating for relaxation" data-material="Leather, chrome" data-dimensions="70cm x 75cm x 90cm" data-warranty="2 years" data-delivery="7 days" data-availability="In Stock" data-sku="FUR-004" data-image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Lounge Chair</p><p class="product-card-desc">Ergonomic lounge</p><p class="product-card-price">SAR 3,500 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Villa Bedroom Set" data-category="Furniture" data-price="SAR 25,000" data-desc="Complete bedroom furniture with premium finish" data-material="Solid wood, premium fabric" data-dimensions="King bed + wardrobes" data-warranty="5 years" data-delivery="20 days" data-availability="Made to Order" data-sku="FUR-005" data-image="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&q=80" alt="Product"><span class="product-card-badge">Luxury</span></div><div class="product-card-content"><p class="product-card-title">Villa Bedroom Set</p><p class="product-card-desc">Complete bedroom</p><p class="product-card-price">SAR 25,000 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="King Bed Frame" data-category="Furniture" data-price="SAR 7,500" data-desc="Premium king size bed frame" data-material="Oak wood, velvet" data-dimensions="200cm x 180cm" data-warranty="3 years" data-delivery="10 days" data-availability="In Stock" data-sku="FUR-006" data-image="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">King Bed Frame</p><p class="product-card-desc">Premium king bed</p><p class="product-card-price">SAR 7,500 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Workstation System" data-category="Furniture" data-price="SAR 4,500" data-desc="Modular office workstation with ergonomic design" data-material="Metal, laminate" data-dimensions="120cm x 60cm x 75cm" data-warranty="2 years" data-delivery="7 days" data-availability="In Stock" data-sku="FUR-007" data-image="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=400&q=80" alt="Product"><span class="product-card-badge">Office</span></div><div class="product-card-content"><p class="product-card-title">Workstation System</p><p class="product-card-desc">Modular workstation</p><p class="product-card-price">SAR 4,500 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Restaurant Chair Set" data-category="Furniture" data-price="SAR 6,000" data-desc="Premium restaurant seating - set of 4" data-material="Wood, fabric" data-dimensions="45cm x 50cm x 85cm" data-warranty="2 years" data-delivery="8 days" data-availability="In Stock" data-sku="FUR-008" data-image="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=80" alt="Product"><span class="product-card-badge">Restaurant</span></div><div class="product-card-content"><p class="product-card-title">Restaurant Chair Set</p><p class="product-card-desc">Premium seating</p><p class="product-card-price">SAR 6,000 <span>/4 chairs</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Hotel Lobby Set" data-category="Furniture" data-price="SAR 35,000" data-desc="Complete lobby furniture package" data-material="Premium all materials" data-dimensions="Various pieces" data-warranty="3 years" data-delivery="25 days" data-availability="Made to Order" data-sku="FUR-009" data-image="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=400&q=80" alt="Product"><span class="product-card-badge">Hotel</span></div><div class="product-card-content"><p class="product-card-title">Hotel Lobby Set</p><p class="product-card-desc">Lobby furniture</p><p class="product-card-price">SAR 35,000 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="VIP Lounge Set" data-category="Furniture" data-price="SAR 45,000" data-desc="Exclusive lounge furniture set" data-material="Italian leather, walnut" data-dimensions="Various pieces" data-warranty="5 years" data-delivery="30 days" data-availability="Made to Order" data-sku="FUR-010" data-image="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=400&q=80" alt="Product"><span class="product-card-badge">VIP</span></div><div class="product-card-content"><p class="product-card-title">VIP Lounge Set</p><p class="product-card-desc">Exclusive lounge</p><p class="product-card-price">SAR 45,000 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-        </div>
-      </div>
-
-      <div class="service-detail" id="detail-stands">
-        <div class="grid md:grid-cols-2 gap-6 items-center">
-          <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80" alt="Exhibition Stand"></div>
-          <div>
-            <h3 class="text-xl md:text-4xl font-luxury gold-text mb-3" data-translate="stands-title">Exhibition Stands</h3>
-            <p class="text-white/70 mb-3 text-sm md:text-lg" data-translate="stands-desc">World-class event structures.</p>
-            <ul class="feat-list space-y-1">
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f1">Custom booth design</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f2">Modular systems</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f3">AV integration</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f4">Installation</span></li>
-              <li><i class="fas fa-check-circle"></i> <span data-translate="stands-f5">Logistics</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="products-scroll-container">
-          <div class="product-card" data-name="Expo Grand Stand" data-category="Stands" data-price="SAR 55,000" data-desc="Large exhibition booth with premium finish" data-material="Aluminum, glass, LED" data-dimensions="10m x 5m x 4m" data-warranty="1 year" data-delivery="20 days" data-availability="In Stock" data-sku="STD-001" data-image="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Expo Grand Stand</p><p class="product-card-desc">Large booth</p><p class="product-card-price">SAR 55,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Modular Display" data-category="Stands" data-price="SAR 25,000" data-desc="Portable modular exhibition system" data-material="Aluminum frame, fabric" data-dimensions="3m x 3m x 3m" data-warranty="1 year" data-delivery="10 days" data-availability="In Stock" data-sku="STD-002" data-image="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&q=80" alt="Product"><span class="product-card-badge">New</span></div><div class="product-card-content"><p class="product-card-title">Modular Display</p><p class="product-card-desc">Portable system</p><p class="product-card-price">SAR 25,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="VIP Booth Package" data-category="Stands" data-price="SAR 75,000" data-desc="Premium VIP exhibition booth with lounge area" data-material="Glass, wood, premium finishes" data-dimensions="12m x 6m x 4.5m" data-warranty="1 year" data-delivery="25 days" data-availability="Made to Order" data-sku="STD-003" data-image="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt="Product"><span class="product-card-badge">Hot</span></div><div class="product-card-content"><p class="product-card-title">VIP Booth Package</p><p class="product-card-desc">Premium VIP booth</p><p class="product-card-price">SAR 75,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Outdoor Event Tent" data-category="Stands" data-price="SAR 85,000" data-desc="Large outdoor event structure" data-material="Steel frame, PVC fabric" data-dimensions="20m x 10m x 5m" data-warranty="2 years" data-delivery="15 days" data-availability="In Stock" data-sku="STD-004" data-image="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">Outdoor Event Tent</p><p class="product-card-desc">Large structure</p><p class="product-card-price">SAR 85,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Stage Platform" data-category="Stands" data-price="SAR 30,000" data-desc="Modular stage system for events" data-material="Aluminum, wood" data-dimensions="8m x 4m x 1m" data-warranty="1 year" data-delivery="7 days" data-availability="In Stock" data-sku="STD-005" data-image="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&q=80" alt="Product"><span class="product-card-badge">Event</span></div><div class="product-card-content"><p class="product-card-title">Stage Platform</p><p class="product-card-desc">Modular stage</p><p class="product-card-price">SAR 30,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="AV Equipment" data-category="Stands" data-price="SAR 20,000" data-desc="Complete audio-visual setup for events" data-material="LED screens, speakers" data-dimensions="Various" data-warranty="1 year" data-delivery="5 days" data-availability="In Stock" data-sku="STD-006" data-image="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&q=80" alt="Product"><span class="product-card-badge">Lighting</span></div><div class="product-card-content"><p class="product-card-title">AV Equipment</p><p class="product-card-desc">Audio-visual setup</p><p class="product-card-price">SAR 20,000 <span>/set</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Portable Booth" data-category="Stands" data-price="SAR 15,000" data-desc="Compact portable exhibition booth" data-material="Aluminum, fabric" data-dimensions="2.5m x 2.5m x 3m" data-warranty="1 year" data-delivery="5 days" data-availability="In Stock" data-sku="STD-007" data-image="https://images.unsplash.com/photo-1561489396-888724a15448?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1561489396-888724a15448?w=400&q=80" alt="Product"><span class="product-card-badge">Booth</span></div><div class="product-card-content"><p class="product-card-title">Portable Booth</p><p class="product-card-desc">Compact booth</p><p class="product-card-price">SAR 15,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Flagship Display" data-category="Stands" data-price="SAR 40,000" data-desc="Retail display system for flagship stores" data-material="Glass, metal, LED" data-dimensions="6m x 3m x 3.5m" data-warranty="1 year" data-delivery="15 days" data-availability="Made to Order" data-sku="STD-008" data-image="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&q=80" alt="Product"><span class="product-card-badge">Flagship</span></div><div class="product-card-content"><p class="product-card-title">Flagship Display</p><p class="product-card-desc">Retail system</p><p class="product-card-price">SAR 40,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="Custom Branding Stand" data-category="Stands" data-price="SAR 50,000" data-desc="Fully customized branding exhibition stand" data-material="Custom materials" data-dimensions="Custom size" data-warranty="1 year" data-delivery="30 days" data-availability="Made to Order" data-sku="STD-009" data-image="https://images.unsplash.com/photo-1478147427282-58a87a120781?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?w=400&q=80" alt="Product"><span class="product-card-badge">Custom</span></div><div class="product-card-content"><p class="product-card-title">Custom Branding Stand</p><p class="product-card-desc">Fully customized</p><p class="product-card-price">SAR 50,000 <span>/unit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-          <div class="product-card" data-name="International Expo Kit" data-category="Stands" data-price="SAR 95,000" data-desc="Complete international exhibition package" data-material="All premium materials" data-dimensions="Full package" data-warranty="2 years" data-delivery="40 days" data-availability="Made to Order" data-sku="STD-010" data-image="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=800&q=80"><div class="product-card-image"><img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400&q=80" alt="Product"><span class="product-card-badge">Premium</span></div><div class="product-card-content"><p class="product-card-title">International Expo Kit</p><p class="product-card-desc">Complete package</p><p class="product-card-price">SAR 95,000 <span>/kit</span></p><button class="product-card-btn view-detail-btn">View Detail</button></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
-  </section>
-
-  <section id="about" class="py-16 md:py-28 px-3 md:px-6" style="background:#0a0a0a;">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h2 class="text-2xl md:text-5xl font-luxury gold-text mb-4" data-translate="about-title">Crafting Saudi Vision</h2>
-        <p class="text-white/70 text-sm md:text-base mb-6" data-translate="about-desc">Traditional craftsmanship with cutting-edge manufacturing.</p>
-        <div class="grid grid-cols-2 gap-2 md:gap-4 mt-6">
-          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="500">0</span>+<p class="text-xs text-white/60 mt-1" data-translate="completed-projects">Projects</p></div>
-          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="250">0</span>+<p class="text-xs text-white/60 mt-1" data-translate="corporate-clients">Clients</p></div>
-          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text counter" data-target="15">0</span>+<p class="text-xs text-white/60 mt-1" data-translate="years-experience">Years</p></div>
-          <div class="glass-card p-3 md:p-6 text-center"><span class="text-2xl md:text-4xl font-bold gold-text">100</span>%<p class="text-xs text-white/60 mt-1" data-translate="quality-commitment">Quality</p></div>
-        </div>
-      </div>
-      <div class="quality-image-box">
-        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="Saudi Quality Standards">
-        <div class="quality-image-overlay">
-          <p class="text-xl md:text-2xl font-luxury gold-text" data-translate="saudi-standards">Saudi Quality Standards</p>
-          <p class="text-white/50 mt-2 text-sm" data-translate="iso-certified">ISO Certified • Precision Engineering</p>
-          <div class="quality-badge"><i class="fas fa-certificate"></i><span>ISO 9001:2015</span></div>
-          <div class="quality-badge" style="margin-left:8px;"><i class="fas fa-check-double"></i><span>SASO Certified</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="py-16 md:py-28 px-3 md:px-6 rounded-section" style="background:#0d0d0d;">
-    <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C360,0 720,80 1080,20 L1440,60 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
-    <div class="max-w-6xl mx-auto relative z-10">
-      <h2 class="text-2xl md:text-5xl font-luxury gold-text text-center mb-8 md:mb-12" data-translate="projects-title">Featured Projects</h2>
-      <div class="projects-carousel-container" id="projectsCarousel">
-        <div class="projects-track" id="projectsTrack">
-          <div class="project-slide active"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&q=80" alt="Royal Caravan"><div class="project-slide-overlay"><p class="project-slide-title">Royal Caravan Suite</p><p class="project-slide-desc">Luxury mobile unit</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" alt="Furniture"><div class="project-slide-overlay"><p class="project-slide-title">Bespoke Furniture</p><p class="project-slide-desc">Custom collection</p></div></div>
-          <div class="project-slide"><img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=1200&q=80" alt="Exhibition"><div class="project-slide-overlay"><p class="project-slide-title">International Expo</p><p class="project-slide-desc">Exhibition booth</p></div></div>
-        </div>
-        <button class="carousel-arrow prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-arrow next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
-        <div class="carousel-dots" id="carouselDots"></div>
-        <div class="carousel-progress-bar" id="carouselProgress"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-16 md:py-28 px-3 md:px-6" style="background:#0a0a0a;">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl md:text-5xl font-luxury gold-text mb-4" data-translate="contact-title">Get In Touch</h2>
-      <p class="text-white/60 mb-3 text-sm"><i class="fas fa-map-marker-alt gold-text mr-2"></i> <span data-translate="contact-address">King Fahd Road, Riyadh</span></p>
-      <p class="text-white/60 mb-4 text-sm"><i class="fas fa-phone gold-text mr-2"></i> +966 50 000 0000</p>
-      <a href="#contact" class="btn-premium"><span data-translate="send-inquiry">Send Inquiry</span></a>
-    </div>
-  </section>
-
-  <footer class="border-t border-white/10 py-6 text-center text-white/40 text-xs" style="background:#0a0a0a;">
-    <p data-translate="copyright">© 2025 Qimmat Al-Tamayoz Development Co.</p>
-  </footer>
-
   <a href="https://wa.me/966500000000" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
   <script>
     const translations = {
       en: {
-        'company-name': 'Qimmat Al-Tamayoz', 'nav-home': 'Home', 'nav-about': 'About', 'nav-services': 'Services', 'nav-projects': 'Projects', 'nav-contact': 'Contact',
+        'company-name': 'Qimmat Al-Tamayoz', 'nav-home': 'Home', 'nav-about': 'About', 'nav-services': 'Services', 'nav-projects': 'Projects', 'nav-team': 'Team', 'nav-contact': 'Contact',
         'hero-title-1': 'Engineering Excellence.', 'hero-title-2': 'Building Premium Spaces.',
         'hero-subtitle': "Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands.",
+        'hero-subtitle-ar': 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.',
         'our-services': 'Our Services', 'request-quote': 'Request Quote', 'services-title': 'Our Services',
         'tab-caravans': '🚐 Caravans', 'tab-furniture': '🪑 Furniture', 'tab-stands': '🎪 Stands',
         'caravans-title': 'Luxury Caravans', 'caravans-desc': 'Custom mobile units with premium interiors.',
@@ -497,13 +752,16 @@
         'get-quote': 'Get Quote', 'about-title': 'Crafting Saudi Vision', 'about-desc': 'Traditional craftsmanship with cutting-edge manufacturing.',
         'completed-projects': 'Projects', 'corporate-clients': 'Clients', 'years-experience': 'Years', 'quality-commitment': 'Quality',
         'saudi-standards': 'Saudi Quality Standards', 'iso-certified': 'ISO Certified • Precision Engineering',
-        'projects-title': 'Featured Projects', 'contact-title': 'Get In Touch', 'contact-address': 'King Fahd Road, Riyadh', 'send-inquiry': 'Send Inquiry',
-        'copyright': '© 2025 Qimmat Al-Tamayoz Development Co.'
+        'projects-title': 'Featured Projects', 'team-title': 'Meet Our Team', 'contact-title': 'Get In Touch', 'contact-address': 'King Fahd Road, Riyadh', 'send-inquiry': 'Send Inquiry',
+        'copyright': '© 2025 Qimmat Al-Tamayoz Development Co.',
+        'vision-title': 'Our Vision, Mission & Values',
+        'strengths-title': 'Our Strengths'
       },
       ar: {
-        'company-name': 'قمّة التميّز', 'nav-home': 'الرئيسية', 'nav-about': 'من نحن', 'nav-services': 'خدماتنا', 'nav-projects': 'مشاريعنا', 'nav-contact': 'اتصل بنا',
+        'company-name': 'قمّة التميّز', 'nav-home': 'الرئيسية', 'nav-about': 'من نحن', 'nav-services': 'خدماتنا', 'nav-projects': 'مشاريعنا', 'nav-team': 'فريقنا', 'nav-contact': 'اتصل بنا',
         'hero-title-1': 'التميز الهندسي.', 'hero-title-2': 'نبني مساحات فاخرة.',
         'hero-subtitle': 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.',
+        'hero-subtitle-ar': 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.',
         'our-services': 'خدماتنا', 'request-quote': 'طلب عرض سعر', 'services-title': 'خدماتنا',
         'tab-caravans': '🚐 قوافل', 'tab-furniture': '🪑 أثاث', 'tab-stands': '🎪 منصات',
         'caravans-title': 'القوافل الفاخرة', 'caravans-desc': 'وحدات متنقلة مخصصة بتصميمات داخلية فاخرة.',
@@ -515,12 +773,115 @@
         'get-quote': 'احصل على عرض', 'about-title': 'صياغة الرؤية', 'about-desc': 'حرفية تقليدية مع تصنيع متطور.',
         'completed-projects': 'مشاريع', 'corporate-clients': 'عملاء', 'years-experience': 'خبرة', 'quality-commitment': 'جودة',
         'saudi-standards': 'معايير الجودة السعودية', 'iso-certified': 'معتمد من ISO • هندسة دقيقة',
-        'projects-title': 'مشاريع مميزة', 'contact-title': 'تواصل معنا', 'contact-address': 'طريق الملك فهد، الرياض', 'send-inquiry': 'إرسال',
-        'copyright': '© 2025 شركة قمة التميز للتطوير.'
+        'projects-title': 'مشاريع مميزة', 'team-title': 'فريقنا', 'contact-title': 'تواصل معنا', 'contact-address': 'طريق الملك فهد، الرياض', 'send-inquiry': 'إرسال',
+        'copyright': '© 2025 شركة قمة التميز للتطوير.',
+        'vision-title': 'رؤيتنا ورسالتنا وقيمنا',
+        'strengths-title': 'نقاط قوتنا'
       }
     };
 
+    // Extended Arabic texts for typing
+    const arTexts = {
+      line1: 'التميز الهندسي.',
+      line2: 'نبني مساحات فاخرة.',
+      line3: 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.'
+    };
+
     let currentLang = 'en';
+    let cardTypingStarted = false;
+    
+    // Card typing function
+    function typeCardText(element, text, speed = 30, callback) {
+      const cursor = document.createElement('span');
+      cursor.className = 'card-cursor';
+      element.appendChild(cursor);
+      let index = 0;
+      
+      function typeChar() {
+        if (index < text.length) {
+          const char = text.charAt(index);
+          const textNode = document.createTextNode(char);
+          element.insertBefore(textNode, cursor);
+          index++;
+          setTimeout(typeChar, speed);
+        } else {
+          if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+          if (callback) callback();
+        }
+      }
+      typeChar();
+    }
+
+    function typeCards(lang, section) {
+      const cards = section.querySelectorAll('.card-typing');
+      cards.forEach((card, index) => {
+        const titleEl = card.querySelector('.premium-card-title');
+        const descEl = card.querySelector('.premium-card-desc');
+        
+        // Clear existing content
+        titleEl.innerHTML = '';
+        descEl.innerHTML = '';
+        
+        const titleKey = lang === 'ar' ? 'data-title-ar' : 'data-title-en';
+        const descKey = lang === 'ar' ? 'data-desc-ar' : 'data-desc-en';
+        
+        const titleText = card.getAttribute(titleKey) || '';
+        const descText = card.getAttribute(descKey) || '';
+        
+        // Add delay based on card index
+        const delay = index * 300;
+        
+        setTimeout(() => {
+          // Type title first, then description
+          typeCardText(titleEl, titleText, 35, function() {
+            setTimeout(() => {
+              typeCardText(descEl, descText, 25);
+            }, 200);
+          });
+        }, delay);
+      });
+    }
+
+    // Intersection Observer for card typing
+    function setupCardTypingObserver() {
+      const visionMissionSection = document.getElementById('vision-mission');
+      const strengthsSection = document.getElementById('strengths');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const section = entry.target;
+            if (!section.dataset.typed) {
+              typeCards(currentLang, section);
+              section.dataset.typed = 'true';
+            }
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      if (visionMissionSection) {
+        observer.observe(visionMissionSection);
+        // Check if already visible
+        const rect = visionMissionSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7 && !visionMissionSection.dataset.typed) {
+          typeCards(currentLang, visionMissionSection);
+          visionMissionSection.dataset.typed = 'true';
+        }
+      }
+      
+      if (strengthsSection) {
+        observer.observe(strengthsSection);
+        // Check if already visible
+        const rect = strengthsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7 && !strengthsSection.dataset.typed) {
+          typeCards(currentLang, strengthsSection);
+          strengthsSection.dataset.typed = 'true';
+        }
+      }
+      
+      return observer;
+    }
+
     function translatePage(lang) {
       currentLang = lang;
       document.querySelectorAll('[data-translate]').forEach(el => {
@@ -529,19 +890,138 @@
       });
       document.getElementById('langText').textContent = lang === 'ar' ? 'English' : 'عربي';
       localStorage.setItem('preferredLanguage', lang);
+      
+      // Show/hide appropriate typing lines
+      const line1 = document.getElementById('typeLine1');
+      const line2 = document.getElementById('typeLine2');
+      const line3 = document.getElementById('typeLine3');
+      const lineAr = document.getElementById('typeLineAr');
+      
+      if (lang === 'ar') {
+        line1.style.display = 'none';
+        line2.style.display = 'none';
+        line3.style.display = 'none';
+        lineAr.style.display = 'block';
+        lineAr.innerHTML = '';
+        const container = document.createElement('div');
+        container.style.fontWeight = '700';
+        container.style.fontFamily = '"Noto Naskh Arabic", serif';
+        container.style.direction = 'rtl';
+        container.style.textAlign = 'right';
+        container.style.lineHeight = '1.1';
+        lineAr.appendChild(container);
+        
+        const fullText = arTexts.line1 + ' ' + arTexts.line2;
+        
+        typeText(container, fullText, 50, function() {
+          setTimeout(() => {
+            const subContainer = document.createElement('div');
+            subContainer.style.fontWeight = '700';
+            subContainer.style.fontFamily = '"Noto Naskh Arabic", serif';
+            subContainer.style.direction = 'rtl';
+            subContainer.style.textAlign = 'right';
+            subContainer.style.lineHeight = '1.1';
+            subContainer.style.marginTop = '10px';
+            lineAr.appendChild(subContainer);
+            typeText(subContainer, arTexts.line3, 40);
+          }, 300);
+        });
+      } else {
+        line1.style.display = 'block';
+        line2.style.display = 'block';
+        line3.style.display = 'block';
+        lineAr.style.display = 'none';
+        line1.innerHTML = '';
+        line2.innerHTML = '';
+        line3.innerHTML = '';
+        setTimeout(() => {
+          typeText(line1, 'Engineering Excellence.', 50, function() {
+            setTimeout(() => {
+              typeText(line2, 'Building Premium Spaces.', 45, function() {
+                setTimeout(() => {
+                  typeText(line3, "Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands.", 35);
+                }, 300);
+              });
+            }, 200);
+          });
+        }, 300);
+      }
+      
+      // Reset card typing if language changes
+      const visionMissionSection = document.getElementById('vision-mission');
+      const strengthsSection = document.getElementById('strengths');
+      if (visionMissionSection) visionMissionSection.dataset.typed = '';
+      if (strengthsSection) strengthsSection.dataset.typed = '';
+      
+      // Re-check visibility after language change
+      setTimeout(() => {
+        if (visionMissionSection) {
+          const rect = visionMissionSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.7 && !visionMissionSection.dataset.typed) {
+            typeCards(lang, visionMissionSection);
+            visionMissionSection.dataset.typed = 'true';
+          }
+        }
+        if (strengthsSection) {
+          const rect = strengthsSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.7 && !strengthsSection.dataset.typed) {
+            typeCards(lang, strengthsSection);
+            strengthsSection.dataset.typed = 'true';
+          }
+        }
+      }, 300);
+      
       setTimeout(updatePill, 100);
     }
-    document.getElementById('langToggle').addEventListener('click', () => translatePage(currentLang === 'en' ? 'ar' : 'en'));
-    if (localStorage.getItem('preferredLanguage') === 'ar') translatePage('ar');
 
-    const cd = document.getElementById('cursorDot'), co = document.getElementById('cursorOutline');
-    document.addEventListener('mousemove', (e) => {
-      cd.style.left = e.clientX + 'px'; cd.style.top = e.clientY + 'px';
-      setTimeout(() => { co.style.left = e.clientX + 'px'; co.style.top = e.clientY + 'px'; }, 50);
-    });
-    document.querySelectorAll('a, button, .btn-premium, .service-pill-btn, .product-card-btn').forEach(el => {
-      el.addEventListener('mouseenter', () => { co.classList.add('hover'); cd.classList.add('hover'); });
-      el.addEventListener('mouseleave', () => { co.classList.remove('hover'); cd.classList.remove('hover'); });
+    // Typing animation function
+    function typeText(element, text, speed = 50, callback) {
+      const cursor = document.createElement('span');
+      cursor.className = 'type-cursor';
+      element.appendChild(cursor);
+      let index = 0;
+      
+      function typeChar() {
+        if (index < text.length) {
+          const char = text.charAt(index);
+          const textNode = document.createTextNode(char);
+          element.insertBefore(textNode, cursor);
+          index++;
+          setTimeout(typeChar, speed);
+        } else {
+          if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+          if (callback) callback();
+        }
+      }
+      typeChar();
+    }
+
+    document.getElementById('langToggle').addEventListener('click', () => translatePage(currentLang === 'en' ? 'ar' : 'en'));
+    
+    // Initial load - English typing
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        const line1 = document.getElementById('typeLine1');
+        const line2 = document.getElementById('typeLine2');
+        const line3 = document.getElementById('typeLine3');
+        const lineAr = document.getElementById('typeLineAr');
+        lineAr.style.display = 'none';
+        
+        typeText(line1, 'Engineering Excellence.', 55, function() {
+          setTimeout(() => {
+            typeText(line2, 'Building Premium Spaces.', 50, function() {
+              setTimeout(() => {
+                typeText(line3, "Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands.", 38);
+              }, 300);
+            });
+          }, 200);
+        });
+      }, 500);
+      
+      // Setup card typing observer
+      setupCardTypingObserver();
+      
+      if (localStorage.getItem('preferredLanguage') === 'ar') translatePage('ar');
     });
 
     document.querySelectorAll('.main-nav-link').forEach(l => l.addEventListener('click', function() {
@@ -565,10 +1045,8 @@
     updatePill();
     window.addEventListener('resize', updatePill);
 
-    // ============ VIEW DETAIL MODAL ============
     const modal = document.getElementById('detailModal');
     const modalClose = document.getElementById('modalClose');
-
     document.querySelectorAll('.view-detail-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         const card = this.closest('.product-card');
@@ -583,32 +1061,16 @@
           document.getElementById('modalDelivery').textContent = card.getAttribute('data-delivery') || '-';
           document.getElementById('modalAvailability').textContent = card.getAttribute('data-availability') || '-';
           document.getElementById('modalSku').textContent = card.getAttribute('data-sku') || '-';
-          document.getElementById('modalImage').querySelector('img').src = card.getAttribute('data-image') || '';
+          document.getElementById('modalImageImg').src = card.getAttribute('data-image') || '';
           document.getElementById('modalTitle').textContent = card.getAttribute('data-name') || 'Product Details';
           modal.classList.add('active');
           document.body.style.overflow = 'hidden';
         }
       });
     });
-
-    modalClose.addEventListener('click', () => {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
+    modalClose.addEventListener('click', () => { modal.classList.remove('active'); document.body.style.overflow = ''; });
+    modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
 
     const track = document.getElementById('projectsTrack');
     const slides = track.querySelectorAll('.project-slide');
@@ -619,7 +1081,6 @@
     let currentSlide = 0;
     const totalSlides = slides.length;
     let autoRotateTimer, progressInterval, progressWidth = 0;
-
     slides.forEach((_, index) => {
       const dot = document.createElement('button');
       dot.classList.add('carousel-dot');
@@ -628,7 +1089,6 @@
       dotsContainer.appendChild(dot);
     });
     const dots = dotsContainer.querySelectorAll('.carousel-dot');
-
     function goToSlide(index) {
       currentSlide = index;
       if (currentSlide < 0) currentSlide = totalSlides - 1;
@@ -638,14 +1098,12 @@
       dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
       resetAutoRotate();
     }
-
     function resetAutoRotate() {
       clearInterval(autoRotateTimer); clearInterval(progressInterval);
       progressWidth = 0; progressBar.style.width = '0%';
       autoRotateTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
       progressInterval = setInterval(() => { progressWidth += 1; progressBar.style.width = progressWidth + '%'; if (progressWidth >= 100) progressWidth = 0; }, 50);
     }
-
     prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
     nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
     resetAutoRotate();
@@ -683,6 +1141,79 @@
         });
       }, {threshold:0.5}).observe(c);
     });
+
+    // SCROLL ANIMATIONS
+    const animatedElements = document.querySelectorAll('.scroll-fade-up, .scroll-scale, .scroll-slide-right, .scroll-slide-left, .premium-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = el.getAttribute('data-delay') || 0;
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, parseInt(delay));
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+    animatedElements.forEach(el => observer.observe(el));
+
+    // TEAM DATA
+    const teamData = {
+      executive: [
+        { name: 'Khalid Al-Otaibi', position: 'CEO & Founder', img: 'https://randomuser.me/api/portraits/men/32.jpg' },
+        { name: 'Ahmed Al-Saud', position: 'Executive VP', img: 'https://randomuser.me/api/portraits/men/45.jpg' },
+        { name: 'Fatima Al-Harbi', position: 'Chief of Staff', img: 'https://randomuser.me/api/portraits/women/55.jpg' }
+      ],
+      engineering: [
+        { name: 'Nora Al-Ghamdi', position: 'CTO', img: 'https://randomuser.me/api/portraits/women/44.jpg' },
+        { name: 'Sami Al-Malki', position: 'Lead Engineer', img: 'https://randomuser.me/api/portraits/men/52.jpg' },
+        { name: 'Huda Al-Qahtani', position: 'Senior Developer', img: 'https://randomuser.me/api/portraits/women/62.jpg' },
+        { name: 'Faisal Al-Dosari', position: 'QA Engineer', img: 'https://randomuser.me/api/portraits/men/72.jpg' }
+      ],
+      projects: [
+        { name: 'Sultan Al-Mansour', position: 'Project Director', img: 'https://randomuser.me/api/portraits/men/67.jpg' },
+        { name: 'Mona Al-Rashid', position: 'Project Manager', img: 'https://randomuser.me/api/portraits/women/33.jpg' },
+        { name: 'Abdullah Al-Otaibi', position: 'Site Supervisor', img: 'https://randomuser.me/api/portraits/men/22.jpg' }
+      ],
+      design: [
+        { name: 'Layla Al-Hassan', position: 'Head of Design', img: 'https://randomuser.me/api/portraits/women/68.jpg' },
+        { name: 'Nada Al-Zahrani', position: 'Interior Designer', img: 'https://randomuser.me/api/portraits/women/28.jpg' },
+        { name: 'Omar Al-Fahd', position: 'Product Designer', img: 'https://randomuser.me/api/portraits/men/86.jpg' }
+      ]
+    };
+
+    const gridContainer = document.getElementById('teamGridContainer');
+    function renderTeam(filter) {
+      let members = [];
+      if (filter === 'all') {
+        members = Object.values(teamData).flat();
+      } else {
+        members = teamData[filter] || [];
+      }
+      gridContainer.innerHTML = members.map(m => `
+        <div class="team-grid-card visible">
+          <img class="team-grid-card-img" src="${m.img}" alt="${m.name}">
+          <div class="team-grid-card-overlay">
+            <div class="team-grid-card-name">${m.name}</div>
+            <div class="team-grid-card-position">${m.position}</div>
+          </div>
+        </div>
+      `).join('');
+      document.querySelectorAll('.team-grid-card').forEach((el, i) => {
+        el.style.transitionDelay = (i * 60) + 'ms';
+        el.classList.add('visible');
+      });
+    }
+
+    document.querySelectorAll('.team-nav-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.team-nav-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        renderTeam(this.dataset.team || 'all');
+      });
+    });
+
+    renderTeam('all');
   </script>
 </body>
 </html>
