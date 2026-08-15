@@ -63,7 +63,7 @@
       background: rgba(255,255,255,0.5);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.3);
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
@@ -71,6 +71,9 @@
       opacity: 0;
       transform: scale(0.95);
       position: relative;
+      width: 220px;
+      min-width: 200px;
+      flex-shrink: 0;
     }
     .team-grid-card.visible {
       opacity: 1;
@@ -82,7 +85,7 @@
     }
     .team-grid-card-img {
       width: 100%;
-      height: 320px;
+      height: 280px;
       object-fit: cover;
       display: block;
       transition: transform 0.5s ease;
@@ -95,24 +98,81 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 20px 16px 18px;
-      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      padding: 16px 14px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
       color: #fff;
       text-align: center;
     }
     .team-grid-card-name {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #fff;
       letter-spacing: 0.02em;
     }
     .team-grid-card-position {
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: rgba(255,255,255,0.8);
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-top: 2px;
+    }
+
+    .team-scroll-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      .team-scroll-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 16px;
+        padding: 10px 16px 20px 16px;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        justify-content: flex-start;
+      }
+      .team-scroll-container::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+      .team-grid-card {
+        width: 200px;
+        min-width: 180px;
+        flex-shrink: 0;
+      }
+      .team-grid-card-img {
+        height: 240px;
+      }
+      .team-grid-card-name {
+        font-size: 0.95rem;
+      }
+      .team-grid-card-position {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .team-grid-card {
+        width: 170px;
+        min-width: 150px;
+      }
+      .team-grid-card-img {
+        height: 200px;
+      }
+      .team-grid-card-name {
+        font-size: 0.85rem;
+      }
+      .team-grid-card-position {
+        font-size: 0.65rem;
+      }
     }
 
     .team-nav-scroll {
@@ -217,6 +277,63 @@
       inset: 0;
       z-index: 1;
       background: linear-gradient(to right, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.6) 40%, rgba(209,207,196,0.3) 70%, rgba(209,207,196,0.5) 100%);
+    }
+
+    /* Hero Content - Mobile: Image above text */
+    .hero-content-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-text-section {
+      flex: 1;
+      max-width: 50%;
+    }
+    .hero-image-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-image-section .hero-mobile-img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.2);
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .hero-text-section {
+        max-width: 100%;
+        text-align: center;
+        order: 2;
+      }
+      .hero-image-section {
+        order: 1;
+        width: 100%;
+      }
+      .hero-image-section .hero-mobile-img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 16px;
+      }
+      .hero-overlay {
+        background: linear-gradient(to bottom, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.75) 50%, rgba(209,207,196,0.9) 100%);
+      }
+      .hero-text-section .text-left {
+        text-align: center !important;
+      }
+      .hero-text-section .flex {
+        justify-content: center !important;
+      }
     }
 
     .quality-image-box {
@@ -449,7 +566,6 @@
     .detail-table td { color: rgba(26,26,26,0.8); font-weight: 500; }
     .detail-table tr:last-child th, .detail-table tr:last-child td { border-bottom: none; }
     
-    /* WhatsApp Request Quote Button */
     .whatsapp-quote-btn {
       width: 100%;
       padding: 14px;
@@ -841,7 +957,6 @@
       #langToggle { min-width: 50px; font-size: 0.65rem; padding: 7px 10px; }
       .menu-toggle-btn { width: 34px; height: 34px; }
       .hero-curve-bottom svg { height: 60px; }
-      .hero-overlay { background: linear-gradient(to bottom, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.75) 50%, rgba(209,207,196,0.9) 100%); }
       .rounded-section { border-radius: 35px 35px 0 0; margin-top: -25px; padding-top: 50px; }
       .services-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; max-width: 98%; }
       .service-pill-btn { padding: 10px 16px; font-size: 0.75rem; }
@@ -874,10 +989,6 @@
       .premium-card { width: 280px; padding: 24px 18px; }
       .premium-card-title { font-size: 19px; }
       .premium-card-desc { font-size: 14px; }
-      .team-grid-card-img { height: 240px; }
-      .team-grid-card-overlay { padding: 14px 12px; }
-      .team-grid-card-name { font-size: 1rem; }
-      .team-grid-card-position { font-size: 0.7rem; }
       .team-nav-btn { font-size: 0.75rem; padding: 10px 16px; }
       .team-nav-scroll { justify-content: flex-start; padding: 8px 4px 12px 4px; }
       .type-cursor { height: 0.9em; }
@@ -899,7 +1010,6 @@
       .premium-card { width: 250px; padding: 20px 14px; }
       .premium-card-title { font-size: 17px; }
       .premium-card-desc { font-size: 13px; }
-      .team-grid-card-img { height: 180px; }
       .team-nav-btn { font-size: 0.7rem; padding: 8px 12px; }
       .type-cursor { height: 0.8em; }
       .client-logo-item { height: 70px; min-width: 100px; padding: 10px; }
@@ -948,21 +1058,31 @@
     </div>
   </nav>
 
+  <!-- HERO SECTION - Mobile: Image above text, Desktop: Text beside image -->
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="hero-full-bg hero-desktop"></div>
     <div class="hero-full-bg hero-mobile"></div>
     <div class="hero-overlay"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
-      <div class="text-left max-w-xl">
-        <h1 class="text-4xl sm:text-5xl md:text-7xl font-luxury font-bold leading-none mb-4 md:mb-6" style="color:#1a1a1a;">
-          <span id="typeLine1" class="type-line"></span>
-          <span id="typeLine2" class="type-line"></span>
-        </h1>
-        <p id="typeLine3" class="text-sm md:text-lg max-w-lg mb-8 md:mb-10" style="color:#1a1a1a;font-weight:500;min-height:3em;"></p>
-        <p id="typeLineAr" class="max-w-lg mb-8 md:mb-10 font-arabic type-line-ar" style="color:#1a1a1a;font-weight:700;min-height:3em;direction:rtl;text-align:right;display:none;"></p>
-        <div class="flex gap-3 md:gap-4">
-          <a href="#services" class="btn-premium"><span data-translate="our-services">Our Services</span></a>
-          <a href="#contact" class="btn-premium" style="background:transparent; border-color:rgba(26,26,26,0.4); color:#1a1a1a;"><span data-translate="request-quote">Request Quote</span></a>
+      <div class="hero-content-wrapper">
+        <!-- Text Section -->
+        <div class="hero-text-section">
+          <div class="text-left max-w-full">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-luxury font-bold leading-none mb-4 md:mb-6" style="color:#1a1a1a;">
+              <span id="typeLine1" class="type-line"></span>
+              <span id="typeLine2" class="type-line"></span>
+            </h1>
+            <p id="typeLine3" class="text-sm md:text-lg max-w-lg mb-8 md:mb-10" style="color:#1a1a1a;font-weight:500;min-height:3em;"></p>
+            <p id="typeLineAr" class="max-w-lg mb-8 md:mb-10 font-arabic type-line-ar" style="color:#1a1a1a;font-weight:700;min-height:3em;direction:rtl;text-align:right;display:none;"></p>
+            <div class="flex gap-3 md:gap-4">
+              <a href="#services" class="btn-premium"><span data-translate="our-services">Our Services</span></a>
+              <a href="#contact" class="btn-premium" style="background:transparent; border-color:rgba(26,26,26,0.4); color:#1a1a1a;"><span data-translate="request-quote">Request Quote</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- Image Section - Visible on Mobile -->
+        <div class="hero-image-section">
+          <img src="mobilecaravan.png" alt="Qimmat Al-Tamayoz" class="hero-mobile-img" />
         </div>
       </div>
     </div>
@@ -1110,7 +1230,7 @@
         <button class="team-nav-btn" data-team="all"><span data-translate="team-all">All Team</span></button>
       </div>
 
-      <div id="teamGridContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-4"></div>
+      <div id="teamGridContainer" class="team-scroll-container"></div>
     </div>
   </section>
 
@@ -1419,7 +1539,7 @@
     </div>
   </footer>
 
-  <!-- Detail Modal with Request Quote Button -->
+  <!-- Detail Modal -->
   <div class="detail-modal-overlay" id="detailModal">
     <div class="detail-modal">
       <div class="detail-modal-header">
@@ -1441,7 +1561,6 @@
           <tr><th><span data-translate="modal-sku">SKU</span></th><td id="modalSku">-</td></tr>
         </tbody>
       </table>
-      <!-- Request Quote Button -->
       <button class="whatsapp-quote-btn" id="whatsappQuoteBtn">
         <i class="fab fa-whatsapp"></i> <span data-translate="request-quote-btn">Request Quote on WhatsApp</span>
       </button>
@@ -1524,7 +1643,7 @@ I would like to request a quote for this product. Please provide more details.
 Thank you!`;
       
       const encodedMessage = encodeURIComponent(message);
-      const phoneNumber = '966500000000'; // Replace with actual WhatsApp number
+      const phoneNumber = '966500000000';
       const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       
       window.open(url, '_blank');
@@ -1556,7 +1675,7 @@ Thank you!`;
     // WhatsApp Quote Button Click
     document.getElementById('whatsappQuoteBtn').addEventListener('click', sendWhatsAppQuote);
 
-    // Rest of the JavaScript (translations, etc.)
+    // Translations (full translations included)
     const translations = {
       en: {
         'company-name': 'Qimmat Al-Tamayoz',
@@ -2090,8 +2209,6 @@ Thank you!`;
 
     const modal = document.getElementById('detailModal');
     const modalClose = document.getElementById('modalClose');
-    
-    // View Detail buttons already handled above
     
     modalClose.addEventListener('click', () => { modal.classList.remove('active'); document.body.style.overflow = ''; });
     modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
