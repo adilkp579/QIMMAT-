@@ -247,6 +247,7 @@
       display: block;
     }
 
+    /* Hero Images - Desktop and Mobile */
     .hero-full-bg {
       position: absolute;
       top: 0;
@@ -260,7 +261,19 @@
       animation: slowZoom 25s ease-in-out infinite alternate;
     }
     .hero-desktop { background-image: url('desktopcaravan.png'); }
-    .hero-mobile { background-image: url('mobilecaravan.png'); display: none; }
+    .hero-mobile { 
+      background-image: url('mobilecaravan.png'); 
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
     @media (max-width: 768px) {
       .hero-desktop { display: none; }
@@ -279,60 +292,46 @@
       background: linear-gradient(to right, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.6) 40%, rgba(209,207,196,0.3) 70%, rgba(209,207,196,0.5) 100%);
     }
 
-    /* Hero Content - Mobile: Image above text */
-    .hero-content-wrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 40px;
-    }
-    .hero-text-section {
-      flex: 1;
-      max-width: 50%;
-    }
-    .hero-image-section {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero-image-section .hero-mobile-img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      border: 1px solid rgba(255,255,255,0.2);
-      display: none;
-    }
-
     @media (max-width: 768px) {
-      .hero-content-wrapper {
-        flex-direction: column;
-        gap: 20px;
-      }
-      .hero-text-section {
-        max-width: 100%;
-        text-align: center;
-        order: 2;
-      }
-      .hero-image-section {
-        order: 1;
-        width: 100%;
-      }
-      .hero-image-section .hero-mobile-img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        border-radius: 16px;
-      }
       .hero-overlay {
-        background: linear-gradient(to bottom, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.75) 50%, rgba(209,207,196,0.9) 100%);
+        background: linear-gradient(to bottom, 
+          rgba(0,0,0,0.2) 0%, 
+          rgba(0,0,0,0.4) 30%, 
+          rgba(0,0,0,0.6) 60%, 
+          rgba(0,0,0,0.8) 100%
+        );
       }
       .hero-text-section .text-left {
         text-align: center !important;
       }
       .hero-text-section .flex {
         justify-content: center !important;
+      }
+      .hero-text-section h1 {
+        color: #fff !important;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+      .hero-text-section p {
+        color: rgba(255,255,255,0.9) !important;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      }
+      .hero-text-section .btn-premium {
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(10px);
+        border-color: rgba(255,255,255,0.4);
+        color: #fff;
+      }
+      .hero-text-section .btn-premium:hover {
+        background: #fff;
+        color: #1a1a1a;
+      }
+      .hero-text-section .btn-premium:last-child {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.3);
+      }
+      .hero-text-section .btn-premium:last-child:hover {
+        background: #fff;
+        color: #1a1a1a;
       }
     }
 
@@ -1058,14 +1057,13 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION - Mobile: Image above text, Desktop: Text beside image -->
+  <!-- HERO SECTION - Mobile: Full screen image with text overlay, Desktop: Original layout -->
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="hero-full-bg hero-desktop"></div>
     <div class="hero-full-bg hero-mobile"></div>
     <div class="hero-overlay"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
       <div class="hero-content-wrapper">
-        <!-- Text Section -->
         <div class="hero-text-section">
           <div class="text-left max-w-full">
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-luxury font-bold leading-none mb-4 md:mb-6" style="color:#1a1a1a;">
@@ -1080,15 +1078,12 @@
             </div>
           </div>
         </div>
-        <!-- Image Section - Visible on Mobile -->
-        <div class="hero-image-section">
-          <img src="mobilecaravan.png" alt="Qimmat Al-Tamayoz" class="hero-mobile-img" />
-        </div>
       </div>
     </div>
     <div class="hero-curve-bottom"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg></div>
   </section>
 
+  <!-- Rest of the sections remain the same -->
   <section id="services" class="py-16 md:py-28 px-3 md:px-6 relative rounded-section" style="background:#d1cfc4;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C480,0 960,80 1440,30 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     <div class="max-w-7xl mx-auto relative z-10">
@@ -1173,6 +1168,7 @@
     <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
   </section>
 
+  <!-- Rest of the sections remain the same -->
   <section id="about" class="py-16 md:py-28 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
