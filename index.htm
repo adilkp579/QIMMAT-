@@ -19,7 +19,6 @@
     .gold-text { background: linear-gradient(135deg, #b8941e 0%, #d4af37 40%, #8b6914 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .gold-border { border: 1px solid rgba(184,148,30,0.4); }
     
-    /* Premium Card – with typing effect */
     .premium-card {
       width: 320px;
       border-radius: 24px;
@@ -46,7 +45,6 @@
     .premium-card-btn { width: 100%; padding: 14px; border: none; border-radius: 14px; background: #1a1a1a; color: #f5f2ea; cursor: pointer; font-size: 15px; font-weight: 700; transition: .3s; margin-top: 18px; letter-spacing: 0.03em; }
     .premium-card-btn:hover { background: #333; }
 
-    /* Card typing cursor */
     .card-cursor {
       display: inline-block;
       width: 2px;
@@ -61,7 +59,6 @@
       50% { opacity: 0; }
     }
 
-    /* Full size photo card – image takes full card */
     .team-grid-card {
       background: rgba(255,255,255,0.5);
       backdrop-filter: blur(14px);
@@ -118,7 +115,6 @@
       margin-top: 2px;
     }
 
-    /* Team navbar – horizontal scroll, 5 text buttons (4 positions + All Team) - NO SCROLLBAR */
     .team-nav-scroll {
       display: flex;
       flex-wrap: nowrap;
@@ -167,7 +163,6 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
 
-    /* Typing animation */
     .type-cursor {
       display: inline-block;
       width: 3px;
@@ -181,8 +176,6 @@
       min-height: 1.6em;
       display: block;
     }
-
-    /* Arabic typing line - same size as English */
     .type-line-ar {
       font-family: 'Noto Naskh Arabic', serif;
       direction: rtl;
@@ -194,7 +187,6 @@
       display: block;
     }
 
-    /* Hero Images - Desktop and Mobile - NO BLUR */
     .hero-full-bg {
       position: absolute;
       top: 0;
@@ -207,26 +199,12 @@
       background-repeat: no-repeat;
       animation: slowZoom 25s ease-in-out infinite alternate;
     }
-    
-    /* Desktop hero image */
-    .hero-desktop {
-      background-image: url('desktopcaravan.png');
-    }
-    
-    /* Mobile hero image */
-    .hero-mobile {
-      background-image: url('mobilecaravan.png');
-      display: none;
-    }
+    .hero-desktop { background-image: url('desktopcaravan.png'); }
+    .hero-mobile { background-image: url('mobilecaravan.png'); display: none; }
 
-    /* Show desktop by default, mobile on smaller screens */
     @media (max-width: 768px) {
-      .hero-desktop {
-        display: none;
-      }
-      .hero-mobile {
-        display: block;
-      }
+      .hero-desktop { display: none; }
+      .hero-mobile { display: block; }
     }
 
     @keyframes slowZoom {
@@ -234,7 +212,6 @@
       100% { transform: scale(1.15); }
     }
     
-    /* Hero overlay - NO BLUR */
     .hero-overlay {
       position: absolute;
       inset: 0;
@@ -242,7 +219,6 @@
       background: linear-gradient(to right, rgba(209,207,196,0.85) 0%, rgba(209,207,196,0.6) 40%, rgba(209,207,196,0.3) 70%, rgba(209,207,196,0.5) 100%);
     }
 
-    /* Quality Image Box - slightly larger width */
     .quality-image-box {
       border-radius: 20px;
       overflow: hidden;
@@ -261,9 +237,7 @@
       object-fit: cover;
       transition: transform 0.8s ease;
     }
-    .quality-image-box:hover img {
-      transform: scale(1.05);
-    }
+    .quality-image-box:hover img { transform: scale(1.05); }
     .quality-image-overlay {
       position: absolute;
       bottom: 0;
@@ -286,11 +260,55 @@
       margin-top: 10px;
     }
 
-    .services-glass-nav { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(255,255,255,0.5); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(26,26,26,0.15); border-radius: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); margin: 0 auto 50px; width: fit-content; position: relative; z-index: 10; }
-    .active-pill-indicator { position: absolute; top: 6px; height: calc(100% - 12px); background: #1a1a1a; border-radius: 50px; transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1); z-index: 0; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-    .service-pill-btn { padding: 13px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; position: relative; z-index: 1; background: transparent; border: none; color: rgba(26,26,26,0.7); white-space: nowrap; }
+    .services-glass-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(26,26,26,0.15);
+      border-radius: 60px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      margin: 0 auto 40px;
+      width: fit-content;
+      position: relative;
+      z-index: 10;
+    }
+    .active-pill-indicator {
+      position: absolute;
+      top: 6px;
+      height: calc(100% - 12px);
+      background: #1a1a1a;
+      border-radius: 50px;
+      transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .service-pill-btn {
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      border: none;
+      color: rgba(26,26,26,0.7);
+      white-space: nowrap;
+    }
     .service-pill-btn:hover { color: #1a1a1a; }
-    .service-pill-btn.active { color: #f5f2ea; font-weight: 700; }
+    .service-pill-btn.active {
+      color: #f5f2ea;
+      font-weight: 700;
+    }
 
     .service-detail { display: none; }
     .service-detail.active { display: block; animation: fadeUp 0.5s ease; }
@@ -346,6 +364,75 @@
     .btn-premium { background: rgba(26,26,26,0.05); backdrop-filter: blur(12px); border: 1px solid #1a1a1a; color: #1a1a1a; padding: 0.8rem 2rem; font-weight: 700; border-radius: 3rem; display: inline-block; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; transition: 0.4s; }
     .btn-premium:hover { background: #1a1a1a; color: #f5f2ea; transform: translateY(-3px); }
 
+    .now-future-glass-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(26,26,26,0.15);
+      border-radius: 60px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      margin: 0 auto 40px;
+      width: fit-content;
+      position: relative;
+      z-index: 10;
+    }
+    .now-future-pill-indicator {
+      position: absolute;
+      top: 6px;
+      height: calc(100% - 12px);
+      background: #1a1a1a;
+      border-radius: 50px;
+      transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .now-future-pill-btn {
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      border: none;
+      color: rgba(26,26,26,0.7);
+      white-space: nowrap;
+    }
+    .now-future-pill-btn:hover { color: #1a1a1a; }
+    .now-future-pill-btn.active {
+      color: #f5f2ea;
+      font-weight: 700;
+    }
+    .now-future-pill-btn i {
+      margin-right: 8px;
+    }
+
+    .future-section {
+      display: none;
+      min-height: 400px;
+    }
+    .future-section.active {
+      display: block;
+      animation: fadeUp 0.5s ease;
+    }
+
+    .now-section {
+      display: block;
+    }
+    .now-section.hidden {
+      display: none;
+    }
+
     .detail-modal-overlay { position: fixed; inset: 0; background: rgba(26,26,26,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px; }
     .detail-modal-overlay.active { display: flex; }
     .detail-modal { background: rgba(255,255,255,0.98); border: 1px solid rgba(26,26,26,0.2); border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.25); max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 25px; animation: modalIn 0.4s ease; }
@@ -361,6 +448,33 @@
     .detail-table th { color: #1a1a1a; font-weight: 700; background: rgba(26,26,26,0.03); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; width: 40%; }
     .detail-table td { color: rgba(26,26,26,0.8); font-weight: 500; }
     .detail-table tr:last-child th, .detail-table tr:last-child td { border-bottom: none; }
+    
+    /* WhatsApp Request Quote Button */
+    .whatsapp-quote-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: #25D366;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      transition: .3s;
+      margin-top: 10px;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .whatsapp-quote-btn:hover {
+      background: #1ebe5c;
+      transform: scale(1.02);
+    }
+    .whatsapp-quote-btn i {
+      font-size: 20px;
+    }
 
     #loading-screen { position: fixed; inset: 0; background: #d1cfc4; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s; }
     .loader-gold { width: 60px; height: 60px; border: 3px solid rgba(26,26,26,0.15); border-top-color: #1a1a1a; border-radius: 50%; animation: spin 1s linear infinite; }
@@ -369,12 +483,37 @@
     .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 28px; z-index: 999; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.2); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } }
 
-    .mobile-menu { position: fixed; top: 0; right: -100%; width: 85%; max-width: 380px; height: 100dvh; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 50; transition: right 0.4s; padding: 1.5rem; }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 380px;
+      height: 100dvh;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px);
+      z-index: 50;
+      transition: right 0.4s;
+      padding: 1.5rem;
+      display: none;
+    }
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,26,0.5);
+      z-index: 49;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .mobile-menu { display: block; }
+      .menu-overlay { display: block; }
+    }
     .mobile-menu.active { right: 0; }
-    .menu-overlay { position: fixed; inset: 0; background: rgba(26,26,26,0.5); z-index: 49; opacity: 0; pointer-events: none; transition: 0.3s; }
     .menu-overlay.active { opacity: 1; pointer-events: all; }
 
-    /* scroll animations */
     .scroll-fade-up {
       opacity: 0;
       transform: translateY(40px);
@@ -412,23 +551,289 @@
       transform: translateX(0);
     }
 
-    /* rest of styles */
-    .main-glass-navbar { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 1200px; z-index: 40; transition: all 0.5s; }
-    .main-glass-navbar .nav-glass-inner { background: rgba(255,255,255,0.65); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(26,26,26,0.15); border-radius: 60px; padding: 10px 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); transition: all 0.5s; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .main-glass-navbar.scrolled .nav-glass-inner { background: rgba(209,207,196,0.98); border-radius: 40px; padding: 8px 16px; }
-    .nav-glow-line { position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(184,148,30,0.5), transparent); border-radius: 50%; filter: blur(2px); }
-    .nav-logo { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.05em; flex-shrink: 0; text-decoration: none; padding: 4px 8px; color: #1a1a1a; }
-    .main-nav-links { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
-    .main-nav-link { padding: 10px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; background: transparent; border: none; color: rgba(26,26,26,0.75); white-space: nowrap; text-decoration: none; }
+    .client-logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 16px;
+      border: 1px solid rgba(26,26,26,0.08);
+      transition: all 0.3s ease;
+      height: 100px;
+      min-width: 150px;
+    }
+    .client-logo-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.5);
+    }
+    .client-logo-item img {
+      max-width: 100%;
+      max-height: 60px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    .client-logo-item:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(26,26,26,0.1);
+      padding: 16px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      padding-left: 10px;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1a1a1a;
+    }
+    .faq-question i {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      color: rgba(26,26,26,0.75);
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-top: 12px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 30px 25px;
+      border: 1px solid rgba(26,26,26,0.08);
+      transition: all 0.4s ease;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.5);
+    }
+    .testimonial-card .quote-icon {
+      font-size: 2rem;
+      color: #b8941e;
+      opacity: 0.3;
+      margin-bottom: 10px;
+    }
+    .testimonial-card .testimonial-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: rgba(26,26,26,0.85);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    .testimonial-card .testimonial-author {
+      font-weight: 700;
+      color: #1a1a1a;
+      font-size: 1rem;
+    }
+    .testimonial-card .testimonial-role {
+      font-size: 0.8rem;
+      color: rgba(26,26,26,0.6);
+      font-weight: 500;
+    }
+    .testimonial-card .stars {
+      color: #f5b342;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 30px;
+      margin-bottom: 15px;
+    }
+    .footer-links a {
+      color: rgba(26,26,26,0.7);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      letter-spacing: 0.03em;
+    }
+    .footer-links a:hover {
+      color: #1a1a1a;
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(26,26,26,0.05);
+      border: 1px solid rgba(26,26,26,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(26,26,26,0.6);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer-social a:hover {
+      background: #1a1a1a;
+      color: #f5f2ea;
+      border-color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+
+    .main-glass-navbar { 
+      position: fixed; 
+      top: 12px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      width: 94%; 
+      max-width: 1200px; 
+      z-index: 40; 
+      transition: all 0.5s; 
+    }
+    .main-glass-navbar .nav-glass-inner { 
+      background: rgba(255,255,255,0.65); 
+      backdrop-filter: blur(30px); 
+      -webkit-backdrop-filter: blur(30px); 
+      border: 1px solid rgba(26,26,26,0.15); 
+      border-radius: 60px; 
+      padding: 10px 20px; 
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+      transition: all 0.5s; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 8px;
+      position: relative;
+    }
+    .main-glass-navbar.scrolled .nav-glass-inner { 
+      background: rgba(209,207,196,0.98); 
+      border-radius: 40px; 
+      padding: 8px 16px; 
+    }
+    .nav-glow-line { 
+      position: absolute; 
+      top: -2px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      width: 60%; 
+      height: 2px; 
+      background: linear-gradient(90deg, transparent, rgba(184,148,30,0.5), transparent); 
+      border-radius: 50%; 
+      filter: blur(2px); 
+    }
+    .nav-logo { 
+      font-size: 1.3rem; 
+      font-weight: 800; 
+      letter-spacing: 0.05em; 
+      flex-shrink: 0; 
+      text-decoration: none; 
+      padding: 4px 8px; 
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+    .main-nav-links { 
+      display: flex; 
+      align-items: center; 
+      gap: 5px; 
+      flex-wrap: nowrap; 
+    }
+    .main-nav-link { 
+      padding: 10px 16px; 
+      border-radius: 50px; 
+      font-size: 0.75rem; 
+      font-weight: 600; 
+      letter-spacing: 0.05em; 
+      text-transform: uppercase; 
+      cursor: pointer; 
+      transition: all 0.3s; 
+      background: transparent; 
+      border: none; 
+      color: rgba(26,26,26,0.75); 
+      white-space: nowrap; 
+      text-decoration: none; 
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+    }
     .main-nav-link:hover { color: #1a1a1a; }
-    .main-nav-link.active { color: #f5f2ea; font-weight: 700; background: #1a1a1a; }
-    .nav-right-group { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    #langToggle { white-space: nowrap; min-width: 60px; text-align: center; padding: 8px 14px; border-radius: 50px; font-size: 0.7rem; cursor: pointer; transition: all 0.3s; background: transparent; border: 1px solid rgba(26,26,26,0.3); color: #1a1a1a; font-weight: 600; }
+    .main-nav-link.active { 
+      color: #f5f2ea; 
+      font-weight: 700; 
+      background: #1a1a1a; 
+    }
+    .nav-right-group { 
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+      flex-shrink: 0; 
+    }
+    #langToggle { 
+      white-space: nowrap; 
+      min-width: 60px; 
+      text-align: center; 
+      padding: 8px 14px; 
+      border-radius: 50px; 
+      font-size: 0.7rem; 
+      cursor: pointer; 
+      transition: all 0.3s; 
+      background: transparent; 
+      border: 1px solid rgba(26,26,26,0.3); 
+      color: #1a1a1a; 
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
     #langToggle:hover { background: #1a1a1a; color: #f5f2ea; }
-    .menu-toggle-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(26,26,26,0.05); border: 1px solid rgba(26,26,26,0.2); color: #1a1a1a; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+    .menu-toggle-btn { 
+      width: 36px; 
+      height: 36px; 
+      border-radius: 50%; 
+      background: rgba(26,26,26,0.05); 
+      border: 1px solid rgba(26,26,26,0.2); 
+      color: #1a1a1a; 
+      display: none; 
+      align-items: center; 
+      justify-content: center; 
+      cursor: pointer; 
+      transition: all 0.3s;
+      flex-shrink: 0;
+      line-height: 1;
+    }
     .menu-toggle-btn:hover { background: #1a1a1a; color: #f5f2ea; }
 
     @media (max-width: 768px) {
+      .menu-toggle-btn { display: flex; }
       .main-glass-navbar { width: 96%; top: 8px; }
       .main-glass-navbar .nav-glass-inner { border-radius: 50px; padding: 8px 14px; }
       .nav-logo { font-size: 1.1rem; }
@@ -441,6 +846,9 @@
       .services-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; max-width: 98%; }
       .service-pill-btn { padding: 10px 16px; font-size: 0.75rem; }
       .active-pill-indicator { top: 5px; height: calc(100% - 10px); }
+      .now-future-glass-nav { gap: 3px; padding: 5px 6px; border-radius: 40px; max-width: 98%; }
+      .now-future-pill-btn { padding: 10px 16px; font-size: 0.75rem; }
+      .now-future-pill-indicator { top: 5px; height: calc(100% - 10px); }
       .svc-img-box { height: 220px; border-radius: 1.5rem; }
       .quality-image-box { min-height: 280px; max-height: 340px; max-width: 100%; }
       .quality-image-box img { height: 300px; }
@@ -474,6 +882,12 @@
       .team-nav-scroll { justify-content: flex-start; padding: 8px 4px 12px 4px; }
       .type-cursor { height: 0.9em; }
       .type-line { min-height: 1.4em; }
+      .client-logo-item { height: 80px; min-width: 120px; padding: 15px; }
+      .client-logo-item img { max-height: 40px; }
+      .testimonial-card { padding: 20px; }
+      .footer-links { gap: 12px 20px; }
+      .footer-links a { font-size: 0.7rem; }
+      .future-section { min-height: 250px; }
     }
     @media (max-width: 380px) {
       .product-card { width: 220px; }
@@ -488,12 +902,17 @@
       .team-grid-card-img { height: 180px; }
       .team-nav-btn { font-size: 0.7rem; padding: 8px 12px; }
       .type-cursor { height: 0.8em; }
+      .client-logo-item { height: 70px; min-width: 100px; padding: 10px; }
+      .client-logo-item img { max-height: 30px; }
+      .now-future-pill-btn { padding: 8px 14px; font-size: 0.65rem; }
+      .future-section { min-height: 200px; }
     }
   </style>
 </head>
 <body>
   <div id="loading-screen"><div class="loader-gold"></div></div>
   <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-gray-600 to-gray-800 z-50" id="progressBar" style="width:0%"></div>
+  
   <div class="menu-overlay" id="menuOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="flex justify-between items-center mb-8">
@@ -529,11 +948,8 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION WITH SEPARATE DESKTOP AND MOBILE IMAGES - NO BLUR -->
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
-    <!-- Desktop Background -->
     <div class="hero-full-bg hero-desktop"></div>
-    <!-- Mobile Background -->
     <div class="hero-full-bg hero-mobile"></div>
     <div class="hero-overlay"></div>
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 mt-16 md:mt-20">
@@ -637,7 +1053,6 @@
     <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
   </section>
 
-  <!-- ABOUT SECTION - with increased image width -->
   <section id="about" class="py-16 md:py-28 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -655,14 +1070,15 @@
         <div class="quality-image-overlay">
           <p class="text-lg md:text-xl font-luxury" style="color:#1a1a1a;font-weight:700;" data-translate="saudi-standards">Saudi Quality Standards</p>
           <p class="text-xs mt-1" style="color:rgba(26,26,26,0.75);font-weight:500;" data-translate="iso-certified">ISO Certified • Precision Engineering</p>
-          <div class="quality-badge"><i class="fas fa-certificate"></i><span>ISO 9001:2015</span></div>
-          <div class="quality-badge" style="margin-left:6px;"><i class="fas fa-check-double"></i><span>SASO Certified</span></div>
+          <div>
+            <span class="quality-badge"><i class="fas fa-certificate"></i><span>ISO 9001:2015</span></span>
+            <span class="quality-badge" style="margin-left:6px;"><i class="fas fa-check-double"></i><span data-translate="saso-certified">SASO Certified</span></span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Rest of the sections remain the same -->
   <section id="projects" class="py-16 md:py-24 px-3 md:px-6 rounded-section" style="background:#d1cfc4;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C360,0 720,80 1080,20 L1440,60 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     <div class="max-w-6xl mx-auto relative z-10">
@@ -681,25 +1097,23 @@
     </div>
   </section>
 
-  <!-- TEAM SECTION - Executive button active by default -->
   <section id="team" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl md:text-5xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="team-title">Meet Our Team</h2>
-      <p class="text-center text-sm md:text-base mb-6 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;">Click a category to view team members</p>
+      <p class="text-center text-sm md:text-base mb-6 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="team-subtitle">Click a category to view team members</p>
       
       <div class="team-nav-scroll" id="teamNavScroll">
-        <button class="team-nav-btn active" data-team="executive">Executive</button>
-        <button class="team-nav-btn" data-team="engineering">Engineering</button>
-        <button class="team-nav-btn" data-team="projects">Projects</button>
-        <button class="team-nav-btn" data-team="design">Design</button>
-        <button class="team-nav-btn" data-team="all">All Team</button>
+        <button class="team-nav-btn active" data-team="executive"><span data-translate="team-executive">Executive</span></button>
+        <button class="team-nav-btn" data-team="engineering"><span data-translate="team-engineering">Engineering</span></button>
+        <button class="team-nav-btn" data-team="projects"><span data-translate="team-projects">Projects</span></button>
+        <button class="team-nav-btn" data-team="design"><span data-translate="team-design">Design</span></button>
+        <button class="team-nav-btn" data-team="all"><span data-translate="team-all">All Team</span></button>
       </div>
 
       <div id="teamGridContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-4"></div>
     </div>
   </section>
 
-  <!-- VISION & MISSION + CORE VALUES with Typing Effect -->
   <section id="vision-mission" class="py-16 md:py-20 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="vision-title">Our Vision, Mission & Values</h2>
@@ -707,32 +1121,31 @@
         <div class="premium-card card-typing" data-title-en="Our Vision" data-title-ar="رؤيتنا" data-desc-en="To be the leading provider of premium engineering, manufacturing, and construction solutions in Saudi Arabia and the Middle East, setting the benchmark for quality, innovation, and customer satisfaction." data-desc-ar="أن نكون المزود الرائد للحلول الهندسية والتصنيعية والإنشائية في المملكة العربية السعودية والشرق الأوسط، واضعين المعيار للجودة والابتكار ورضا العملاء.">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">Leadership</span>
-          <span class="premium-card-tag">Innovation</span>
-          <span class="premium-card-tag">Excellence</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-leadership">Leadership</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-innovation">Innovation</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-excellence">Excellence</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
         <div class="premium-card card-typing" data-title-en="Our Mission" data-title-ar="مهمتنا" data-desc-en="To deliver exceptional value to our clients through innovative design, precision manufacturing, and reliable installation services, while maintaining the highest standards of safety, sustainability, and professional integrity." data-desc-ar="تقديم قيمة استثنائية لعملائنا من خلال التصميم المبتكر والتصنيع الدقيق وخدمات التركيب الموثوقة، مع الحفاظ على أعلى معايير السلامة والاستدامة والنزاهة المهنية.">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">Quality</span>
-          <span class="premium-card-tag">Safety</span>
-          <span class="premium-card-tag">Integrity</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-quality">Quality</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-safety">Safety</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-integrity">Integrity</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
         <div class="premium-card card-typing" data-title-en="Core Values" data-title-ar="قيمنا الأساسية" data-desc-en="We operate with unyielding integrity, embrace innovation, and prioritize our clients' success. Our commitment to excellence drives every project, ensuring sustainable and impactful results." data-desc-ar="نعمل بنزاهة لا تتزعزع، ونتبنى الابتكار، ونعطي الأولوية لنجاح عملائنا. التزامنا بالتميز يقود كل مشروع، مما يضمن نتائج مستدامة ومؤثرة.">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">Integrity</span>
-          <span class="premium-card-tag">Innovation</span>
-          <span class="premium-card-tag">Sustainability</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-integrity">Integrity</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-innovation">Innovation</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-sustainability">Sustainability</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STRENGTHS with Typing Effect -->
   <section id="strengths" class="py-16 md:py-20 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:800;" data-translate="strengths-title">Our Strengths</h2>
@@ -740,62 +1153,273 @@
         <div class="premium-card card-typing" data-title-en="Advanced Manufacturing" data-title-ar="التصنيع المتقدم" data-desc-en="State-of-the-art CNC machinery for precision fabrication" data-desc-ar="آلات CNC متطورة للتصنيع الدقيق">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">CNC</span>
-          <span class="premium-card-tag">Precision</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-cnc">CNC</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-precision">Precision</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
         <div class="premium-card card-typing" data-title-en="Expert Team" data-title-ar="فريق الخبراء" data-desc-en="Highly skilled engineers and craftsmen" data-desc-ar="مهندسون وحرفيون ذوو مهارات عالية">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">Skilled</span>
-          <span class="premium-card-tag">Experienced</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-skilled">Skilled</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-experienced">Experienced</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
         <div class="premium-card card-typing" data-title-en="Quality Assurance" data-title-ar="ضمان الجودة" data-desc-en="ISO certified processes for consistent quality" data-desc-ar="عمليات معتمدة من ISO لضمان الجودة المتسقة">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">ISO</span>
-          <span class="premium-card-tag">Certified</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-iso">ISO</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-certified">Certified</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
         <div class="premium-card card-typing" data-title-en="On-Time Delivery" data-title-ar="التسليم في الوقت المحدد" data-desc-en="Proven track record of schedule compliance" data-desc-ar="سجل حافل بالالتزام بالجداول الزمنية">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">Reliable</span>
-          <span class="premium-card-tag">Punctual</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-reliable">Reliable</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-punctual">Punctual</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
         <div class="premium-card card-typing" data-title-en="Innovation" data-title-ar="الابتكار" data-desc-en="Continuous R&D for cutting-edge solutions" data-desc-ar="البحث والتطوير المستمر للحلول المتطورة">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">R&D</span>
-          <span class="premium-card-tag">Future</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-rd">R&D</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-future">Future</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
         <div class="premium-card card-typing" data-title-en="Customer Focus" data-title-ar="التركيز على العملاء" data-desc-en="Dedicated support and personalized solutions" data-desc-ar="دعم مخصص وحلول شخصية">
           <p class="premium-card-title"></p>
           <p class="premium-card-desc"></p>
-          <span class="premium-card-tag">Support</span>
-          <span class="premium-card-tag">Custom</span>
-          <button class="premium-card-btn">Learn More</button>
+          <span class="premium-card-tag"><span data-translate="tag-support">Support</span></span>
+          <span class="premium-card-tag"><span data-translate="tag-custom">Custom</span></span>
+          <button class="premium-card-btn"><span data-translate="learn-more">Learn More</span></button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl md:text-5xl font-luxury mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="contact-title">Get In Touch</h2>
-      <p class="text-sm mb-3 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-map-marker-alt mr-2" style="color:#b8941e;"></i> <span data-translate="contact-address">King Fahd Road, Riyadh</span></p>
-      <p class="text-sm mb-4 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-phone mr-2" style="color:#b8941e;"></i> +966 50 000 0000</p>
-      <a href="#contact" class="btn-premium scroll-fade-up"><span data-translate="send-inquiry">Send Inquiry</span></a>
+  <section id="future" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
+    <div class="max-w-6xl mx-auto">
+      <div class="now-future-glass-nav" id="nowFutureGlassNav">
+        <div class="now-future-pill-indicator" id="nowFuturePill"></div>
+        <button class="now-future-pill-btn active" data-target="now" onclick="switchNowFuture('now')">
+          <i class="fas fa-clock"></i> <span data-translate="now-btn">Now</span>
+        </button>
+        <button class="now-future-pill-btn" data-target="future" onclick="switchNowFuture('future')">
+          <i class="fas fa-rocket"></i> <span data-translate="future-btn">Future</span>
+        </button>
+      </div>
+
+      <div id="nowSection" class="now-section">
+        <div class="mb-16">
+          <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-5xl font-luxury scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="now-title">What Our Clients Say</h2>
+            <p class="text-sm md:text-base mt-2 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="now-subtitle">Real feedback from our valued customers</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="testimonial-card scroll-fade-up">
+              <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <p class="testimonial-text" data-translate="testimonial-1">"Qimmat Al-Tamayoz delivered an exceptional caravan that exceeded our expectations. The quality and attention to detail is remarkable."</p>
+              <p class="testimonial-author" data-translate="testimonial-author-1">Ahmed Al-Fahd</p>
+              <p class="testimonial-role" data-translate="testimonial-role-1">CEO, Al-Fahd Group</p>
+            </div>
+            
+            <div class="testimonial-card scroll-fade-up" data-delay="100">
+              <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <p class="testimonial-text" data-translate="testimonial-2">"The custom furniture they created for our hotel is stunning. Professional team, timely delivery, and outstanding craftsmanship."</p>
+              <p class="testimonial-author" data-translate="testimonial-author-2">Sara Al-Otaibi</p>
+              <p class="testimonial-role" data-translate="testimonial-role-2">Hotel Manager, Riyadh Palace</p>
+            </div>
+            
+            <div class="testimonial-card scroll-fade-up" data-delay="200">
+              <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <p class="testimonial-text" data-translate="testimonial-3">"Their exhibition stands are world-class. We've used them for multiple international events and always receive compliments."</p>
+              <p class="testimonial-author" data-translate="testimonial-author-3">Mohammed Al-Ghamdi</p>
+              <p class="testimonial-role" data-translate="testimonial-role-3">Events Director, Expo Solutions</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="clients-title">Our Clients</h3>
+          <p class="text-center text-sm md:text-base mb-8 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="clients-subtitle">Trusted by leading organizations</p>
+          
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="client-logo-item scroll-scale">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Logo_of_Saudi_Aramco.svg/320px-Logo_of_Saudi_Aramco.svg.png" alt="Client Logo 1" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="50">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/STC_logo.svg/320px-STC_logo.svg.png" alt="Client Logo 2" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="100">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/SABIC_logo.svg/320px-SABIC_logo.svg.png" alt="Client Logo 3" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="150">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/NEOM_logo.svg/320px-NEOM_logo.svg.png" alt="Client Logo 4" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="200">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Saudi_Airlines_Logo.svg/320px-Saudi_Airlines_Logo.svg.png" alt="Client Logo 5" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="250">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Al_Rajhi_Bank_Logo.svg/320px-Al_Rajhi_Bank_Logo.svg.png" alt="Client Logo 6" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="100">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Maaden_Logo.svg/320px-Maaden_Logo.svg.png" alt="Client Logo 7" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="150">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Burj_Rafal_logo.svg/320px-Burj_Rafal_logo.svg.png" alt="Client Logo 8" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="200">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Alinma_Bank_logo.svg/320px-Alinma_Bank_logo.svg.png" alt="Client Logo 9" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="250">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Saudi_British_Bank_logo.svg/320px-Saudi_British_Bank_logo.svg.png" alt="Client Logo 10" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="300">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/King_Abdullah_University_of_Science_and_Technology_Logo.svg/320px-King_Abdullah_University_of_Science_and_Technology_Logo.svg.png" alt="Client Logo 11" />
+            </div>
+            <div class="client-logo-item scroll-scale" data-delay="350">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Saudi_Telecom_Company_Logo.svg/320px-Saudi_Telecom_Company_Logo.svg.png" alt="Client Logo 12" />
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="faq-title">Frequently Asked Questions</h3>
+          <p class="text-center text-sm md:text-base mb-8 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="faq-subtitle">Find answers to common questions</p>
+          
+          <div class="glass-card p-6 md:p-10 scroll-fade-up">
+            <div class="faq-item active" onclick="toggleFaq(this)">
+              <div class="faq-question">
+                <span data-translate="faq-q1">What types of caravans do you offer?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer" data-translate="faq-a1">We offer luxury caravans, family cruisers, desert explorers, executive mobile offices, and presidential suites. Each model can be customized to your specific requirements.</div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question">
+                <span data-translate="faq-q2">Do you provide custom furniture solutions?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer" data-translate="faq-a2">Yes, we specialize in custom furniture for villas, hotels, offices, and restaurants. Our team works closely with you to design and manufacture pieces that match your vision.</div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question">
+                <span data-translate="faq-q3">What is the typical delivery time?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer" data-translate="faq-a3">Delivery times vary by product. Standard caravans take 45-60 days, custom furniture 10-15 days, and exhibition stands 10-20 days. We always strive to meet your timeline.</div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question">
+                <span data-translate="faq-q4">Do you offer warranty on your products?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer" data-translate="faq-a4">Yes, all our products come with comprehensive warranty coverage. Caravans have up to 5-year warranty, furniture up to 5 years, and stands up to 2 years depending on the product.</div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question">
+                <span data-translate="faq-q5">Are your products certified?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer" data-translate="faq-a5">Absolutely! We are ISO 9001:2015 certified and our products meet SASO (Saudi Standards, Metrology and Quality Organization) standards for quality and safety.</div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+              <div class="faq-question">
+                <span data-translate="faq-q6">Do you provide international shipping?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer" data-translate="faq-a6">Yes, we ship our products worldwide. We have a dedicated logistics team to ensure safe and timely delivery to any location.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="blog-title">Our Blog</h3>
+          <p class="text-center text-sm md:text-base mb-8 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="blog-subtitle">Insights, trends, and stories from our team</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 scroll-fade-up">
+              <div class="rounded-xl overflow-hidden mb-4 h-48">
+                <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&q=80" alt="Blog 1" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-translate="blog-category-1">Caravans</span>
+              <h3 class="text-xl font-bold font-luxury mt-2 mb-2" data-translate="blog-title-1">The Future of Luxury Caravans</h3>
+              <p class="text-sm text-gray-600 mb-4" data-translate="blog-excerpt-1">Discover how modern technology is transforming mobile living spaces.</p>
+              <a href="#" class="text-sm font-semibold" style="color:#b8941e;" data-translate="read-more">Read More →</a>
+            </div>
+            
+            <div class="glass-card p-6 scroll-fade-up" data-delay="100">
+              <div class="rounded-xl overflow-hidden mb-4 h-48">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Blog 2" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-translate="blog-category-2">Furniture</span>
+              <h3 class="text-xl font-bold font-luxury mt-2 mb-2" data-translate="blog-title-2">Sustainable Furniture Design</h3>
+              <p class="text-sm text-gray-600 mb-4" data-translate="blog-excerpt-2">Eco-friendly materials and practices in modern furniture manufacturing.</p>
+              <a href="#" class="text-sm font-semibold" style="color:#b8941e;" data-translate="read-more">Read More →</a>
+            </div>
+            
+            <div class="glass-card p-6 scroll-fade-up" data-delay="200">
+              <div class="rounded-xl overflow-hidden mb-4 h-48">
+                <img src="https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?w=800&q=80" alt="Blog 3" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-gray-500" data-translate="blog-category-3">Exhibitions</span>
+              <h3 class="text-xl font-bold font-luxury mt-2 mb-2" data-translate="blog-title-3">Exhibition Stand Design Trends 2025</h3>
+              <p class="text-sm text-gray-600 mb-4" data-translate="blog-excerpt-3">The latest innovations in event booth design and visitor engagement.</p>
+              <a href="#" class="text-sm font-semibold" style="color:#b8941e;" data-translate="read-more">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="contact-title">Get In Touch</h3>
+          <p class="text-sm text-center mb-3 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-map-marker-alt mr-2" style="color:#b8941e;"></i> <span data-translate="contact-address">King Fahd Road, Riyadh</span></p>
+          <p class="text-sm text-center mb-3 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-phone mr-2" style="color:#b8941e;"></i> +966 50 000 0000</p>
+          <p class="text-sm text-center mb-4 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-envelope mr-2" style="color:#b8941e;"></i> info@qimmat-al-tamayoz.com</p>
+          <div class="text-center">
+            <a href="#" class="btn-premium scroll-fade-up"><span data-translate="send-inquiry">Send Inquiry</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div id="futureSection" class="future-section"></div>
     </div>
   </section>
 
-  <footer class="border-t py-6 text-center text-xs" style="background:#d1cfc4; border-color:rgba(26,26,26,0.1); color:rgba(26,26,26,0.65);font-weight:500;">
-    <p data-translate="copyright">© 2025 Qimmat Al-Tamayoz Development Co.</p>
+  <footer class="border-t py-8 text-center" style="background:#d1cfc4; border-color:rgba(26,26,26,0.1);">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="footer-links">
+        <a href="#home" data-translate="footer-home">Home</a>
+        <a href="#services" data-translate="footer-services">Services</a>
+        <a href="#about" data-translate="footer-about">About</a>
+        <a href="#projects" data-translate="footer-projects">Projects</a>
+        <a href="#team" data-translate="footer-team">Team</a>
+        <a href="#vision-mission" data-translate="footer-vision">Vision</a>
+        <a href="#strengths" data-translate="footer-strengths">Strengths</a>
+        <a href="#future" data-translate="footer-future">Future</a>
+        <a href="#contact" data-translate="footer-contact">Contact</a>
+      </div>
+      
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      
+      <p class="text-xs" style="color:rgba(26,26,26,0.65);font-weight:500;" data-translate="copyright">© 2025 Qimmat Al-Tamayoz Development Co. All rights reserved.</p>
+    </div>
   </footer>
 
+  <!-- Detail Modal with Request Quote Button -->
   <div class="detail-modal-overlay" id="detailModal">
     <div class="detail-modal">
       <div class="detail-modal-header">
@@ -805,70 +1429,415 @@
       <div class="detail-modal-image"><img src="" alt="Product" id="modalImageImg"></div>
       <table class="detail-table">
         <tbody>
-          <tr><th>Product Name</th><td id="modalProductName">-</td></tr>
-          <tr><th>Category</th><td id="modalCategory">-</td></tr>
-          <tr><th>Price</th><td id="modalPrice">-</td></tr>
-          <tr><th>Description</th><td id="modalDescription">-</td></tr>
-          <tr><th>Material</th><td id="modalMaterial">-</td></tr>
-          <tr><th>Dimensions</th><td id="modalDimensions">-</td></tr>
-          <tr><th>Warranty</th><td id="modalWarranty">-</td></tr>
-          <tr><th>Delivery Time</th><td id="modalDelivery">-</td></tr>
-          <tr><th>Availability</th><td id="modalAvailability">-</td></tr>
-          <tr><th>SKU</th><td id="modalSku">-</td></tr>
+          <tr><th><span data-translate="modal-product-name">Product Name</span></th><td id="modalProductName">-</td></tr>
+          <tr><th><span data-translate="modal-category">Category</span></th><td id="modalCategory">-</td></tr>
+          <tr><th><span data-translate="modal-price">Price</span></th><td id="modalPrice">-</td></tr>
+          <tr><th><span data-translate="modal-description">Description</span></th><td id="modalDescription">-</td></tr>
+          <tr><th><span data-translate="modal-material">Material</span></th><td id="modalMaterial">-</td></tr>
+          <tr><th><span data-translate="modal-dimensions">Dimensions</span></th><td id="modalDimensions">-</td></tr>
+          <tr><th><span data-translate="modal-warranty">Warranty</span></th><td id="modalWarranty">-</td></tr>
+          <tr><th><span data-translate="modal-delivery">Delivery Time</span></th><td id="modalDelivery">-</td></tr>
+          <tr><th><span data-translate="modal-availability">Availability</span></th><td id="modalAvailability">-</td></tr>
+          <tr><th><span data-translate="modal-sku">SKU</span></th><td id="modalSku">-</td></tr>
         </tbody>
       </table>
+      <!-- Request Quote Button -->
+      <button class="whatsapp-quote-btn" id="whatsappQuoteBtn">
+        <i class="fab fa-whatsapp"></i> <span data-translate="request-quote-btn">Request Quote on WhatsApp</span>
+      </button>
     </div>
   </div>
 
   <a href="https://wa.me/966500000000" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
   <script>
+    // FAQ Toggle Function
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+
+    // Now/Future Switch Function with Pill Update
+    function switchNowFuture(target) {
+      const nowSection = document.getElementById('nowSection');
+      const futureSection = document.getElementById('futureSection');
+      const buttons = document.querySelectorAll('.now-future-pill-btn');
+      const pill = document.getElementById('nowFuturePill');
+      const nav = document.getElementById('nowFutureGlassNav');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      if (target === 'now') {
+        nowSection.classList.remove('hidden');
+        futureSection.classList.remove('active');
+        document.querySelector('.now-future-pill-btn[data-target="now"]').classList.add('active');
+      } else {
+        nowSection.classList.add('hidden');
+        futureSection.classList.add('active');
+        document.querySelector('.now-future-pill-btn[data-target="future"]').classList.add('active');
+      }
+      
+      setTimeout(updateNowFuturePill, 50);
+    }
+
+    // Update Now/Future Pill Position
+    function updateNowFuturePill() {
+      const activeBtn = document.querySelector('.now-future-pill-btn.active');
+      const nav = document.getElementById('nowFutureGlassNav');
+      const pill = document.getElementById('nowFuturePill');
+      
+      if (activeBtn && nav && pill) {
+        const btnRect = activeBtn.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
+        pill.style.left = (btnRect.left - navRect.left) + 'px';
+        pill.style.width = btnRect.width + 'px';
+      }
+    }
+
+    // WhatsApp Quote Function
+    function sendWhatsAppQuote() {
+      const productName = document.getElementById('modalProductName').textContent;
+      const category = document.getElementById('modalCategory').textContent;
+      const price = document.getElementById('modalPrice').textContent;
+      const description = document.getElementById('modalDescription').textContent;
+      const material = document.getElementById('modalMaterial').textContent;
+      const dimensions = document.getElementById('modalDimensions').textContent;
+      const warranty = document.getElementById('modalWarranty').textContent;
+      const delivery = document.getElementById('modalDelivery').textContent;
+      const availability = document.getElementById('modalAvailability').textContent;
+      const sku = document.getElementById('modalSku').textContent;
+      
+      const message = `*Product Inquiry - Qimmat Al-Tamayoz*
+      
+*Product Name:* ${productName}
+*Category:* ${category}
+*Price:* ${price}
+*Description:* ${description}
+*Material:* ${material}
+*Dimensions:* ${dimensions}
+*Warranty:* ${warranty}
+*Delivery Time:* ${delivery}
+*Availability:* ${availability}
+*SKU:* ${sku}
+
+I would like to request a quote for this product. Please provide more details.
+
+Thank you!`;
+      
+      const encodedMessage = encodeURIComponent(message);
+      const phoneNumber = '966500000000'; // Replace with actual WhatsApp number
+      const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      
+      window.open(url, '_blank');
+    }
+
+    // Update modal data and set WhatsApp button
+    document.querySelectorAll('.view-detail-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.product-card');
+        if (card) {
+          document.getElementById('modalProductName').textContent = card.getAttribute('data-name') || '-';
+          document.getElementById('modalCategory').textContent = card.getAttribute('data-category') || '-';
+          document.getElementById('modalPrice').textContent = card.getAttribute('data-price') || '-';
+          document.getElementById('modalDescription').textContent = card.getAttribute('data-desc') || '-';
+          document.getElementById('modalMaterial').textContent = card.getAttribute('data-material') || '-';
+          document.getElementById('modalDimensions').textContent = card.getAttribute('data-dimensions') || '-';
+          document.getElementById('modalWarranty').textContent = card.getAttribute('data-warranty') || '-';
+          document.getElementById('modalDelivery').textContent = card.getAttribute('data-delivery') || '-';
+          document.getElementById('modalAvailability').textContent = card.getAttribute('data-availability') || '-';
+          document.getElementById('modalSku').textContent = card.getAttribute('data-sku') || '-';
+          document.getElementById('modalImageImg').src = card.getAttribute('data-image') || '';
+          document.getElementById('modalTitle').textContent = card.getAttribute('data-name') || 'Product Details';
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // WhatsApp Quote Button Click
+    document.getElementById('whatsappQuoteBtn').addEventListener('click', sendWhatsAppQuote);
+
+    // Rest of the JavaScript (translations, etc.)
     const translations = {
       en: {
-        'company-name': 'Qimmat Al-Tamayoz', 'nav-home': 'Home', 'nav-about': 'About', 'nav-services': 'Services', 'nav-projects': 'Projects', 'nav-team': 'Team', 'nav-contact': 'Contact',
-        'hero-title-1': 'Engineering Excellence.', 'hero-title-2': 'Building Premium Spaces.',
-        'hero-subtitle': "Saudi Arabia's trusted partner for premium caravans, furniture, exhibition stands.",
-        'hero-subtitle-ar': 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.',
-        'our-services': 'Our Services', 'request-quote': 'Request Quote', 'services-title': 'Our Services',
-        'tab-caravans': '🚐 Caravans', 'tab-furniture': '🪑 Furniture', 'tab-stands': '🎪 Stands',
-        'caravans-title': 'Luxury Caravans', 'caravans-desc': 'Custom mobile units with premium interiors.',
-        'caravans-f1': 'Custom interior design', 'caravans-f2': 'Premium materials', 'caravans-f3': 'Full electrical', 'caravans-f4': 'Smart home', 'caravans-f5': '5-year warranty',
-        'furniture-title': 'Custom Furniture', 'furniture-desc': 'Villa, hotel, office & restaurant furniture.',
-        'furniture-f1': 'Bespoke wood & metal', 'furniture-f2': 'Hotel collections', 'furniture-f3': 'Office systems', 'furniture-f4': 'Villa pieces', 'furniture-f5': 'CNC cutting',
-        'stands-title': 'Exhibition Stands', 'stands-desc': 'World-class event structures.',
-        'stands-f1': 'Custom booth design', 'stands-f2': 'Modular systems', 'stands-f3': 'AV integration', 'stands-f4': 'Installation', 'stands-f5': 'Logistics',
-        'get-quote': 'Get Quote', 'about-title': 'Crafting Saudi Vision', 'about-desc': 'Traditional craftsmanship with cutting-edge manufacturing.',
-        'completed-projects': 'Projects', 'corporate-clients': 'Clients', 'years-experience': 'Years', 'quality-commitment': 'Quality',
-        'saudi-standards': 'Saudi Quality Standards', 'iso-certified': 'ISO Certified • Precision Engineering',
-        'projects-title': 'Featured Projects', 'team-title': 'Meet Our Team', 'contact-title': 'Get In Touch', 'contact-address': 'King Fahd Road, Riyadh', 'send-inquiry': 'Send Inquiry',
-        'copyright': '© 2025 Qimmat Al-Tamayoz Development Co.',
+        'company-name': 'Qimmat Al-Tamayoz',
+        'nav-home': 'Home',
+        'nav-about': 'About',
+        'nav-services': 'Services',
+        'nav-projects': 'Projects',
+        'nav-team': 'Team',
+        'nav-contact': 'Contact',
+        'our-services': 'Our Services',
+        'request-quote': 'Request Quote',
+        'request-quote-btn': 'Request Quote on WhatsApp',
+        'services-title': 'Our Services',
+        'tab-caravans': '🚐 Caravans',
+        'tab-furniture': '🪑 Furniture',
+        'tab-stands': '🎪 Stands',
+        'caravans-title': 'Luxury Caravans',
+        'caravans-desc': 'Custom mobile units with premium interiors.',
+        'caravans-f1': 'Custom interior design',
+        'caravans-f2': 'Premium materials',
+        'caravans-f3': 'Full electrical',
+        'caravans-f4': 'Smart home',
+        'caravans-f5': '5-year warranty',
+        'furniture-title': 'Custom Furniture',
+        'furniture-desc': 'Villa, hotel, office & restaurant furniture.',
+        'furniture-f1': 'Bespoke wood & metal',
+        'furniture-f2': 'Hotel collections',
+        'furniture-f3': 'Office systems',
+        'furniture-f4': 'Villa pieces',
+        'furniture-f5': 'CNC cutting',
+        'stands-title': 'Exhibition Stands',
+        'stands-desc': 'World-class event structures.',
+        'stands-f1': 'Custom booth design',
+        'stands-f2': 'Modular systems',
+        'stands-f3': 'AV integration',
+        'stands-f4': 'Installation',
+        'stands-f5': 'Logistics',
+        'about-title': 'Crafting Saudi Vision',
+        'about-desc': 'Traditional craftsmanship with cutting-edge manufacturing.',
+        'completed-projects': 'Projects',
+        'corporate-clients': 'Clients',
+        'years-experience': 'Years',
+        'quality-commitment': 'Quality',
+        'saudi-standards': 'Saudi Quality Standards',
+        'iso-certified': 'ISO Certified • Precision Engineering',
+        'saso-certified': 'SASO Certified',
+        'projects-title': 'Featured Projects',
+        'team-title': 'Meet Our Team',
+        'team-subtitle': 'Click a category to view team members',
+        'team-executive': 'Executive',
+        'team-engineering': 'Engineering',
+        'team-projects': 'Projects',
+        'team-design': 'Design',
+        'team-all': 'All Team',
+        'now-btn': 'Now',
+        'future-btn': 'Future',
+        'now-title': 'What Our Clients Say',
+        'now-subtitle': 'Real feedback from our valued customers',
+        'testimonial-1': '"Qimmat Al-Tamayoz delivered an exceptional caravan that exceeded our expectations. The quality and attention to detail is remarkable."',
+        'testimonial-author-1': 'Ahmed Al-Fahd',
+        'testimonial-role-1': 'CEO, Al-Fahd Group',
+        'testimonial-2': '"The custom furniture they created for our hotel is stunning. Professional team, timely delivery, and outstanding craftsmanship."',
+        'testimonial-author-2': 'Sara Al-Otaibi',
+        'testimonial-role-2': 'Hotel Manager, Riyadh Palace',
+        'testimonial-3': '"Their exhibition stands are world-class. We\'ve used them for multiple international events and always receive compliments."',
+        'testimonial-author-3': 'Mohammed Al-Ghamdi',
+        'testimonial-role-3': 'Events Director, Expo Solutions',
+        'clients-title': 'Our Clients',
+        'clients-subtitle': 'Trusted by leading organizations',
+        'faq-title': 'Frequently Asked Questions',
+        'faq-subtitle': 'Find answers to common questions',
+        'faq-q1': 'What types of caravans do you offer?',
+        'faq-a1': 'We offer luxury caravans, family cruisers, desert explorers, executive mobile offices, and presidential suites. Each model can be customized to your specific requirements.',
+        'faq-q2': 'Do you provide custom furniture solutions?',
+        'faq-a2': 'Yes, we specialize in custom furniture for villas, hotels, offices, and restaurants. Our team works closely with you to design and manufacture pieces that match your vision.',
+        'faq-q3': 'What is the typical delivery time?',
+        'faq-a3': 'Delivery times vary by product. Standard caravans take 45-60 days, custom furniture 10-15 days, and exhibition stands 10-20 days. We always strive to meet your timeline.',
+        'faq-q4': 'Do you offer warranty on your products?',
+        'faq-a4': 'Yes, all our products come with comprehensive warranty coverage. Caravans have up to 5-year warranty, furniture up to 5 years, and stands up to 2 years depending on the product.',
+        'faq-q5': 'Are your products certified?',
+        'faq-a5': 'Absolutely! We are ISO 9001:2015 certified and our products meet SASO (Saudi Standards, Metrology and Quality Organization) standards for quality and safety.',
+        'faq-q6': 'Do you provide international shipping?',
+        'faq-a6': 'Yes, we ship our products worldwide. We have a dedicated logistics team to ensure safe and timely delivery to any location.',
+        'blog-title': 'Our Blog',
+        'blog-subtitle': 'Insights, trends, and stories from our team',
+        'blog-category-1': 'Caravans',
+        'blog-title-1': 'The Future of Luxury Caravans',
+        'blog-excerpt-1': 'Discover how modern technology is transforming mobile living spaces.',
+        'blog-category-2': 'Furniture',
+        'blog-title-2': 'Sustainable Furniture Design',
+        'blog-excerpt-2': 'Eco-friendly materials and practices in modern furniture manufacturing.',
+        'blog-category-3': 'Exhibitions',
+        'blog-title-3': 'Exhibition Stand Design Trends 2025',
+        'blog-excerpt-3': 'The latest innovations in event booth design and visitor engagement.',
+        'read-more': 'Read More →',
+        'contact-title': 'Get In Touch',
+        'contact-address': 'King Fahd Road, Riyadh',
+        'send-inquiry': 'Send Inquiry',
         'vision-title': 'Our Vision, Mission & Values',
-        'strengths-title': 'Our Strengths'
+        'strengths-title': 'Our Strengths',
+        'learn-more': 'Learn More',
+        'tag-leadership': 'Leadership',
+        'tag-innovation': 'Innovation',
+        'tag-excellence': 'Excellence',
+        'tag-quality': 'Quality',
+        'tag-safety': 'Safety',
+        'tag-integrity': 'Integrity',
+        'tag-sustainability': 'Sustainability',
+        'tag-cnc': 'CNC',
+        'tag-precision': 'Precision',
+        'tag-skilled': 'Skilled',
+        'tag-experienced': 'Experienced',
+        'tag-iso': 'ISO',
+        'tag-certified': 'Certified',
+        'tag-reliable': 'Reliable',
+        'tag-punctual': 'Punctual',
+        'tag-rd': 'R&D',
+        'tag-future': 'Future',
+        'tag-support': 'Support',
+        'tag-custom': 'Custom',
+        'footer-home': 'Home',
+        'footer-services': 'Services',
+        'footer-about': 'About',
+        'footer-projects': 'Projects',
+        'footer-team': 'Team',
+        'footer-vision': 'Vision',
+        'footer-strengths': 'Strengths',
+        'footer-future': 'Future',
+        'footer-contact': 'Contact',
+        'modal-product-name': 'Product Name',
+        'modal-category': 'Category',
+        'modal-price': 'Price',
+        'modal-description': 'Description',
+        'modal-material': 'Material',
+        'modal-dimensions': 'Dimensions',
+        'modal-warranty': 'Warranty',
+        'modal-delivery': 'Delivery Time',
+        'modal-availability': 'Availability',
+        'modal-sku': 'SKU'
       },
       ar: {
-        'company-name': 'قمّة التميّز', 'nav-home': 'الرئيسية', 'nav-about': 'من نحن', 'nav-services': 'خدماتنا', 'nav-projects': 'مشاريعنا', 'nav-team': 'فريقنا', 'nav-contact': 'اتصل بنا',
-        'hero-title-1': 'التميز الهندسي.', 'hero-title-2': 'نبني مساحات فاخرة.',
-        'hero-subtitle': 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.',
-        'hero-subtitle-ar': 'شريك المملكة الموثوق للقوافل الفاخرة وتصنيع الأثاث ومنصات المعارض.',
-        'our-services': 'خدماتنا', 'request-quote': 'طلب عرض سعر', 'services-title': 'خدماتنا',
-        'tab-caravans': '🚐 قوافل', 'tab-furniture': '🪑 أثاث', 'tab-stands': '🎪 منصات',
-        'caravans-title': 'القوافل الفاخرة', 'caravans-desc': 'وحدات متنقلة مخصصة بتصميمات داخلية فاخرة.',
-        'caravans-f1': 'تصميم داخلي', 'caravans-f2': 'مواد فاخرة', 'caravans-f3': 'كهرباء كاملة', 'caravans-f4': 'منزل ذكي', 'caravans-f5': 'ضمان 5 سنوات',
-        'furniture-title': 'أثاث مخصص', 'furniture-desc': 'أثاث الفلل والفنادق والمكاتب.',
-        'furniture-f1': 'خشب ومعادن', 'furniture-f2': 'مجموعات فنادق', 'furniture-f3': 'أنظمة مكاتب', 'furniture-f4': 'قطع فلل', 'furniture-f5': 'قص ليزر',
-        'stands-title': 'منصات المعارض', 'stands-desc': 'هياكل وتجهيزات عالمية.',
-        'stands-f1': 'تصميم أجنحة', 'stands-f2': 'أنظمة عرض', 'stands-f3': 'صوت وإضاءة', 'stands-f4': 'تركيب', 'stands-f5': 'شحن',
-        'get-quote': 'احصل على عرض', 'about-title': 'صياغة الرؤية', 'about-desc': 'حرفية تقليدية مع تصنيع متطور.',
-        'completed-projects': 'مشاريع', 'corporate-clients': 'عملاء', 'years-experience': 'خبرة', 'quality-commitment': 'جودة',
-        'saudi-standards': 'معايير الجودة السعودية', 'iso-certified': 'معتمد من ISO • هندسة دقيقة',
-        'projects-title': 'مشاريع مميزة', 'team-title': 'فريقنا', 'contact-title': 'تواصل معنا', 'contact-address': 'طريق الملك فهد، الرياض', 'send-inquiry': 'إرسال',
-        'copyright': '© 2025 شركة قمة التميز للتطوير.',
+        'company-name': 'قمّة التميّز',
+        'nav-home': 'الرئيسية',
+        'nav-about': 'من نحن',
+        'nav-services': 'خدماتنا',
+        'nav-projects': 'مشاريعنا',
+        'nav-team': 'فريقنا',
+        'nav-contact': 'اتصل بنا',
+        'our-services': 'خدماتنا',
+        'request-quote': 'طلب عرض سعر',
+        'request-quote-btn': 'طلب عرض سعر عبر واتساب',
+        'services-title': 'خدماتنا',
+        'tab-caravans': '🚐 قوافل',
+        'tab-furniture': '🪑 أثاث',
+        'tab-stands': '🎪 منصات',
+        'caravans-title': 'القوافل الفاخرة',
+        'caravans-desc': 'وحدات متنقلة مخصصة بتصميمات داخلية فاخرة.',
+        'caravans-f1': 'تصميم داخلي مخصص',
+        'caravans-f2': 'مواد فاخرة',
+        'caravans-f3': 'كهرباء كاملة',
+        'caravans-f4': 'منزل ذكي',
+        'caravans-f5': 'ضمان 5 سنوات',
+        'furniture-title': 'أثاث مخصص',
+        'furniture-desc': 'أثاث الفلل والفنادق والمكاتب والمطاعم.',
+        'furniture-f1': 'خشب ومعادن حسب الطلب',
+        'furniture-f2': 'مجموعات فنادق',
+        'furniture-f3': 'أنظمة مكاتب',
+        'furniture-f4': 'قطع فلل',
+        'furniture-f5': 'قص ليزر CNC',
+        'stands-title': 'منصات المعارض',
+        'stands-desc': 'هياكل وتجهيزات عالمية المستوى.',
+        'stands-f1': 'تصميم أجنحة مخصصة',
+        'stands-f2': 'أنظمة عرض وحداتية',
+        'stands-f3': 'دمج الصوت والمرئيات',
+        'stands-f4': 'تركيب',
+        'stands-f5': 'شحن ولوجستيات',
+        'about-title': 'صياغة الرؤية السعودية',
+        'about-desc': 'حرفية تقليدية مع تصنيع متطور.',
+        'completed-projects': 'مشاريع',
+        'corporate-clients': 'عملاء',
+        'years-experience': 'خبرة',
+        'quality-commitment': 'جودة',
+        'saudi-standards': 'معايير الجودة السعودية',
+        'iso-certified': 'معتمد من ISO • هندسة دقيقة',
+        'saso-certified': 'معتمد من SASO',
+        'projects-title': 'مشاريع مميزة',
+        'team-title': 'فريقنا',
+        'team-subtitle': 'اختر فئة لعرض أعضاء الفريق',
+        'team-executive': 'الإدارة',
+        'team-engineering': 'الهندسة',
+        'team-projects': 'المشاريع',
+        'team-design': 'التصميم',
+        'team-all': 'جميع الفريق',
+        'now-btn': 'الآن',
+        'future-btn': 'المستقبل',
+        'now-title': 'ماذا يقول عملاؤنا',
+        'now-subtitle': 'آراء حقيقية من عملائنا الكرام',
+        'testimonial-1': '"قدمت لنا قمة التميز قافلة استثنائية تجاوزت توقعاتنا. الجودة والاهتمام بالتفاصيل رائعة."',
+        'testimonial-author-1': 'أحمد الفهد',
+        'testimonial-role-1': 'الرئيس التنفيذي، مجموعة الفهد',
+        'testimonial-2': '"الأثاث المخصص الذي صنعوه لفندقنا رائع. فريق محترف، وتسليم في الوقت المحدد، وحرفية متميزة."',
+        'testimonial-author-2': 'سارة العتيبي',
+        'testimonial-role-2': 'مديرة الفندق، قصر الرياض',
+        'testimonial-3': '"منصات المعارض الخاصة بهم عالمية المستوى. استخدمناها في عدة فعاليات دولية ودائماً نحصل على إشادة."',
+        'testimonial-author-3': 'محمد الغامدي',
+        'testimonial-role-3': 'مدير الفعاليات، حلول المعارض',
+        'clients-title': 'عملاؤنا',
+        'clients-subtitle': 'موثوق من قبل المؤسسات الرائدة',
+        'faq-title': 'الأسئلة الشائعة',
+        'faq-subtitle': 'ابحث عن إجابات للأسئلة الشائعة',
+        'faq-q1': 'ما هي أنواع القوافل التي تقدمونها؟',
+        'faq-a1': 'نقدم قوافل فاخرة، وقوافل عائلية، وقوافل استكشاف الصحراء، ومكاتب متنقلة تنفيذية، وأجنحة رئاسية. يمكن تخصيص كل موديل حسب متطلباتك الخاصة.',
+        'faq-q2': 'هل تقدمون حلول أثاث مخصصة؟',
+        'faq-a2': 'نعم، نحن متخصصون في الأثاث المخصص للفلل والفنادق والمكاتب والمطاعم. يعمل فريقنا عن كثب معك لتصميم وتصنيع قطع تتناسب مع رؤيتك.',
+        'faq-q3': 'ما هو وقت التسليم النموذجي؟',
+        'faq-a3': 'تختلف أوقات التسليم حسب المنتج. تستغرق القوافل القياسية من 45-60 يوماً، والأثاث المخصص من 10-15 يوماً، ومنصات المعارض من 10-20 يوماً. نسعى دائماً لتلبية الجدول الزمني الخاص بك.',
+        'faq-q4': 'هل تقدمون ضماناً على منتجاتكم؟',
+        'faq-a4': 'نعم، جميع منتجاتنا تأتي مع تغطية ضمان شاملة. تتمتع القوافل بضمان يصل إلى 5 سنوات، والأثاث يصل إلى 5 سنوات، والمنصات تصل إلى سنتين حسب المنتج.',
+        'faq-q5': 'هل منتجاتكم معتمدة؟',
+        'faq-a5': 'بالتأكيد! نحن معتمدون وفق ISO 9001:2015 وتلبي منتجاتنا معايير SASO للجودة والسلامة.',
+        'faq-q6': 'هل تقدمون شحن دولي؟',
+        'faq-a6': 'نعم، نقوم بشحن منتجاتنا إلى جميع أنحاء العالم. لدينا فريق لوجستي متخصص لضمان تسليم آمن وفي الوقت المحدد إلى أي مكان.',
+        'blog-title': 'مدونتنا',
+        'blog-subtitle': 'رؤى واتجاهات وقصص من فريقنا',
+        'blog-category-1': 'القوافل',
+        'blog-title-1': 'مستقبل القوافل الفاخرة',
+        'blog-excerpt-1': 'اكتشف كيف تعمل التكنولوجيا الحديثة على تحويل مساحات المعيشة المتنقلة.',
+        'blog-category-2': 'الأثاث',
+        'blog-title-2': 'تصميم أثاث مستدام',
+        'blog-excerpt-2': 'مواد صديقة للبيئة وممارسات حديثة في صناعة الأثاث.',
+        'blog-category-3': 'المعارض',
+        'blog-title-3': 'اتجاهات تصميم منصات المعارض 2025',
+        'blog-excerpt-3': 'أحدث الابتكارات في تصميم أجنحة المعارض وإشراك الزوار.',
+        'read-more': 'اقرأ المزيد ←',
+        'contact-title': 'تواصل معنا',
+        'contact-address': 'طريق الملك فهد، الرياض',
+        'send-inquiry': 'إرسال استفسار',
         'vision-title': 'رؤيتنا ورسالتنا وقيمنا',
-        'strengths-title': 'نقاط قوتنا'
+        'strengths-title': 'نقاط قوتنا',
+        'learn-more': 'اعرف المزيد',
+        'tag-leadership': 'الريادة',
+        'tag-innovation': 'الابتكار',
+        'tag-excellence': 'التميز',
+        'tag-quality': 'الجودة',
+        'tag-safety': 'السلامة',
+        'tag-integrity': 'النزاهة',
+        'tag-sustainability': 'الاستدامة',
+        'tag-cnc': 'CNC',
+        'tag-precision': 'الدقة',
+        'tag-skilled': 'المهارة',
+        'tag-experienced': 'الخبرة',
+        'tag-iso': 'ISO',
+        'tag-certified': 'معتمد',
+        'tag-reliable': 'موثوق',
+        'tag-punctual': 'الالتزام',
+        'tag-rd': 'بحث وتطوير',
+        'tag-future': 'المستقبل',
+        'tag-support': 'الدعم',
+        'tag-custom': 'التخصيص',
+        'footer-home': 'الرئيسية',
+        'footer-services': 'الخدمات',
+        'footer-about': 'من نحن',
+        'footer-projects': 'المشاريع',
+        'footer-team': 'الفريق',
+        'footer-vision': 'الرؤية',
+        'footer-strengths': 'نقاط القوة',
+        'footer-future': 'المستقبل',
+        'footer-contact': 'اتصل بنا',
+        'modal-product-name': 'اسم المنتج',
+        'modal-category': 'الفئة',
+        'modal-price': 'السعر',
+        'modal-description': 'الوصف',
+        'modal-material': 'المواد',
+        'modal-dimensions': 'الأبعاد',
+        'modal-warranty': 'الضمان',
+        'modal-delivery': 'وقت التسليم',
+        'modal-availability': 'التوفر',
+        'modal-sku': 'الرقم التسلسلي'
       }
     };
 
-    // Extended Arabic texts for typing
     const arTexts = {
       line1: 'التميز الهندسي.',
       line2: 'نبني مساحات فاخرة.',
@@ -877,7 +1846,6 @@
 
     let currentLang = 'en';
     
-    // Card typing function
     function typeCardText(element, text, speed = 30, callback) {
       const cursor = document.createElement('span');
       cursor.className = 'card-cursor';
@@ -901,7 +1869,6 @@
 
     function typeCardsInSection(section, lang) {
       if (!section) return;
-      // Check if already typed
       if (section.dataset.typed === 'true') return;
       
       const cards = section.querySelectorAll('.card-typing');
@@ -913,7 +1880,6 @@
         const titleEl = card.querySelector('.premium-card-title');
         const descEl = card.querySelector('.premium-card-desc');
         
-        // Clear existing content
         titleEl.innerHTML = '';
         descEl.innerHTML = '';
         
@@ -923,11 +1889,9 @@
         const titleText = card.getAttribute(titleKey) || '';
         const descText = card.getAttribute(descKey) || '';
         
-        // Add delay based on card index (300ms between cards)
         const delay = index * 350;
         
         setTimeout(() => {
-          // Type title first, then description
           typeCardText(titleEl, titleText, 35, function() {
             setTimeout(() => {
               typeCardText(descEl, descText, 25);
@@ -937,19 +1901,13 @@
       });
     }
 
-    // Check if a section is visible on screen (including mobile)
     function isSectionVisible(section) {
       if (!section) return false;
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      const windowWidth = window.innerWidth || document.documentElement.clientWidth;
-      
-      // Check if any part of the section is visible
       const visibleTop = Math.max(0, rect.top);
       const visibleBottom = Math.min(windowHeight, rect.bottom);
       const visibleHeight = visibleBottom - visibleTop;
-      
-      // Section is considered visible if at least 20% of it is in the viewport
       return visibleHeight > rect.height * 0.2;
     }
 
@@ -970,12 +1928,21 @@
       currentLang = lang;
       document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
       });
+      
+      document.querySelectorAll('.faq-answer').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
       document.getElementById('langText').textContent = lang === 'ar' ? 'English' : 'عربي';
       localStorage.setItem('preferredLanguage', lang);
       
-      // Show/hide appropriate typing lines
       const line1 = document.getElementById('typeLine1');
       const line2 = document.getElementById('typeLine2');
       const line3 = document.getElementById('typeLine3');
@@ -1031,19 +1998,16 @@
         }, 300);
       }
       
-      // Reset typed flags
       const visionMission = document.getElementById('vision-mission');
       const strengths = document.getElementById('strengths');
       if (visionMission) visionMission.dataset.typed = '';
       if (strengths) strengths.dataset.typed = '';
       
-      // Check sections after language change
       setTimeout(checkAndTypeSections, 500);
-      
       setTimeout(updatePill, 100);
+      setTimeout(updateNowFuturePill, 150);
     }
 
-    // Typing animation function
     function typeText(element, text, speed = 50, callback) {
       const cursor = document.createElement('span');
       cursor.className = 'type-cursor';
@@ -1067,7 +2031,6 @@
 
     document.getElementById('langToggle').addEventListener('click', () => translatePage(currentLang === 'en' ? 'ar' : 'en'));
     
-    // Initial load
     window.addEventListener('load', function() {
       setTimeout(() => {
         const line1 = document.getElementById('typeLine1');
@@ -1087,21 +2050,20 @@
         });
       }, 500);
       
-      // Check sections after load
       setTimeout(checkAndTypeSections, 1000);
+      setTimeout(updateNowFuturePill, 1200);
       
       if (localStorage.getItem('preferredLanguage') === 'ar') translatePage('ar');
       
-      // Check on scroll for mobile
       let scrollTimeout;
       window.addEventListener('scroll', function() {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(checkAndTypeSections, 100);
       });
       
-      // Check on resize (orientation change on mobile)
       window.addEventListener('resize', function() {
         setTimeout(checkAndTypeSections, 300);
+        setTimeout(updateNowFuturePill, 350);
       });
     });
 
@@ -1128,27 +2090,9 @@
 
     const modal = document.getElementById('detailModal');
     const modalClose = document.getElementById('modalClose');
-    document.querySelectorAll('.view-detail-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const card = this.closest('.product-card');
-        if (card) {
-          document.getElementById('modalProductName').textContent = card.getAttribute('data-name') || '-';
-          document.getElementById('modalCategory').textContent = card.getAttribute('data-category') || '-';
-          document.getElementById('modalPrice').textContent = card.getAttribute('data-price') || '-';
-          document.getElementById('modalDescription').textContent = card.getAttribute('data-desc') || '-';
-          document.getElementById('modalMaterial').textContent = card.getAttribute('data-material') || '-';
-          document.getElementById('modalDimensions').textContent = card.getAttribute('data-dimensions') || '-';
-          document.getElementById('modalWarranty').textContent = card.getAttribute('data-warranty') || '-';
-          document.getElementById('modalDelivery').textContent = card.getAttribute('data-delivery') || '-';
-          document.getElementById('modalAvailability').textContent = card.getAttribute('data-availability') || '-';
-          document.getElementById('modalSku').textContent = card.getAttribute('data-sku') || '-';
-          document.getElementById('modalImageImg').src = card.getAttribute('data-image') || '';
-          document.getElementById('modalTitle').textContent = card.getAttribute('data-name') || 'Product Details';
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    });
+    
+    // View Detail buttons already handled above
+    
     modalClose.addEventListener('click', () => { modal.classList.remove('active'); document.body.style.overflow = ''; });
     modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) { modal.classList.remove('active'); document.body.style.overflow = ''; } });
@@ -1194,6 +2138,7 @@
       document.getElementById('progressBar').style.width = (st/dh)*100 + '%';
       document.getElementById('mainNav').classList.toggle('scrolled', st > 50);
     });
+    
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
       e.preventDefault(); const t = document.querySelector(this.getAttribute('href'));
       if(t) scrollTo({top: t.offsetTop-80, behavior:'smooth'});
@@ -1223,8 +2168,7 @@
       }, {threshold:0.5}).observe(c);
     });
 
-    // SCROLL ANIMATIONS
-    const animatedElements = document.querySelectorAll('.scroll-fade-up, .scroll-scale, .scroll-slide-right, .scroll-slide-left, .premium-card');
+    const animatedElements = document.querySelectorAll('.scroll-fade-up, .scroll-scale, .scroll-slide-right, .scroll-slide-left, .premium-card, .client-logo-item, .testimonial-card');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1238,7 +2182,6 @@
     }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
     animatedElements.forEach(el => observer.observe(el));
 
-    // TEAM DATA
     const teamData = {
       executive: [
         { name: 'Khalid Al-Otaibi', position: 'CEO & Founder', img: 'https://randomuser.me/api/portraits/men/32.jpg' },
@@ -1294,8 +2237,9 @@
       });
     });
 
-    // Render Executive team by default (since it's the active button)
     renderTeam('executive');
+
+    setTimeout(updateNowFuturePill, 500);
   </script>
 </body>
 </html>
