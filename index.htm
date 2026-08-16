@@ -247,7 +247,6 @@
       display: block;
     }
 
-    /* Hero Images - Desktop and Mobile */
     .hero-full-bg {
       position: absolute;
       top: 0;
@@ -262,7 +261,7 @@
     }
     .hero-desktop { background-image: url('desktopcaravan.png'); }
     .hero-mobile { 
-      background-image: url('mobilecaravan.pn'); 
+      background-image: url('mobilecaravan.png'); 
       display: none;
       position: absolute;
       top: 0;
@@ -1057,7 +1056,7 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION - Mobile: Full screen image with text overlay, Desktop: Original layout -->
+  <!-- HERO SECTION -->
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="hero-full-bg hero-desktop"></div>
     <div class="hero-full-bg hero-mobile"></div>
@@ -1083,10 +1082,19 @@
     <div class="hero-curve-bottom"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" class="curve-fill"></path></svg></div>
   </section>
 
-  <!-- Rest of the sections remain the same -->
+  <!-- SERVICES SECTION - with "We Shape Possibilities" text above -->
   <section id="services" class="py-16 md:py-28 px-3 md:px-6 relative rounded-section" style="background:#d1cfc4;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C480,0 960,80 1440,30 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     <div class="max-w-7xl mx-auto relative z-10">
+      <!-- We Shape Possibilities Text -->
+      <div class="text-center mb-10 scroll-fade-up">
+        <h2 class="text-3xl md:text-5xl font-luxury font-bold" style="color:#1a1a1a;" data-translate="shape-possibilities-title">We Shape Possibilities</h2>
+        <p class="text-sm md:text-lg max-w-3xl mx-auto mt-4" style="color:rgba(26,26,26,0.8);font-weight:500;line-height:1.8;" data-translate="shape-possibilities-desc">
+          Qimmat Al-Tamayoz Wal-Tatweer Company<br />
+          A Saudi-based company specializing in custom caravans, furniture, exhibition stands, and innovative development solutions — creating distinctive, functional products and spaces tailored to every vision.
+        </p>
+      </div>
+      
       <h2 class="text-2xl md:text-5xl font-luxury text-center mb-8 md:mb-14 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="services-title">Our Services</h2>
       <div class="services-glass-nav" id="servicesGlassNav">
         <div class="active-pill-indicator" id="activePill"></div>
@@ -1168,7 +1176,7 @@
     <div class="curve-divider-bottom"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
   </section>
 
-  <!-- Rest of the sections remain the same -->
+  <!-- ABOUT SECTION -->
   <section id="about" class="py-16 md:py-28 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -1195,6 +1203,7 @@
     </div>
   </section>
 
+  <!-- PROJECTS SECTION -->
   <section id="projects" class="py-16 md:py-24 px-3 md:px-6 rounded-section" style="background:#d1cfc4;">
     <div class="curve-divider-top"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C360,0 720,80 1080,20 L1440,60 L1440,80 L0,80 Z" class="curve-fill-dark"></path></svg></div>
     <div class="max-w-6xl mx-auto relative z-10">
@@ -1213,6 +1222,7 @@
     </div>
   </section>
 
+  <!-- TEAM SECTION -->
   <section id="team" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl md:text-5xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="team-title">Meet Our Team</h2>
@@ -1230,6 +1240,7 @@
     </div>
   </section>
 
+  <!-- VISION & MISSION + CORE VALUES -->
   <section id="vision-mission" class="py-16 md:py-20 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="vision-title">Our Vision, Mission & Values</h2>
@@ -1262,6 +1273,7 @@
     </div>
   </section>
 
+  <!-- STRENGTHS -->
   <section id="strengths" class="py-16 md:py-20 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-3xl md:text-5xl font-luxury text-center mb-10 scroll-fade-up" style="color:#1a1a1a;font-weight:800;" data-translate="strengths-title">Our Strengths</h2>
@@ -1312,6 +1324,7 @@
     </div>
   </section>
 
+  <!-- NOW & FUTURE SECTION -->
   <section id="future" class="py-16 md:py-24 px-3 md:px-6" style="background:#d1cfc4;">
     <div class="max-w-6xl mx-auto">
       <div class="now-future-glass-nav" id="nowFutureGlassNav">
@@ -1325,6 +1338,7 @@
       </div>
 
       <div id="nowSection" class="now-section">
+        <!-- Testimonials -->
         <div class="mb-16">
           <div class="text-center mb-10">
             <h2 class="text-3xl md:text-5xl font-luxury scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="now-title">What Our Clients Say</h2>
@@ -1358,6 +1372,7 @@
           </div>
         </div>
 
+        <!-- Clients -->
         <div class="mb-16">
           <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="clients-title">Our Clients</h3>
           <p class="text-center text-sm md:text-base mb-8 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="clients-subtitle">Trusted by leading organizations</p>
@@ -1402,6 +1417,7 @@
           </div>
         </div>
 
+        <!-- FAQ -->
         <div class="mb-16">
           <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="faq-title">Frequently Asked Questions</h3>
           <p class="text-center text-sm md:text-base mb-8 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="faq-subtitle">Find answers to common questions</p>
@@ -1457,6 +1473,7 @@
           </div>
         </div>
 
+        <!-- Blog -->
         <div class="mb-16">
           <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="blog-title">Our Blog</h3>
           <p class="text-center text-sm md:text-base mb-8 scroll-fade-up" style="color:rgba(26,26,26,0.7);font-weight:500;" data-translate="blog-subtitle">Insights, trends, and stories from our team</p>
@@ -1494,6 +1511,7 @@
           </div>
         </div>
 
+        <!-- Contact -->
         <div>
           <h3 class="text-2xl md:text-3xl font-luxury text-center mb-4 scroll-fade-up" style="color:#1a1a1a;font-weight:700;" data-translate="contact-title">Get In Touch</h3>
           <p class="text-sm text-center mb-3 scroll-fade-up" style="color:rgba(26,26,26,0.75);font-weight:500;"><i class="fas fa-map-marker-alt mr-2" style="color:#b8941e;"></i> <span data-translate="contact-address">King Fahd Road, Riyadh</span></p>
@@ -1509,6 +1527,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="border-t py-8 text-center" style="background:#d1cfc4; border-color:rgba(26,26,26,0.1);">
     <div class="max-w-6xl mx-auto px-4">
       <div class="footer-links">
@@ -1671,7 +1690,7 @@ Thank you!`;
     // WhatsApp Quote Button Click
     document.getElementById('whatsappQuoteBtn').addEventListener('click', sendWhatsAppQuote);
 
-    // Translations (full translations included)
+    // Translations
     const translations = {
       en: {
         'company-name': 'Qimmat Al-Tamayoz',
@@ -1810,7 +1829,9 @@ Thank you!`;
         'modal-warranty': 'Warranty',
         'modal-delivery': 'Delivery Time',
         'modal-availability': 'Availability',
-        'modal-sku': 'SKU'
+        'modal-sku': 'SKU',
+        'shape-possibilities-title': 'We Shape Possibilities',
+        'shape-possibilities-desc': 'Qimmat Al-Tamayoz Wal-Tatweer Company\nA Saudi-based company specializing in custom caravans, furniture, exhibition stands, and innovative development solutions — creating distinctive, functional products and spaces tailored to every vision.'
       },
       ar: {
         'company-name': 'قمّة التميّز',
@@ -1949,7 +1970,9 @@ Thank you!`;
         'modal-warranty': 'الضمان',
         'modal-delivery': 'وقت التسليم',
         'modal-availability': 'التوفر',
-        'modal-sku': 'الرقم التسلسلي'
+        'modal-sku': 'الرقم التسلسلي',
+        'shape-possibilities-title': 'نشكل الإمكانيات',
+        'shape-possibilities-desc': 'شركة قمة التميز للتطوير\nشركة سعودية متخصصة في القوافل المخصصة والأثاث ومنصات المعارض والحلول التطويرية المبتكرة - نصنع منتجات ومساحات مميزة وعملية مصممة خصيصاً لكل رؤية.'
       }
     };
 
